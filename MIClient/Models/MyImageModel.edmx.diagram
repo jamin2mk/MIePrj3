@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="77feba413e20438fb5442ce4aa0f9dfe" Name="Diagram1">
+        <EntityTypeShape EntityType="MyImageModel.tb_admin" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyImageModel.tb_customer" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyImageModel.tb_deliverytime" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyImageModel.tb_image" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyImageModel.tb_order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyImageModel.tb_orderdetail" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyImageModel.tb_printsize" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyImageModel.tb_shippingcategory" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="MyImageModel.FK__tb_order__o_cus___412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="MyImageModel.FK__tb_order__o_dt_i__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="MyImageModel.FK__tb_orderd__order__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="MyImageModel.FK__tb_order__o_pr_i__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="MyImageModel.FK__tb_order__o_s_id__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="MyImageModel.FK__tb_orderd__order__48CFD27E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
