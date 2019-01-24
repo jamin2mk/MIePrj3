@@ -21,8 +21,24 @@ namespace MyImageService
         List<tb_admin> GetAdmins(string username);
 
         [OperationContract]
-        List<tb_customer> GetCustomers(string all);
+        List<tb_customer> GetCustomers();
 
+        [OperationContract]
+        List<tb_order> GetOrders();
+
+        [OperationContract]
+        List<tb_printsize> GetPrintsizes();
+
+        [OperationContract]
+        void CreatePrintsizes();
+
+        [OperationContract]
+        void UpdatePrintsize();
+
+        [OperationContract]
+        List<tb_customer> SearchCustomerByName(string fname, string lname);
+
+        
      
     }
     //http://localhost:49993/ServiceMI.svc

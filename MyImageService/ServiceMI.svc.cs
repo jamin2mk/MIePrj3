@@ -29,14 +29,40 @@ namespace MyImageService
             return false;
         }
 
+        public void CreatePrintsizes()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<tb_admin> GetAdmins(string username)
         {
             return db.tb_admin.ToList();
         }
 
-        public List<tb_customer> GetCustomers(string all)
+        public List<tb_customer> GetCustomers()
         {
             return db.tb_customer.ToList();
+        }
+
+        public List<tb_order> GetOrders()
+        {
+            return db.tb_order.ToList();
+        }
+
+        public List<tb_printsize> GetPrintsizes()
+        {
+            return db.tb_printsize.ToList();
+        }
+
+        public List<tb_customer> SearchCustomerByName(string fname, string lname)
+        {
+            var result = db.tb_customer.Where(c => c.cus_lname.ToLower().Contains(lname.ToLower()) && c.cus_fname.ToLower().Contains(fname.ToLower()));
+            return result.ToList();
+        }
+
+        public void UpdatePrintsize()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,121 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MyImageService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MyImageService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOftb_admin">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="tb_admin" nillable="true" type="tns:tb_admin" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOftb_admin" nillable="true" type="tns:ArrayOftb_admin" />
-  <xs:complexType name="tb_admin">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ad_id" type="xs:int" />
-      <xs:element minOccurs="0" name="ad_password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ad_username" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_admin" nillable="true" type="tns:tb_admin" />
-  <xs:complexType name="ArrayOftb_customer">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="tb_customer" nillable="true" type="tns:tb_customer" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOftb_customer" nillable="true" type="tns:ArrayOftb_customer" />
-  <xs:complexType name="tb_customer">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="cus_add" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_card" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_dob" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="cus_email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_fname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_gender" nillable="true" type="xs:boolean" />
-      <xs:element minOccurs="0" name="cus_id" type="xs:int" />
-      <xs:element minOccurs="0" name="cus_lname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_pass" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_phone" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tb_order" nillable="true" type="tns:ArrayOftb_order" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_customer" nillable="true" type="tns:tb_customer" />
-  <xs:complexType name="ArrayOftb_order">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="tb_order" nillable="true" type="tns:tb_order" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOftb_order" nillable="true" type="tns:ArrayOftb_order" />
-  <xs:complexType name="tb_order">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="o_cus_id" type="xs:int" />
-      <xs:element minOccurs="0" name="o_date" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="o_deli_date" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="o_dt_id" type="xs:int" />
-      <xs:element minOccurs="0" name="o_folder" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="o_id" type="xs:int" />
-      <xs:element minOccurs="0" name="o_pay" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="o_pr_id" type="xs:int" />
-      <xs:element minOccurs="0" name="o_recip" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="o_recip_phone" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="o_s_id" type="xs:int" />
-      <xs:element minOccurs="0" name="o_shipadd" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="o_status" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tb_customer" nillable="true" type="tns:tb_customer" />
-      <xs:element minOccurs="0" name="tb_deliverytime" nillable="true" type="tns:tb_deliverytime" />
-      <xs:element minOccurs="0" name="tb_orderdetail" nillable="true" type="tns:ArrayOftb_orderdetail" />
-      <xs:element minOccurs="0" name="tb_printsize" nillable="true" type="tns:tb_printsize" />
-      <xs:element minOccurs="0" name="tb_shippingcategory" nillable="true" type="tns:tb_shippingcategory" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_order" nillable="true" type="tns:tb_order" />
-  <xs:complexType name="tb_deliverytime">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="dt_id" type="xs:int" />
-      <xs:element minOccurs="0" name="dt_num" type="xs:int" />
-      <xs:element minOccurs="0" name="dt_ratio" type="xs:double" />
-      <xs:element minOccurs="0" name="tb_order" nillable="true" type="tns:ArrayOftb_order" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_deliverytime" nillable="true" type="tns:tb_deliverytime" />
-  <xs:complexType name="ArrayOftb_orderdetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="tb_orderdetail" nillable="true" type="tns:tb_orderdetail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOftb_orderdetail" nillable="true" type="tns:ArrayOftb_orderdetail" />
-  <xs:complexType name="tb_orderdetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="orderdetail_id" type="xs:int" />
-      <xs:element minOccurs="0" name="orderdetail_img_id" type="xs:int" />
-      <xs:element minOccurs="0" name="orderdetail_o_id" type="xs:int" />
-      <xs:element minOccurs="0" name="tb_image" nillable="true" type="tns:tb_image" />
-      <xs:element minOccurs="0" name="tb_order" nillable="true" type="tns:tb_order" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_orderdetail" nillable="true" type="tns:tb_orderdetail" />
-  <xs:complexType name="tb_image">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="img_copies" type="xs:int" />
-      <xs:element minOccurs="0" name="img_id" type="xs:int" />
-      <xs:element minOccurs="0" name="img_link" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="img_size" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tb_orderdetail" nillable="true" type="tns:ArrayOftb_orderdetail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_image" nillable="true" type="tns:tb_image" />
-  <xs:complexType name="tb_printsize">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="pr_id" type="xs:int" />
-      <xs:element minOccurs="0" name="pr_price" type="xs:decimal" />
-      <xs:element minOccurs="0" name="pr_size" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tb_order" nillable="true" type="tns:ArrayOftb_order" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_printsize" nillable="true" type="tns:tb_printsize" />
-  <xs:complexType name="tb_shippingcategory">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="s_id" type="xs:int" />
-      <xs:element minOccurs="0" name="s_location" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="s_price" type="xs:decimal" />
-      <xs:element minOccurs="0" name="tb_order" nillable="true" type="tns:ArrayOftb_order" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tb_shippingcategory" nillable="true" type="tns:tb_shippingcategory" />
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="anyType" nillable="true" type="xs:anyType" />
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+  <xs:element name="boolean" nillable="true" type="xs:boolean" />
+  <xs:element name="byte" nillable="true" type="xs:byte" />
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+  <xs:element name="decimal" nillable="true" type="xs:decimal" />
+  <xs:element name="double" nillable="true" type="xs:double" />
+  <xs:element name="float" nillable="true" type="xs:float" />
+  <xs:element name="int" nillable="true" type="xs:int" />
+  <xs:element name="long" nillable="true" type="xs:long" />
+  <xs:element name="QName" nillable="true" type="xs:QName" />
+  <xs:element name="short" nillable="true" type="xs:short" />
+  <xs:element name="string" nillable="true" type="xs:string" />
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+  <xs:element name="char" nillable="true" type="tns:char" />
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration" />
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid" />
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName" />
+  <xs:attribute name="Id" type="xs:ID" />
+  <xs:attribute name="Ref" type="xs:IDREF" />
 </xs:schema>
