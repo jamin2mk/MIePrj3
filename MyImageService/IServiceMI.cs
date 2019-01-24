@@ -20,6 +20,10 @@ namespace MyImageService
         [OperationContract]
         List<tb_admin> GetAdmins(string username);
 
+        [OperationContract]
+        List<tb_customer> GetCustomers(string all);
+
+     
     }
     //http://localhost:49993/ServiceMI.svc
 

@@ -33,5 +33,10 @@ namespace MyImageService
         {
             return db.tb_admin.ToList();
         }
+
+        public List<tb_customer> GetCustomers(string all)
+        {
+            return db.tb_customer.ToList();
+        }
     }
 }

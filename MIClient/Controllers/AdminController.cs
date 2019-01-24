@@ -19,12 +19,28 @@ namespace MIClient.Controllers
         }
         [HttpPost]
         public ActionResult Login(string uid, string pwd) {
-            if (client.AdminLogin(uid,pwd))
+           if (client.AdminLogin(uid,pwd))
             {
-                return Content("Ok");
+
+                Session["admin"] = uid;
+                return RedirectToAction("Index");
 
             }
-            return Content("Not OK");
+            return View("Error");
         }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Customer()
+        {
+            var a = client.GetCustomers("all");
+            return View(a);
+        }
+
+
+        
     }
 }

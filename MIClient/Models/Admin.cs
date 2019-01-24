@@ -18,4 +18,7 @@ namespace MIClient.Models
         [DataType(DataType.Password)]
         public string pwd { get; set; }
     }
+
+   
+
 }

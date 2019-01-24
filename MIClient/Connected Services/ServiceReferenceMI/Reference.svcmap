@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2c46c560-9595-48b1-891f-00c2ca420958" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="804b4211-c94d-4da1-837d-75b27a352bf9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:49993/ServiceMI.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:49999/ServiceMI.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServiceMI.xsd" MetadataType="Schema" ID="f2829777-2e04-477f-8b57-4e582a3771d2" SourceId="1" SourceUrl="http://localhost:49993/ServiceMI.svc?xsd=xsd2" />
-    <MetadataFile FileName="ServiceMI.disco" MetadataType="Disco" ID="5f1af7e1-e382-474e-9cdb-c70ff4f2ef75" SourceId="1" SourceUrl="http://localhost:49993/ServiceMI.svc?disco" />
-    <MetadataFile FileName="ServiceMI.wsdl" MetadataType="Wsdl" ID="6920025a-4b7f-42bc-944c-e2defd4c144e" SourceId="1" SourceUrl="http://localhost:49993/ServiceMI.svc?wsdl" />
-    <MetadataFile FileName="ServiceMI1.xsd" MetadataType="Schema" ID="411edca1-24c4-4a93-ae11-a25414aa2015" SourceId="1" SourceUrl="http://localhost:49993/ServiceMI.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServiceMI2.xsd" MetadataType="Schema" ID="4a47c472-e77f-4dd7-ab9e-fc69671fcf05" SourceId="1" SourceUrl="http://localhost:49993/ServiceMI.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceMI.xsd" MetadataType="Schema" ID="c8ef5ae8-92f4-40ce-9c93-56b15104f0b1" SourceId="1" SourceUrl="http://localhost:49999/ServiceMI.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceMI.disco" MetadataType="Disco" ID="839bbe4e-f9a8-466d-94f2-7e6d949e77db" SourceId="1" SourceUrl="http://localhost:49999/ServiceMI.svc?disco" />
+    <MetadataFile FileName="ServiceMI1.xsd" MetadataType="Schema" ID="389b1e92-a9ac-4df6-9305-57db7943ee05" SourceId="1" SourceUrl="http://localhost:49999/ServiceMI.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceMI2.xsd" MetadataType="Schema" ID="306dc6ac-8f38-45a7-aa76-e6975b6f7925" SourceId="1" SourceUrl="http://localhost:49999/ServiceMI.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceMI.wsdl" MetadataType="Wsdl" ID="838294b1-7ffb-43d8-b00f-14878b629cb6" SourceId="1" SourceUrl="http://localhost:49999/ServiceMI.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

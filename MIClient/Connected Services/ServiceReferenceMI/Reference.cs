@@ -90,6 +90,1025 @@ namespace MIClient.ServiceReferenceMI {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_customer", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_addField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_cardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> cus_dobField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_fnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> cus_genderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cus_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_lnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_passField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_phoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_order[] tb_orderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_add {
+            get {
+                return this.cus_addField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_addField, value) != true)) {
+                    this.cus_addField = value;
+                    this.RaisePropertyChanged("cus_add");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_card {
+            get {
+                return this.cus_cardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_cardField, value) != true)) {
+                    this.cus_cardField = value;
+                    this.RaisePropertyChanged("cus_card");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> cus_dob {
+            get {
+                return this.cus_dobField;
+            }
+            set {
+                if ((this.cus_dobField.Equals(value) != true)) {
+                    this.cus_dobField = value;
+                    this.RaisePropertyChanged("cus_dob");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_email {
+            get {
+                return this.cus_emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_emailField, value) != true)) {
+                    this.cus_emailField = value;
+                    this.RaisePropertyChanged("cus_email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_fname {
+            get {
+                return this.cus_fnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_fnameField, value) != true)) {
+                    this.cus_fnameField = value;
+                    this.RaisePropertyChanged("cus_fname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> cus_gender {
+            get {
+                return this.cus_genderField;
+            }
+            set {
+                if ((this.cus_genderField.Equals(value) != true)) {
+                    this.cus_genderField = value;
+                    this.RaisePropertyChanged("cus_gender");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cus_id {
+            get {
+                return this.cus_idField;
+            }
+            set {
+                if ((this.cus_idField.Equals(value) != true)) {
+                    this.cus_idField = value;
+                    this.RaisePropertyChanged("cus_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_lname {
+            get {
+                return this.cus_lnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_lnameField, value) != true)) {
+                    this.cus_lnameField = value;
+                    this.RaisePropertyChanged("cus_lname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_pass {
+            get {
+                return this.cus_passField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_passField, value) != true)) {
+                    this.cus_passField = value;
+                    this.RaisePropertyChanged("cus_pass");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_phone {
+            get {
+                return this.cus_phoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_phoneField, value) != true)) {
+                    this.cus_phoneField = value;
+                    this.RaisePropertyChanged("cus_phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_order[] tb_order {
+            get {
+                return this.tb_orderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderField, value) != true)) {
+                    this.tb_orderField = value;
+                    this.RaisePropertyChanged("tb_order");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_order", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int o_cus_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime o_dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime o_deli_dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int o_dt_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string o_folderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int o_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string o_payField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int o_pr_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string o_recipField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string o_recip_phoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int o_s_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string o_shipaddField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string o_statusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_customer tb_customerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_deliverytime tb_deliverytimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_orderdetail[] tb_orderdetailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_printsize tb_printsizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_shippingcategory tb_shippingcategoryField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int o_cus_id {
+            get {
+                return this.o_cus_idField;
+            }
+            set {
+                if ((this.o_cus_idField.Equals(value) != true)) {
+                    this.o_cus_idField = value;
+                    this.RaisePropertyChanged("o_cus_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime o_date {
+            get {
+                return this.o_dateField;
+            }
+            set {
+                if ((this.o_dateField.Equals(value) != true)) {
+                    this.o_dateField = value;
+                    this.RaisePropertyChanged("o_date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime o_deli_date {
+            get {
+                return this.o_deli_dateField;
+            }
+            set {
+                if ((this.o_deli_dateField.Equals(value) != true)) {
+                    this.o_deli_dateField = value;
+                    this.RaisePropertyChanged("o_deli_date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int o_dt_id {
+            get {
+                return this.o_dt_idField;
+            }
+            set {
+                if ((this.o_dt_idField.Equals(value) != true)) {
+                    this.o_dt_idField = value;
+                    this.RaisePropertyChanged("o_dt_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string o_folder {
+            get {
+                return this.o_folderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.o_folderField, value) != true)) {
+                    this.o_folderField = value;
+                    this.RaisePropertyChanged("o_folder");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int o_id {
+            get {
+                return this.o_idField;
+            }
+            set {
+                if ((this.o_idField.Equals(value) != true)) {
+                    this.o_idField = value;
+                    this.RaisePropertyChanged("o_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string o_pay {
+            get {
+                return this.o_payField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.o_payField, value) != true)) {
+                    this.o_payField = value;
+                    this.RaisePropertyChanged("o_pay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int o_pr_id {
+            get {
+                return this.o_pr_idField;
+            }
+            set {
+                if ((this.o_pr_idField.Equals(value) != true)) {
+                    this.o_pr_idField = value;
+                    this.RaisePropertyChanged("o_pr_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string o_recip {
+            get {
+                return this.o_recipField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.o_recipField, value) != true)) {
+                    this.o_recipField = value;
+                    this.RaisePropertyChanged("o_recip");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string o_recip_phone {
+            get {
+                return this.o_recip_phoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.o_recip_phoneField, value) != true)) {
+                    this.o_recip_phoneField = value;
+                    this.RaisePropertyChanged("o_recip_phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int o_s_id {
+            get {
+                return this.o_s_idField;
+            }
+            set {
+                if ((this.o_s_idField.Equals(value) != true)) {
+                    this.o_s_idField = value;
+                    this.RaisePropertyChanged("o_s_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string o_shipadd {
+            get {
+                return this.o_shipaddField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.o_shipaddField, value) != true)) {
+                    this.o_shipaddField = value;
+                    this.RaisePropertyChanged("o_shipadd");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string o_status {
+            get {
+                return this.o_statusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.o_statusField, value) != true)) {
+                    this.o_statusField = value;
+                    this.RaisePropertyChanged("o_status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_customer tb_customer {
+            get {
+                return this.tb_customerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_customerField, value) != true)) {
+                    this.tb_customerField = value;
+                    this.RaisePropertyChanged("tb_customer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_deliverytime tb_deliverytime {
+            get {
+                return this.tb_deliverytimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_deliverytimeField, value) != true)) {
+                    this.tb_deliverytimeField = value;
+                    this.RaisePropertyChanged("tb_deliverytime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_orderdetail[] tb_orderdetail {
+            get {
+                return this.tb_orderdetailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderdetailField, value) != true)) {
+                    this.tb_orderdetailField = value;
+                    this.RaisePropertyChanged("tb_orderdetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_printsize tb_printsize {
+            get {
+                return this.tb_printsizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_printsizeField, value) != true)) {
+                    this.tb_printsizeField = value;
+                    this.RaisePropertyChanged("tb_printsize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_shippingcategory tb_shippingcategory {
+            get {
+                return this.tb_shippingcategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_shippingcategoryField, value) != true)) {
+                    this.tb_shippingcategoryField = value;
+                    this.RaisePropertyChanged("tb_shippingcategory");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_deliverytime", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_deliverytime : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int dt_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int dt_numField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double dt_ratioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_order[] tb_orderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int dt_id {
+            get {
+                return this.dt_idField;
+            }
+            set {
+                if ((this.dt_idField.Equals(value) != true)) {
+                    this.dt_idField = value;
+                    this.RaisePropertyChanged("dt_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int dt_num {
+            get {
+                return this.dt_numField;
+            }
+            set {
+                if ((this.dt_numField.Equals(value) != true)) {
+                    this.dt_numField = value;
+                    this.RaisePropertyChanged("dt_num");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double dt_ratio {
+            get {
+                return this.dt_ratioField;
+            }
+            set {
+                if ((this.dt_ratioField.Equals(value) != true)) {
+                    this.dt_ratioField = value;
+                    this.RaisePropertyChanged("dt_ratio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_order[] tb_order {
+            get {
+                return this.tb_orderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderField, value) != true)) {
+                    this.tb_orderField = value;
+                    this.RaisePropertyChanged("tb_order");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_printsize", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_printsize : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int pr_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal pr_priceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pr_sizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_order[] tb_orderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int pr_id {
+            get {
+                return this.pr_idField;
+            }
+            set {
+                if ((this.pr_idField.Equals(value) != true)) {
+                    this.pr_idField = value;
+                    this.RaisePropertyChanged("pr_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal pr_price {
+            get {
+                return this.pr_priceField;
+            }
+            set {
+                if ((this.pr_priceField.Equals(value) != true)) {
+                    this.pr_priceField = value;
+                    this.RaisePropertyChanged("pr_price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string pr_size {
+            get {
+                return this.pr_sizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.pr_sizeField, value) != true)) {
+                    this.pr_sizeField = value;
+                    this.RaisePropertyChanged("pr_size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_order[] tb_order {
+            get {
+                return this.tb_orderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderField, value) != true)) {
+                    this.tb_orderField = value;
+                    this.RaisePropertyChanged("tb_order");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_shippingcategory", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_shippingcategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int s_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string s_locationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal s_priceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_order[] tb_orderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int s_id {
+            get {
+                return this.s_idField;
+            }
+            set {
+                if ((this.s_idField.Equals(value) != true)) {
+                    this.s_idField = value;
+                    this.RaisePropertyChanged("s_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string s_location {
+            get {
+                return this.s_locationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.s_locationField, value) != true)) {
+                    this.s_locationField = value;
+                    this.RaisePropertyChanged("s_location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal s_price {
+            get {
+                return this.s_priceField;
+            }
+            set {
+                if ((this.s_priceField.Equals(value) != true)) {
+                    this.s_priceField = value;
+                    this.RaisePropertyChanged("s_price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_order[] tb_order {
+            get {
+                return this.tb_orderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderField, value) != true)) {
+                    this.tb_orderField = value;
+                    this.RaisePropertyChanged("tb_order");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_orderdetail", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_orderdetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int orderdetail_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int orderdetail_img_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int orderdetail_o_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_image tb_imageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_order tb_orderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int orderdetail_id {
+            get {
+                return this.orderdetail_idField;
+            }
+            set {
+                if ((this.orderdetail_idField.Equals(value) != true)) {
+                    this.orderdetail_idField = value;
+                    this.RaisePropertyChanged("orderdetail_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int orderdetail_img_id {
+            get {
+                return this.orderdetail_img_idField;
+            }
+            set {
+                if ((this.orderdetail_img_idField.Equals(value) != true)) {
+                    this.orderdetail_img_idField = value;
+                    this.RaisePropertyChanged("orderdetail_img_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int orderdetail_o_id {
+            get {
+                return this.orderdetail_o_idField;
+            }
+            set {
+                if ((this.orderdetail_o_idField.Equals(value) != true)) {
+                    this.orderdetail_o_idField = value;
+                    this.RaisePropertyChanged("orderdetail_o_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_image tb_image {
+            get {
+                return this.tb_imageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_imageField, value) != true)) {
+                    this.tb_imageField = value;
+                    this.RaisePropertyChanged("tb_image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_order tb_order {
+            get {
+                return this.tb_orderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderField, value) != true)) {
+                    this.tb_orderField = value;
+                    this.RaisePropertyChanged("tb_order");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_image", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int img_copiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int img_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string img_linkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string img_sizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_orderdetail[] tb_orderdetailField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int img_copies {
+            get {
+                return this.img_copiesField;
+            }
+            set {
+                if ((this.img_copiesField.Equals(value) != true)) {
+                    this.img_copiesField = value;
+                    this.RaisePropertyChanged("img_copies");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int img_id {
+            get {
+                return this.img_idField;
+            }
+            set {
+                if ((this.img_idField.Equals(value) != true)) {
+                    this.img_idField = value;
+                    this.RaisePropertyChanged("img_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string img_link {
+            get {
+                return this.img_linkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.img_linkField, value) != true)) {
+                    this.img_linkField = value;
+                    this.RaisePropertyChanged("img_link");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string img_size {
+            get {
+                return this.img_sizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.img_sizeField, value) != true)) {
+                    this.img_sizeField = value;
+                    this.RaisePropertyChanged("img_size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_orderdetail[] tb_orderdetail {
+            get {
+                return this.tb_orderdetailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderdetailField, value) != true)) {
+                    this.tb_orderdetailField = value;
+                    this.RaisePropertyChanged("tb_orderdetail");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceMI.IServiceMI")]
     public interface IServiceMI {
@@ -105,6 +1124,12 @@ namespace MIClient.ServiceReferenceMI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetAdmins", ReplyAction="http://tempuri.org/IServiceMI/GetAdminsResponse")]
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_admin[]> GetAdminsAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
+        MIClient.ServiceReferenceMI.tb_customer[] GetCustomers(string all);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync(string all);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,6 +1173,14 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_admin[]> GetAdminsAsync(string username) {
             return base.Channel.GetAdminsAsync(username);
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_customer[] GetCustomers(string all) {
+            return base.Channel.GetCustomers(all);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync(string all) {
+            return base.Channel.GetCustomersAsync(all);
         }
     }
 }
