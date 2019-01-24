@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyImageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_admin">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_customer">
+    <Key>
+      <PropertyRef Name="cus_id" />
+    </Key>
+    <Property Name="cus_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cus_fname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cus_lname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cus_gender" Type="bit" />
+    <Property Name="cus_dob" Type="date" />
+    <Property Name="cus_phone" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="cus_add" Type="varchar" MaxLength="50" />
+    <Property Name="cus_card" Type="varchar" MaxLength="20" />
+    <Property Name="cus_email" Type="varchar" MaxLength="255" />
+    <Property Name="cus_pass" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_deliverytime">
+    <Key>
+      <PropertyRef Name="dt_id" />
+    </Key>
+    <Property Name="dt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dt_num" Type="int" Nullable="false" />
+    <Property Name="dt_ratio" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_image">
+    <Key>
+      <PropertyRef Name="img_id" />
+    </Key>
+    <Property Name="img_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="img_size" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="img_copies" Type="int" Nullable="false" />
+    <Property Name="img_link" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_order">
+    <Key>
+      <PropertyRef Name="o_id" />
+    </Key>
+    <Property Name="o_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="o_cus_id" Type="int" Nullable="false" />
+    <Property Name="o_date" Type="date" Nullable="false" />
+    <Property Name="o_pay" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="o_shipadd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="o_folder" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="o_pr_id" Type="int" Nullable="false" />
+    <Property Name="o_recip" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="o_recip_phone" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="o_deli_date" Type="date" Nullable="false" />
+    <Property Name="o_s_id" Type="int" Nullable="false" />
+    <Property Name="o_dt_id" Type="int" Nullable="false" />
+    <Property Name="o_status" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_orderdetail">
+    <Key>
+      <PropertyRef Name="orderdetail_id" />
+    </Key>
+    <Property Name="orderdetail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderdetail_o_id" Type="int" Nullable="false" />
+    <Property Name="orderdetail_img_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_printsize">
+    <Key>
+      <PropertyRef Name="pr_id" />
+    </Key>
+    <Property Name="pr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pr_size" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pr_price" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_shippingcategory">
+    <Key>
+      <PropertyRef Name="s_id" />
+    </Key>
+    <Property Name="s_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_location" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="s_price" Type="money" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tb_order__o_cus___412EB0B6">
+    <End Role="tb_customer" Type="Self.tb_customer" Multiplicity="1" />
+    <End Role="tb_order" Type="Self.tb_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_customer">
+        <PropertyRef Name="cus_id" />
+      </Principal>
+      <Dependent Role="tb_order">
+        <PropertyRef Name="o_cus_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_order__o_dt_i__440B1D61">
+    <End Role="tb_deliverytime" Type="Self.tb_deliverytime" Multiplicity="1" />
+    <End Role="tb_order" Type="Self.tb_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_deliverytime">
+        <PropertyRef Name="dt_id" />
+      </Principal>
+      <Dependent Role="tb_order">
+        <PropertyRef Name="o_dt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_order__o_pr_i__4222D4EF">
+    <End Role="tb_printsize" Type="Self.tb_printsize" Multiplicity="1" />
+    <End Role="tb_order" Type="Self.tb_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_printsize">
+        <PropertyRef Name="pr_id" />
+      </Principal>
+      <Dependent Role="tb_order">
+        <PropertyRef Name="o_pr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_order__o_s_id__4316F928">
+    <End Role="tb_shippingcategory" Type="Self.tb_shippingcategory" Multiplicity="1" />
+    <End Role="tb_order" Type="Self.tb_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_shippingcategory">
+        <PropertyRef Name="s_id" />
+      </Principal>
+      <Dependent Role="tb_order">
+        <PropertyRef Name="o_s_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_orderd__order__48CFD27E">
+    <End Role="tb_order" Type="Self.tb_order" Multiplicity="1" />
+    <End Role="tb_orderdetail" Type="Self.tb_orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_order">
+        <PropertyRef Name="o_id" />
+      </Principal>
+      <Dependent Role="tb_orderdetail">
+        <PropertyRef Name="orderdetail_o_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_orderd__order__49C3F6B7">
+    <End Role="tb_image" Type="Self.tb_image" Multiplicity="1" />
+    <End Role="tb_orderdetail" Type="Self.tb_orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_image">
+        <PropertyRef Name="img_id" />
+      </Principal>
+      <Dependent Role="tb_orderdetail">
+        <PropertyRef Name="orderdetail_img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyImageModelStoreContainer">
+    <EntitySet Name="tb_admin" EntityType="Self.tb_admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_customer" EntityType="Self.tb_customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_deliverytime" EntityType="Self.tb_deliverytime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_image" EntityType="Self.tb_image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_order" EntityType="Self.tb_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_orderdetail" EntityType="Self.tb_orderdetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_printsize" EntityType="Self.tb_printsize" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_shippingcategory" EntityType="Self.tb_shippingcategory" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tb_order__o_cus___412EB0B6" Association="Self.FK__tb_order__o_cus___412EB0B6">
+      <End Role="tb_customer" EntitySet="tb_customer" />
+      <End Role="tb_order" EntitySet="tb_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_order__o_dt_i__440B1D61" Association="Self.FK__tb_order__o_dt_i__440B1D61">
+      <End Role="tb_deliverytime" EntitySet="tb_deliverytime" />
+      <End Role="tb_order" EntitySet="tb_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_order__o_pr_i__4222D4EF" Association="Self.FK__tb_order__o_pr_i__4222D4EF">
+      <End Role="tb_printsize" EntitySet="tb_printsize" />
+      <End Role="tb_order" EntitySet="tb_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_order__o_s_id__4316F928" Association="Self.FK__tb_order__o_s_id__4316F928">
+      <End Role="tb_shippingcategory" EntitySet="tb_shippingcategory" />
+      <End Role="tb_order" EntitySet="tb_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_orderd__order__48CFD27E" Association="Self.FK__tb_orderd__order__48CFD27E">
+      <End Role="tb_order" EntitySet="tb_order" />
+      <End Role="tb_orderdetail" EntitySet="tb_orderdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_orderd__order__49C3F6B7" Association="Self.FK__tb_orderd__order__49C3F6B7">
+      <End Role="tb_image" EntitySet="tb_image" />
+      <End Role="tb_orderdetail" EntitySet="tb_orderdetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

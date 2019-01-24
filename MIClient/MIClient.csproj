@@ -52,6 +52,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -96,78 +97,65 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_admin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI.disco" />
+    <None Include="Connected Services\ServiceReferenceMI\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceMI\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceMI\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\MyImageModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MyImageModel.Context.cs</LastGenOutput>
-      <DependentUpon>MyImageModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\MyImageModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyImageModel.edmx</DependentUpon>
-      <LastGenOutput>MyImageModel.cs</LastGenOutput>
-    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\ServiceReferenceMI\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\MyImageModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyImageModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyImageModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyImageModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyImageModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_admin.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_customer.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_deliverytime.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_image.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_order.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_orderdetail.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_printsize.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_shippingcategory.cs">
-      <DependentUpon>MyImageModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\MyImageModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyImageModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MyImageModel.edmx.diagram">
-      <DependentUpon>MyImageModel.edmx</DependentUpon>
-    </Content>
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI.wsdl" />
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,12 +165,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceMI\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

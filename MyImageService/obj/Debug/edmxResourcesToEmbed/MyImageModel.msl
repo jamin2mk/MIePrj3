@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyImageModelStoreContainer" CdmEntityContainer="MyImageEntities">
+    <EntitySetMapping Name="tb_admin">
+      <EntityTypeMapping TypeName="MyImageModel.tb_admin">
+        <MappingFragment StoreEntitySet="tb_admin">
+          <ScalarProperty Name="ad_id" ColumnName="ad_id" />
+          <ScalarProperty Name="ad_username" ColumnName="ad_username" />
+          <ScalarProperty Name="ad_password" ColumnName="ad_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_customer">
+      <EntityTypeMapping TypeName="MyImageModel.tb_customer">
+        <MappingFragment StoreEntitySet="tb_customer">
+          <ScalarProperty Name="cus_id" ColumnName="cus_id" />
+          <ScalarProperty Name="cus_fname" ColumnName="cus_fname" />
+          <ScalarProperty Name="cus_lname" ColumnName="cus_lname" />
+          <ScalarProperty Name="cus_gender" ColumnName="cus_gender" />
+          <ScalarProperty Name="cus_dob" ColumnName="cus_dob" />
+          <ScalarProperty Name="cus_phone" ColumnName="cus_phone" />
+          <ScalarProperty Name="cus_add" ColumnName="cus_add" />
+          <ScalarProperty Name="cus_card" ColumnName="cus_card" />
+          <ScalarProperty Name="cus_email" ColumnName="cus_email" />
+          <ScalarProperty Name="cus_pass" ColumnName="cus_pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_deliverytime">
+      <EntityTypeMapping TypeName="MyImageModel.tb_deliverytime">
+        <MappingFragment StoreEntitySet="tb_deliverytime">
+          <ScalarProperty Name="dt_id" ColumnName="dt_id" />
+          <ScalarProperty Name="dt_num" ColumnName="dt_num" />
+          <ScalarProperty Name="dt_ratio" ColumnName="dt_ratio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_image">
+      <EntityTypeMapping TypeName="MyImageModel.tb_image">
+        <MappingFragment StoreEntitySet="tb_image">
+          <ScalarProperty Name="img_id" ColumnName="img_id" />
+          <ScalarProperty Name="img_size" ColumnName="img_size" />
+          <ScalarProperty Name="img_copies" ColumnName="img_copies" />
+          <ScalarProperty Name="img_link" ColumnName="img_link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_order">
+      <EntityTypeMapping TypeName="MyImageModel.tb_order">
+        <MappingFragment StoreEntitySet="tb_order">
+          <ScalarProperty Name="o_id" ColumnName="o_id" />
+          <ScalarProperty Name="o_cus_id" ColumnName="o_cus_id" />
+          <ScalarProperty Name="o_date" ColumnName="o_date" />
+          <ScalarProperty Name="o_pay" ColumnName="o_pay" />
+          <ScalarProperty Name="o_shipadd" ColumnName="o_shipadd" />
+          <ScalarProperty Name="o_folder" ColumnName="o_folder" />
+          <ScalarProperty Name="o_pr_id" ColumnName="o_pr_id" />
+          <ScalarProperty Name="o_recip" ColumnName="o_recip" />
+          <ScalarProperty Name="o_recip_phone" ColumnName="o_recip_phone" />
+          <ScalarProperty Name="o_deli_date" ColumnName="o_deli_date" />
+          <ScalarProperty Name="o_s_id" ColumnName="o_s_id" />
+          <ScalarProperty Name="o_dt_id" ColumnName="o_dt_id" />
+          <ScalarProperty Name="o_status" ColumnName="o_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_orderdetail">
+      <EntityTypeMapping TypeName="MyImageModel.tb_orderdetail">
+        <MappingFragment StoreEntitySet="tb_orderdetail">
+          <ScalarProperty Name="orderdetail_id" ColumnName="orderdetail_id" />
+          <ScalarProperty Name="orderdetail_o_id" ColumnName="orderdetail_o_id" />
+          <ScalarProperty Name="orderdetail_img_id" ColumnName="orderdetail_img_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_printsize">
+      <EntityTypeMapping TypeName="MyImageModel.tb_printsize">
+        <MappingFragment StoreEntitySet="tb_printsize">
+          <ScalarProperty Name="pr_id" ColumnName="pr_id" />
+          <ScalarProperty Name="pr_size" ColumnName="pr_size" />
+          <ScalarProperty Name="pr_price" ColumnName="pr_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_shippingcategory">
+      <EntityTypeMapping TypeName="MyImageModel.tb_shippingcategory">
+        <MappingFragment StoreEntitySet="tb_shippingcategory">
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+          <ScalarProperty Name="s_location" ColumnName="s_location" />
+          <ScalarProperty Name="s_price" ColumnName="s_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

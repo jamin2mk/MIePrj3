@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using MIClient.Models;
+
 
 namespace MyImageService
 {
@@ -15,9 +15,13 @@ namespace MyImageService
     {
 
         [OperationContract]
-        bool Create(tb_customer cust);
-    }
+        bool AdminLogin(string uid, string pwd);
 
+        [OperationContract]
+        List<tb_admin> GetAdmins(string username);
+
+    }
+    //http://localhost:49993/ServiceMI.svc
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
