@@ -19,6 +19,48 @@
   <wsdl:message name="IServiceMI_GetAdmins_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAdminsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceMI_UserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomers" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_AddCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_AddCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdateProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProfile" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdateProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrder" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceMI">
     <wsdl:operation name="AdminLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/AdminLogin" message="tns:IServiceMI_AdminLogin_InputMessage" />
@@ -27,6 +69,34 @@
     <wsdl:operation name="GetAdmins">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetAdmins" message="tns:IServiceMI_GetAdmins_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetAdminsResponse" message="tns:IServiceMI_GetAdmins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UserLogin" message="tns:IServiceMI_UserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UserLoginResponse" message="tns:IServiceMI_UserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetCustomers" message="tns:IServiceMI_GetCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetCustomersResponse" message="tns:IServiceMI_GetCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/AddCustomer" message="tns:IServiceMI_AddCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/AddCustomerResponse" message="tns:IServiceMI_AddCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetCustomer" message="tns:IServiceMI_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetCustomerResponse" message="tns:IServiceMI_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UpdateProfile" message="tns:IServiceMI_UpdateProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UpdateProfileResponse" message="tns:IServiceMI_UpdateProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UpdatePassword" message="tns:IServiceMI_UpdatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UpdatePasswordResponse" message="tns:IServiceMI_UpdatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrder" message="tns:IServiceMI_GetOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOrderResponse" message="tns:IServiceMI_GetOrder_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceMI" type="tns:IServiceMI">
@@ -42,6 +112,69 @@
     </wsdl:operation>
     <wsdl:operation name="GetAdmins">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/GetAdmins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/UserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfile">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/UpdateProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

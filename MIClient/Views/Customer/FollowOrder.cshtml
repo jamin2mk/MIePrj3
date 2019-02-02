@@ -1,0 +1,33 @@
+﻿
+
+@{
+    ViewBag.Title = "FollowOrder";
+}
+@if (Session["Login"] != null)
+{
+    @model MIClient.ServiceReferenceMI.tb_order
+    <h2>FollowOrder</h2>
+    @Html.ActionLink("Welcome," +Session["FName"],"YourProfile","Customer")
+    <br />
+    @Html.LabelFor(x => x.o_id)
+    @Html.DisplayFor(x => x.o_id)
+    <br />
+    @Html.LabelFor(x => x.o_date)
+    @Html.DisplayFor(x => x.o_date)
+    <br />
+    @Html.LabelFor(x => x.o_deli_date)
+    @Html.DisplayFor(x => x.o_deli_date)
+    <br />
+    @Html.LabelFor(x => x.o_pay)
+    @Html.DisplayFor(x => x.o_pay)
+    <br />
+    @Html.LabelFor(x => x.o_shipadd)
+    @Html.DisplayFor(x => x.o_shipadd)
+    <br />
+    @Html.LabelFor(x => x.o_status)
+    @Html.DisplayFor(x => x.o_status)
+    <br />
+
+
+
+}

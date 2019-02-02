@@ -1,0 +1,118 @@
+﻿@model MIClient.Models.Customer
+    @{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>Register</title>
+         <!-- Bootstrap core CSS -->
+         <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+         <link href="~/css/style2.css" rel="stylesheet">
+         <style>
+             #footer {
+                 position: absolute;
+                 bottom: 0;
+                 width: 100%;
+             }
+         </style>
+     </head>
+     <body>
+         <nav class="navbar navbar-default">
+             <div class="container">
+                 <div class="navbar-header">
+                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                     </button>
+                     <a class="navbar-brand" href="#">MyImage</a>
+                 </div>
+                 <div id="navbar" class="collapse navbar-collapse">
+
+                 </div><!--/.nav-collapse -->
+             </div>
+         </nav>
+         <section id="main">
+             <div class="container">
+                 <h3 style="text-align: center;">Register</h3>
+                 <div class="row">
+                     <div class="col-md-4 col-md-offset-4">
+
+                         @using (Html.BeginForm("Register", "Customer", FormMethod.Post, new { @class = "well", @id = "login" }))
+                         {
+                             @Html.AntiForgeryToken()
+                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                             <div class="form-group">
+                                 @Html.LabelFor(x => x.cus_email)
+
+                                 @Html.EditorFor(x => x.cus_email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                 @Html.ValidationMessageFor(x => x.cus_email, "", new { @class = "text-danger" })
+                             </div>
+                             <div class="form-group">
+                                 @Html.LabelFor(x => x.cus_pass)
+                                 @Html.EditorFor(x => x.cus_pass, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
+                                 @Html.ValidationMessageFor(x => x.cus_pass, "", new { @class = "text-danger" })
+                             </div>
+                             <div class="form-group">
+                                 @Html.Label("Confirm Password")
+                                 <input type="password" class="form-control" placeholder="Confirm password" id="repwd" name="repwd">
+                                 <p class="text-danger">@ViewBag.PwdNotMatch</p>
+                             </div>
+                             <div class="form-group col-xs-6 row">
+                                 @Html.LabelFor(x => x.cus_fname)
+                                 @Html.EditorFor(x => x.cus_fname, new { htmlAttributes = new { @class = "form-control", @placeholder = "First name" } })
+                                 @Html.ValidationMessageFor(x => x.cus_fname, "", new { @class = "text-danger" })
+                             </div>
+                             <div class="form-group col-xs-6">
+                                 @Html.LabelFor(x => x.cus_lname)
+                                 @Html.EditorFor(x => x.cus_lname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last name" } })
+                                 @Html.ValidationMessageFor(x => x.cus_lname, "", new { @class = "text-danger" })
+                             </div>
+                             <div class="form-group">
+                                 @Html.LabelFor(x => x.cus_gender)
+                                 <label class="radio-inline">
+                                     @Html.RadioButtonFor(x => x.cus_gender, true) Male
+                                 </label>
+                                 <label class="radio-inline">
+                                     @Html.RadioButtonFor(x => x.cus_gender, false) Female
+                                 </label>
+                             </div>
+                             <div class="form-group">
+                                 @Html.LabelFor(x => x.cus_phone)
+                                 @Html.EditorFor(x => x.cus_phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Phone number" } })
+                                 @Html.ValidationMessageFor(x => x.cus_phone, "", new { @class = "text-danger" })
+                             </div>
+                             <div class="form-group">
+                                 @Html.LabelFor(x => x.cus_dob)
+                                 @Html.EditorFor(x => x.cus_dob, new { htmlAttributes = new { @class = "form-control", @placeholder = "mm/dd/yyyy" } })
+                                 @Html.ValidationMessageFor(x => x.cus_dob, "", new { @class = "text-danger" })
+                             </div>
+                             <div class="form-group">
+                                 @Html.LabelFor(x => x.cus_add)
+                                 @Html.EditorFor(x => x.cus_add, new { htmlAttributes = new { @class = "form-control", @placeholder = "Address", @rows = "4", @cols = "50" } })
+                             </div>
+                             <div class="form-group">
+                                 <button type="submit" class="btn btn-main-color">Register</button>
+                                 <button type="reset" class="btn btn-danger">Reset</button>
+                             </div>
+                             
+
+                         }
+                     </div>
+                 </div>
+             </div>
+         </section>
+         <!-- Bootstrap core JavaScript
+    ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+         <script src="~/Scripts/jquery.validate.min.js"></script>
+         <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+     </body>
+     </html>

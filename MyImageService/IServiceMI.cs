@@ -20,6 +20,29 @@ namespace MyImageService
         [OperationContract]
         List<tb_admin> GetAdmins(string username);
 
+        [OperationContract]
+        bool UserLogin(string cus_email, string cus_pass);
+
+        [OperationContract]
+        List<tb_customer> GetCustomers(string username);
+
+        [OperationContract]
+        void AddCustomer(tb_customer addCust);
+
+        [OperationContract]
+        tb_customer GetCustomer(string email);
+
+        [OperationContract]
+        void UpdateProfile(tb_customer upCust);
+
+        [OperationContract]
+        void UpdatePassword(tb_customer upPwd);
+
+        [OperationContract]
+        tb_order GetOrder(string email);
+
+        
+
     }
     //http://localhost:49993/ServiceMI.svc
 

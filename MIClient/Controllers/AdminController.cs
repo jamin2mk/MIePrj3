@@ -18,13 +18,16 @@ namespace MIClient.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string uid, string pwd) {
-            if (client.AdminLogin(uid,pwd))
+        public ActionResult Login(string uid, string pwd)
+        {
+            if (client.AdminLogin(uid, pwd))
             {
                 return Content("Ok");
 
             }
             return Content("Not OK");
         }
+
+
     }
 }
