@@ -19,11 +19,65 @@
   <wsdl:message name="IServiceMI_GetAdmins_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAdminsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrders" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceMI_GetCustomers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomers" />
   </wsdl:message>
   <wsdl:message name="IServiceMI_GetCustomers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchCustomerByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomerByName" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchCustomerByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomerByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetPrintsizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintsizes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetPrintsizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintsizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOnePrintsize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnePrintsize" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOnePrintsize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnePrintsizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreatePrintsizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePrintsizes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreatePrintsizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePrintsizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_DeletePrintsizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrintsizes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_DeletePrintsizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrintsizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdatePrintsize_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrintsize" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdatePrintsize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrintsizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_ValidatePrintSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePrintSize" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_ValidatePrintSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePrintSizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchPrintSizebyName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchPrintSizebyName" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchPrintSizebyName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchPrintSizebyNameResponse" />
   </wsdl:message>
   <wsdl:portType name="IServiceMI">
     <wsdl:operation name="AdminLogin">
@@ -34,9 +88,45 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetAdmins" message="tns:IServiceMI_GetAdmins_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetAdminsResponse" message="tns:IServiceMI_GetAdmins_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrders" message="tns:IServiceMI_GetOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersResponse" message="tns:IServiceMI_GetOrders_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetCustomers" message="tns:IServiceMI_GetCustomers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetCustomersResponse" message="tns:IServiceMI_GetCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomerByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SearchCustomerByName" message="tns:IServiceMI_SearchCustomerByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse" message="tns:IServiceMI_SearchCustomerByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintsizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetPrintsizes" message="tns:IServiceMI_GetPrintsizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetPrintsizesResponse" message="tns:IServiceMI_GetPrintsizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePrintsize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOnePrintsize" message="tns:IServiceMI_GetOnePrintsize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOnePrintsizeResponse" message="tns:IServiceMI_GetOnePrintsize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePrintsizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CreatePrintsizes" message="tns:IServiceMI_CreatePrintsizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/CreatePrintsizesResponse" message="tns:IServiceMI_CreatePrintsizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrintsizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/DeletePrintsizes" message="tns:IServiceMI_DeletePrintsizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/DeletePrintsizesResponse" message="tns:IServiceMI_DeletePrintsizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintsize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UpdatePrintsize" message="tns:IServiceMI_UpdatePrintsize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UpdatePrintsizeResponse" message="tns:IServiceMI_UpdatePrintsize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePrintSize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/ValidatePrintSize" message="tns:IServiceMI_ValidatePrintSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/ValidatePrintSizeResponse" message="tns:IServiceMI_ValidatePrintSize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchPrintSizebyName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SearchPrintSizebyName" message="tns:IServiceMI_SearchPrintSizebyName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SearchPrintSizebyNameResponse" message="tns:IServiceMI_SearchPrintSizebyName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceMI" type="tns:IServiceMI">
@@ -59,8 +149,89 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCustomers">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/GetCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomerByName">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/SearchCustomerByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintsizes">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetPrintsizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePrintsize">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOnePrintsize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePrintsizes">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/CreatePrintsizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrintsizes">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/DeletePrintsizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintsize">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/UpdatePrintsize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePrintSize">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/ValidatePrintSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPrintSizebyName">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/SearchPrintSizebyName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -103,6 +103,12 @@
     <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_printsize.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ServiceReferenceMI\ServiceMI.disco" />
     <None Include="Connected Services\ServiceReferenceMI\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReferenceMI\configuration.svcinfo" />
@@ -163,6 +169,9 @@
     <Content Include="Views\Admin\Size.cshtml" />
     <Content Include="Views\Admin\Error.cshtml" />
     <Content Include="Views\Admin\Customer.cshtml" />
+    <Content Include="Views\Admin\Order.cshtml" />
+    <Content Include="Views\Admin\CreateSize.cshtml" />
+    <Content Include="Views\Admin\EditSize.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

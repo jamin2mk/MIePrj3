@@ -29,10 +29,9 @@ namespace MyImageService
             return false;
         }
 
-        public void CreatePrintsizes()
-        {
-            throw new NotImplementedException();
-        }
+       
+
+      
 
         public List<tb_admin> GetAdmins(string username)
         {
@@ -44,25 +43,71 @@ namespace MyImageService
             return db.tb_customer.ToList();
         }
 
-        public List<tb_order> GetOrders()
-        {
-            return db.tb_order.ToList();
-        }
-
-        public List<tb_printsize> GetPrintsizes()
-        {
-            return db.tb_printsize.ToList();
-        }
-
         public List<tb_customer> SearchCustomerByName(string fname, string lname)
         {
             var result = db.tb_customer.Where(c => c.cus_lname.ToLower().Contains(lname.ToLower()) && c.cus_fname.ToLower().Contains(fname.ToLower()));
             return result.ToList();
         }
 
-        public void UpdatePrintsize()
+
+        public List<tb_order> GetOrders()
         {
-            throw new NotImplementedException();
+            return db.tb_order.ToList();
+        }
+
+
+
+        //PRINT SIZE
+        public List<tb_printsize> GetPrintsizes()
+        {
+            return db.tb_printsize.ToList();
+        }
+
+        public tb_printsize GetOnePrintsize(int id)
+        {
+            return db.tb_printsize.Find(id);
+        }
+
+        public void DeletePrintsizes(int id)
+        {
+            var a = db.tb_printsize.Find(id);
+            db.tb_printsize.Remove(a);
+            db.SaveChanges();
+        }
+        public void CreatePrintsizes(tb_printsize newSize)
+        {
+            db.tb_printsize.Add(newSize);
+            db.SaveChanges();
+        }
+        public List<tb_printsize> SearchPrintSizebyName(string size)
+        {
+          var rs =  db.tb_printsize.Where(m => m.pr_size.ToLower().Contains(size.ToLower()));
+            return rs.ToList();
+
+        }
+        
+        public bool ValidatePrintSize(tb_printsize valsize)
+        {
+           List<tb_printsize> list = SearchPrintSizebyName(valsize.pr_size);
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].pr_size == valsize.pr_size)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void UpdatePrintsize(tb_printsize updateSize)
+        {
+            var a = db.tb_printsize.Find(updateSize.pr_id);
+            if (a != null)
+            {
+                a.pr_size = updateSize.pr_size;
+                a.pr_price = updateSize.pr_price;
+                db.SaveChanges();
+            }
         }
     }
 }

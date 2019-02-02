@@ -1,0 +1,105 @@
+﻿@model IEnumerable<MIClient.ServiceReferenceMI.tb_order>
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<h2>Order</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.o_cus_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_deli_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_dt_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_folder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_pay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_pr_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_recip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_recip_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_s_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_shipadd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_cus_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_deli_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_dt_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_folder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_pay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_pr_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_recip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_recip_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_s_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_shipadd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
