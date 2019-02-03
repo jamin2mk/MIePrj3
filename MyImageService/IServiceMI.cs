@@ -25,6 +25,11 @@ namespace MyImageService
         [OperationContract]
         List<tb_order> GetOrders();
 
+        [OperationContract]
+        tb_order GetOneOrders(int id);
+        [OperationContract]
+        void UpdateStatus(tb_order upStatus);
+
         // CUSTOMER
         [OperationContract]
         List<tb_customer> GetCustomers();

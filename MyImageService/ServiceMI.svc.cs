@@ -49,12 +49,26 @@ namespace MyImageService
             return result.ToList();
         }
 
-
+        //ORDER
         public List<tb_order> GetOrders()
         {
             return db.tb_order.ToList();
         }
 
+        public tb_order GetOneOrders(int id)
+        {
+            return db.tb_order.Find(id);
+        }
+
+        public void UpdateStatus(tb_order upStatus)
+        {
+            var a = db.tb_order.Find(upStatus.o_id);
+            if (a != null)
+            {                
+                a.o_status = upStatus.o_status;
+                db.SaveChanges();
+            }
+        }
 
 
         //PRINT SIZE

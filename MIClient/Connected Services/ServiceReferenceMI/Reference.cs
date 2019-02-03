@@ -1131,6 +1131,18 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersResponse")]
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOneOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOneOrdersResponse")]
+        MIClient.ServiceReferenceMI.tb_order GetOneOrders(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOneOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOneOrdersResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order> GetOneOrdersAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdateStatus", ReplyAction="http://tempuri.org/IServiceMI/UpdateStatusResponse")]
+        void UpdateStatus(MIClient.ServiceReferenceMI.tb_order upStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdateStatus", ReplyAction="http://tempuri.org/IServiceMI/UpdateStatusResponse")]
+        System.Threading.Tasks.Task UpdateStatusAsync(MIClient.ServiceReferenceMI.tb_order upStatus);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
         MIClient.ServiceReferenceMI.tb_customer[] GetCustomers();
         
@@ -1235,6 +1247,22 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync() {
             return base.Channel.GetOrdersAsync();
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_order GetOneOrders(int id) {
+            return base.Channel.GetOneOrders(id);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order> GetOneOrdersAsync(int id) {
+            return base.Channel.GetOneOrdersAsync(id);
+        }
+        
+        public void UpdateStatus(MIClient.ServiceReferenceMI.tb_order upStatus) {
+            base.Channel.UpdateStatus(upStatus);
+        }
+        
+        public System.Threading.Tasks.Task UpdateStatusAsync(MIClient.ServiceReferenceMI.tb_order upStatus) {
+            return base.Channel.UpdateStatusAsync(upStatus);
         }
         
         public MIClient.ServiceReferenceMI.tb_customer[] GetCustomers() {

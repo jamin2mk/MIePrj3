@@ -6,52 +6,59 @@
 
 <h2>Customer</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.cus_add)
+            First Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cus_card)
+            Last Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cus_dob)
+            Gender
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cus_email)
+            Address
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cus_fname)
+            DoB
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cus_gender)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cus_id)
+            Phone
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_lname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_pass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_phone)
-        </th>
-        <th></th>
+        
+        
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+
+        @Html.HiddenFor(modelItem => item.cus_id)
+
+        <td>
+            @Html.DisplayFor(modelItem => item.cus_fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cus_lname)
+        </td>
+        <td>
+            @{ var gen = item.cus_gender; }
+            @if (gen==true)
+            {
+                <p>Male</p>
+            }
+            else
+            {
+                <p>Female</p>
+            }
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.cus_add)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_card)
-        </td>
+        </td>       
         <td>
             @Html.DisplayFor(modelItem => item.cus_dob)
         </td>
@@ -59,29 +66,14 @@
             @Html.DisplayFor(modelItem => item.cus_email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cus_fname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_lname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_pass)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.cus_phone)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+
     </tr>
 }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

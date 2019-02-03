@@ -25,6 +25,18 @@
   <wsdl:message name="IServiceMI_GetOrders_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOrdersResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOneOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOneOrders" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOneOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOneOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStatus" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStatusResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceMI_GetCustomers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomers" />
   </wsdl:message>
@@ -92,6 +104,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrders" message="tns:IServiceMI_GetOrders_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersResponse" message="tns:IServiceMI_GetOrders_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetOneOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOneOrders" message="tns:IServiceMI_GetOneOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOneOrdersResponse" message="tns:IServiceMI_GetOneOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UpdateStatus" message="tns:IServiceMI_UpdateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UpdateStatusResponse" message="tns:IServiceMI_UpdateStatus_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetCustomers" message="tns:IServiceMI_GetCustomers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetCustomersResponse" message="tns:IServiceMI_GetCustomers_OutputMessage" />
@@ -151,6 +171,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrders">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOneOrders">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOneOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatus">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/UpdateStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

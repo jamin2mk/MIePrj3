@@ -116,6 +116,11 @@ namespace MIClient.Controllers
             return View(client.GetOrders());
         }
 
+        public ActionResult ChangeStatus(int id)
+        {
+            client.GetOneOrders(id);
+            return View();
+        }
 
         
 
