@@ -103,6 +103,18 @@
     <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_deliverytime.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_printsize.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_shippingcategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ServiceReferenceMI\ServiceMI.disco" />
     <None Include="Connected Services\ServiceReferenceMI\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReferenceMI\configuration.svcinfo" />
@@ -112,11 +124,17 @@
     </None>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\common.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\MIData.Models.MImages.datasource" />
+    <Content Include="Properties\DataSources\MIData.Models.MImage.datasource" />
+    <Content Include="Properties\DataSources\MIData.Models.Customer.datasource" />
+    <Content Include="Properties\DataSources\MIData.Models.FollowedOrder.datasource" />
     <None Include="Connected Services\ServiceReferenceMI\ServiceMI.wsdl" />
     <None Include="Connected Services\ServiceReferenceMI\ServiceMI.xsd">
       <SubType>Designer</SubType>
@@ -125,6 +143,15 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReferenceMI\ServiceMI2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMI\ServiceMI5.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -163,6 +190,16 @@
     <Content Include="Views\Admin\Size.cshtml" />
     <Content Include="Views\Admin\Error.cshtml" />
     <Content Include="Views\Admin\Customer.cshtml" />
+    <Content Include="Views\Order\Payment.cshtml" />
+    <Content Include="Views\Order\ShipInfo.cshtml" />
+    <Content Include="Views\Order\ShowImage.cshtml" />
+    <Content Include="Views\Order\Summary.cshtml" />
+    <Content Include="Views\Order\Upload.cshtml" />
+    <Content Include="Views\Shared\_Total.cshtml" />
+    <Content Include="Views\Shared\_FinalTotal.cshtml" />
+    <Content Include="Views\Customer\FollowOrder.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,14 +209,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customer\" />
-    <Folder Include="Views\Order\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MIData\MIData.csproj">
+      <Project>{1E8EDFCE-9052-445A-B818-3B4275B3A7BB}</Project>
+      <Name>MIData</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceMI\" />

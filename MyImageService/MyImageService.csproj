@@ -71,8 +71,8 @@
   <ItemGroup>
     <Content Include="MyImageModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MyImageModel.Context.cs</LastGenOutput>
       <DependentUpon>MyImageModel.edmx</DependentUpon>
+      <LastGenOutput>MyImageModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="MyImageModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -83,6 +83,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptoLib.cs" />
     <Compile Include="MyImageModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,6 +152,10 @@
     <ProjectReference Include="..\MIClient\MIClient.csproj">
       <Project>{6672e8b9-1f6f-4e35-b0db-1dcfc368d261}</Project>
       <Name>MIClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIData\MIData.csproj">
+      <Project>{1E8EDFCE-9052-445A-B818-3B4275B3A7BB}</Project>
+      <Name>MIData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

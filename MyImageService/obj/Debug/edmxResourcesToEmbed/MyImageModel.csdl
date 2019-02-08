@@ -19,7 +19,7 @@
     <Property Name="cus_dob" Type="DateTime" Precision="0" />
     <Property Name="cus_phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cus_add" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="cus_card" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cus_card" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="cus_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="cus_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="tb_order" Relationship="Self.FK__tb_order__o_cus___412EB0B6" FromRole="tb_customer" ToRole="tb_order" />

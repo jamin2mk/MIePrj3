@@ -18,7 +18,6 @@ namespace MyImageService
         public MyImageEntities()
             : base("name=MyImageEntities")
         {
-            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

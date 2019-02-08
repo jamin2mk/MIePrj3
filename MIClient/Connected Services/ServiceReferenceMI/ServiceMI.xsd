@@ -118,4 +118,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tb_shippingcategory" nillable="true" type="tns:tb_shippingcategory" />
+  <xs:complexType name="ArrayOftb_printsize">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tb_printsize" nillable="true" type="tns:tb_printsize" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftb_printsize" nillable="true" type="tns:ArrayOftb_printsize" />
 </xs:schema>

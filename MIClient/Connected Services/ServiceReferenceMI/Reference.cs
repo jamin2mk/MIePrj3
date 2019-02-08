@@ -1126,10 +1126,154 @@ namespace MIClient.ServiceReferenceMI {
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_admin[]> GetAdminsAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
-        MIClient.ServiceReferenceMI.tb_customer[] GetCustomers(string all);
+        MIClient.ServiceReferenceMI.tb_customer[] GetCustomers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
-        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync(string all);
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersResponse")]
+        MIClient.ServiceReferenceMI.tb_order[] GetOrders();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetPrintsizes", ReplyAction="http://tempuri.org/IServiceMI/GetPrintsizesResponse")]
+        MIClient.ServiceReferenceMI.tb_printsize[] GetPrintsizes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetPrintsizes", ReplyAction="http://tempuri.org/IServiceMI/GetPrintsizesResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_printsize[]> GetPrintsizesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreatePrintsizes", ReplyAction="http://tempuri.org/IServiceMI/CreatePrintsizesResponse")]
+        void CreatePrintsizes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreatePrintsizes", ReplyAction="http://tempuri.org/IServiceMI/CreatePrintsizesResponse")]
+        System.Threading.Tasks.Task CreatePrintsizesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdatePrintsize", ReplyAction="http://tempuri.org/IServiceMI/UpdatePrintsizeResponse")]
+        void UpdatePrintsize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdatePrintsize", ReplyAction="http://tempuri.org/IServiceMI/UpdatePrintsizeResponse")]
+        System.Threading.Tasks.Task UpdatePrintsizeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
+        MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomer", ReplyAction="http://tempuri.org/IServiceMI/GetCustomerResponse")]
+        MIData.Models.Customer GetCustomer(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomer", ReplyAction="http://tempuri.org/IServiceMI/GetCustomerResponse")]
+        System.Threading.Tasks.Task<MIData.Models.Customer> GetCustomerAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreateCustomer", ReplyAction="http://tempuri.org/IServiceMI/CreateCustomerResponse")]
+        string CreateCustomer(MIData.Models.Customer customer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreateCustomer", ReplyAction="http://tempuri.org/IServiceMI/CreateCustomerResponse")]
+        System.Threading.Tasks.Task<string> CreateCustomerAsync(MIData.Models.Customer customer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/EditCustomer", ReplyAction="http://tempuri.org/IServiceMI/EditCustomerResponse")]
+        void EditCustomer(MIData.Models.Customer customer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/EditCustomer", ReplyAction="http://tempuri.org/IServiceMI/EditCustomerResponse")]
+        System.Threading.Tasks.Task EditCustomerAsync(MIData.Models.Customer customer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/Login", ReplyAction="http://tempuri.org/IServiceMI/LoginResponse")]
+        bool Login(string email, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/Login", ReplyAction="http://tempuri.org/IServiceMI/LoginResponse")]
+        System.Threading.Tasks.Task<bool> LoginAsync(string email, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/Logout", ReplyAction="http://tempuri.org/IServiceMI/LogoutResponse")]
+        void Logout();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/Logout", ReplyAction="http://tempuri.org/IServiceMI/LogoutResponse")]
+        System.Threading.Tasks.Task LogoutAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/FindOrders", ReplyAction="http://tempuri.org/IServiceMI/FindOrdersResponse")]
+        MIData.Models.FollowedOrder[] FindOrders(int custID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/FindOrders", ReplyAction="http://tempuri.org/IServiceMI/FindOrdersResponse")]
+        System.Threading.Tasks.Task<MIData.Models.FollowedOrder[]> FindOrdersAsync(int custID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreateOrder", ReplyAction="http://tempuri.org/IServiceMI/CreateOrderResponse")]
+        int CreateOrder(int custID, string folder, MIData.Models.Recipient recipient, MIData.Models.Payment payment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreateOrder", ReplyAction="http://tempuri.org/IServiceMI/CreateOrderResponse")]
+        System.Threading.Tasks.Task<int> CreateOrderAsync(int custID, string folder, MIData.Models.Recipient recipient, MIData.Models.Payment payment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SaveDetailImage", ReplyAction="http://tempuri.org/IServiceMI/SaveDetailImageResponse")]
+        void SaveDetailImage(MIData.Models.MImages mImages);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SaveDetailImage", ReplyAction="http://tempuri.org/IServiceMI/SaveDetailImageResponse")]
+        System.Threading.Tasks.Task SaveDetailImageAsync(MIData.Models.MImages mImages);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SaveOrderDetail", ReplyAction="http://tempuri.org/IServiceMI/SaveOrderDetailResponse")]
+        void SaveOrderDetail(int orderID, string folder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SaveOrderDetail", ReplyAction="http://tempuri.org/IServiceMI/SaveOrderDetailResponse")]
+        System.Threading.Tasks.Task SaveOrderDetailAsync(int orderID, string folder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/RandomFolder", ReplyAction="http://tempuri.org/IServiceMI/RandomFolderResponse")]
+        string RandomFolder();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/RandomFolder", ReplyAction="http://tempuri.org/IServiceMI/RandomFolderResponse")]
+        System.Threading.Tasks.Task<string> RandomFolderAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SaveImages", ReplyAction="http://tempuri.org/IServiceMI/SaveImagesResponse")]
+        MIData.Models.MImages SaveImages(System.Web.HttpPostedFileBase[] images, string dir, string folder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SaveImages", ReplyAction="http://tempuri.org/IServiceMI/SaveImagesResponse")]
+        System.Threading.Tasks.Task<MIData.Models.MImages> SaveImagesAsync(System.Web.HttpPostedFileBase[] images, string dir, string folder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetSize", ReplyAction="http://tempuri.org/IServiceMI/GetSizeResponse")]
+        string[] GetSize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetSize", ReplyAction="http://tempuri.org/IServiceMI/GetSizeResponse")]
+        System.Threading.Tasks.Task<string[]> GetSizeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDelivery", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryResponse")]
+        MIClient.ServiceReferenceMI.tb_deliverytime GetDelivery(System.DateTime deliveryDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDelivery", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_deliverytime> GetDeliveryAsync(System.DateTime deliveryDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetShipCate", ReplyAction="http://tempuri.org/IServiceMI/GetShipCateResponse")]
+        MIClient.ServiceReferenceMI.tb_shippingcategory GetShipCate(string location);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetShipCate", ReplyAction="http://tempuri.org/IServiceMI/GetShipCateResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_shippingcategory> GetShipCateAsync(string location);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetShipList", ReplyAction="http://tempuri.org/IServiceMI/GetShipListResponse")]
+        string[] GetShipList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetShipList", ReplyAction="http://tempuri.org/IServiceMI/GetShipListResponse")]
+        System.Threading.Tasks.Task<string[]> GetShipListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CalculateImage", ReplyAction="http://tempuri.org/IServiceMI/CalculateImageResponse")]
+        MIData.Models.MImages CalculateImage(MIData.Models.MImages mImages);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CalculateImage", ReplyAction="http://tempuri.org/IServiceMI/CalculateImageResponse")]
+        System.Threading.Tasks.Task<MIData.Models.MImages> CalculateImageAsync(MIData.Models.MImages mImages);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CalculateShip", ReplyAction="http://tempuri.org/IServiceMI/CalculateShipResponse")]
+        decimal CalculateShip(MIData.Models.Recipient recipient, decimal imgTotal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CalculateShip", ReplyAction="http://tempuri.org/IServiceMI/CalculateShipResponse")]
+        System.Threading.Tasks.Task<decimal> CalculateShipAsync(MIData.Models.Recipient recipient, decimal imgTotal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/AddCreditCard", ReplyAction="http://tempuri.org/IServiceMI/AddCreditCardResponse")]
+        void AddCreditCard(int custID, string custCard);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/AddCreditCard", ReplyAction="http://tempuri.org/IServiceMI/AddCreditCardResponse")]
+        System.Threading.Tasks.Task AddCreditCardAsync(int custID, string custCard);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/VerifyCreditCard", ReplyAction="http://tempuri.org/IServiceMI/VerifyCreditCardResponse")]
+        bool VerifyCreditCard(int custID, System.DateTime expiredDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/VerifyCreditCard", ReplyAction="http://tempuri.org/IServiceMI/VerifyCreditCardResponse")]
+        System.Threading.Tasks.Task<bool> VerifyCreditCardAsync(int custID, System.DateTime expiredDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1175,12 +1319,204 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.GetAdminsAsync(username);
         }
         
-        public MIClient.ServiceReferenceMI.tb_customer[] GetCustomers(string all) {
-            return base.Channel.GetCustomers(all);
+        public MIClient.ServiceReferenceMI.tb_customer[] GetCustomers() {
+            return base.Channel.GetCustomers();
         }
         
-        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync(string all) {
-            return base.Channel.GetCustomersAsync(all);
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync() {
+            return base.Channel.GetCustomersAsync();
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_order[] GetOrders() {
+            return base.Channel.GetOrders();
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync() {
+            return base.Channel.GetOrdersAsync();
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_printsize[] GetPrintsizes() {
+            return base.Channel.GetPrintsizes();
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_printsize[]> GetPrintsizesAsync() {
+            return base.Channel.GetPrintsizesAsync();
+        }
+        
+        public void CreatePrintsizes() {
+            base.Channel.CreatePrintsizes();
+        }
+        
+        public System.Threading.Tasks.Task CreatePrintsizesAsync() {
+            return base.Channel.CreatePrintsizesAsync();
+        }
+        
+        public void UpdatePrintsize() {
+            base.Channel.UpdatePrintsize();
+        }
+        
+        public System.Threading.Tasks.Task UpdatePrintsizeAsync() {
+            return base.Channel.UpdatePrintsizeAsync();
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname) {
+            return base.Channel.SearchCustomerByName(fname, lname);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname) {
+            return base.Channel.SearchCustomerByNameAsync(fname, lname);
+        }
+        
+        public MIData.Models.Customer GetCustomer(string email) {
+            return base.Channel.GetCustomer(email);
+        }
+        
+        public System.Threading.Tasks.Task<MIData.Models.Customer> GetCustomerAsync(string email) {
+            return base.Channel.GetCustomerAsync(email);
+        }
+        
+        public string CreateCustomer(MIData.Models.Customer customer) {
+            return base.Channel.CreateCustomer(customer);
+        }
+        
+        public System.Threading.Tasks.Task<string> CreateCustomerAsync(MIData.Models.Customer customer) {
+            return base.Channel.CreateCustomerAsync(customer);
+        }
+        
+        public void EditCustomer(MIData.Models.Customer customer) {
+            base.Channel.EditCustomer(customer);
+        }
+        
+        public System.Threading.Tasks.Task EditCustomerAsync(MIData.Models.Customer customer) {
+            return base.Channel.EditCustomerAsync(customer);
+        }
+        
+        public bool Login(string email, string pass) {
+            return base.Channel.Login(email, pass);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LoginAsync(string email, string pass) {
+            return base.Channel.LoginAsync(email, pass);
+        }
+        
+        public void Logout() {
+            base.Channel.Logout();
+        }
+        
+        public System.Threading.Tasks.Task LogoutAsync() {
+            return base.Channel.LogoutAsync();
+        }
+        
+        public MIData.Models.FollowedOrder[] FindOrders(int custID) {
+            return base.Channel.FindOrders(custID);
+        }
+        
+        public System.Threading.Tasks.Task<MIData.Models.FollowedOrder[]> FindOrdersAsync(int custID) {
+            return base.Channel.FindOrdersAsync(custID);
+        }
+        
+        public int CreateOrder(int custID, string folder, MIData.Models.Recipient recipient, MIData.Models.Payment payment) {
+            return base.Channel.CreateOrder(custID, folder, recipient, payment);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateOrderAsync(int custID, string folder, MIData.Models.Recipient recipient, MIData.Models.Payment payment) {
+            return base.Channel.CreateOrderAsync(custID, folder, recipient, payment);
+        }
+        
+        public void SaveDetailImage(MIData.Models.MImages mImages) {
+            base.Channel.SaveDetailImage(mImages);
+        }
+        
+        public System.Threading.Tasks.Task SaveDetailImageAsync(MIData.Models.MImages mImages) {
+            return base.Channel.SaveDetailImageAsync(mImages);
+        }
+        
+        public void SaveOrderDetail(int orderID, string folder) {
+            base.Channel.SaveOrderDetail(orderID, folder);
+        }
+        
+        public System.Threading.Tasks.Task SaveOrderDetailAsync(int orderID, string folder) {
+            return base.Channel.SaveOrderDetailAsync(orderID, folder);
+        }
+        
+        public string RandomFolder() {
+            return base.Channel.RandomFolder();
+        }
+        
+        public System.Threading.Tasks.Task<string> RandomFolderAsync() {
+            return base.Channel.RandomFolderAsync();
+        }
+        
+        public MIData.Models.MImages SaveImages(System.Web.HttpPostedFileBase[] images, string dir, string folder) {
+            return base.Channel.SaveImages(images, dir, folder);
+        }
+        
+        public System.Threading.Tasks.Task<MIData.Models.MImages> SaveImagesAsync(System.Web.HttpPostedFileBase[] images, string dir, string folder) {
+            return base.Channel.SaveImagesAsync(images, dir, folder);
+        }
+        
+        public string[] GetSize() {
+            return base.Channel.GetSize();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetSizeAsync() {
+            return base.Channel.GetSizeAsync();
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_deliverytime GetDelivery(System.DateTime deliveryDate) {
+            return base.Channel.GetDelivery(deliveryDate);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_deliverytime> GetDeliveryAsync(System.DateTime deliveryDate) {
+            return base.Channel.GetDeliveryAsync(deliveryDate);
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_shippingcategory GetShipCate(string location) {
+            return base.Channel.GetShipCate(location);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_shippingcategory> GetShipCateAsync(string location) {
+            return base.Channel.GetShipCateAsync(location);
+        }
+        
+        public string[] GetShipList() {
+            return base.Channel.GetShipList();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetShipListAsync() {
+            return base.Channel.GetShipListAsync();
+        }
+        
+        public MIData.Models.MImages CalculateImage(MIData.Models.MImages mImages) {
+            return base.Channel.CalculateImage(mImages);
+        }
+        
+        public System.Threading.Tasks.Task<MIData.Models.MImages> CalculateImageAsync(MIData.Models.MImages mImages) {
+            return base.Channel.CalculateImageAsync(mImages);
+        }
+        
+        public decimal CalculateShip(MIData.Models.Recipient recipient, decimal imgTotal) {
+            return base.Channel.CalculateShip(recipient, imgTotal);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> CalculateShipAsync(MIData.Models.Recipient recipient, decimal imgTotal) {
+            return base.Channel.CalculateShipAsync(recipient, imgTotal);
+        }
+        
+        public void AddCreditCard(int custID, string custCard) {
+            base.Channel.AddCreditCard(custID, custCard);
+        }
+        
+        public System.Threading.Tasks.Task AddCreditCardAsync(int custID, string custCard) {
+            return base.Channel.AddCreditCardAsync(custID, custCard);
+        }
+        
+        public bool VerifyCreditCard(int custID, System.DateTime expiredDate) {
+            return base.Channel.VerifyCreditCard(custID, expiredDate);
+        }
+        
+        public System.Threading.Tasks.Task<bool> VerifyCreditCardAsync(int custID, System.DateTime expiredDate) {
+            return base.Channel.VerifyCreditCardAsync(custID, expiredDate);
         }
     }
 }

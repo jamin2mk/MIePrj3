@@ -1,0 +1,57 @@
+﻿@using MIData.Models;
+@model MImages
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<h2>Your Prints Order</h2>
+<hr />
+@{
+    List<MImage> data;
+    decimal total = 0;
+    int quantity = 0;
+    if (Model == null)
+    {
+        data = new List<MImage> { new MImage() };
+    }
+    else
+    {
+        data = Model.MImageList;
+    }
+}
+
+@foreach (var item in data)
+{
+
+    var amount = item.Price * item.Copies;    
+    quantity += item.Copies;
+    <div class="row">
+        <div class="col-md-4">
+            <span>@item.Size</span>
+        </div>
+        <div class="col-md-3">
+            <span>@item.Price</span>
+        </div>
+        <div class="col-md-2">
+            <span>@item.Copies</span>
+        </div>
+        <div class="col-md-3">
+            <span>@amount</span>
+        </div>
+    </div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        <span>Total</span>
+    </div>
+    <div class="col-md-2">
+        <span>@quantity</span>
+    </div>
+    <div class="col-md-3">
+        <span>@Model.Total</span>
+    </div>
+</div>
+
+<div class="row">
+    @Html.ActionLink("Next","ShipInfo",new { @class = "btn btn-default w-80" })
+</div>

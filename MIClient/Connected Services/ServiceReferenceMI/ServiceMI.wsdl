@@ -5,6 +5,9 @@
       <xsd:import schemaLocation="http://localhost:49993/ServiceMI.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:49993/ServiceMI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:49993/ServiceMI.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MyImageService" />
+      <xsd:import schemaLocation="http://localhost:49993/ServiceMI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MIData.Models" />
+      <xsd:import schemaLocation="http://localhost:49993/ServiceMI.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Web" />
+      <xsd:import schemaLocation="http://localhost:49993/ServiceMI.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceMI_AdminLogin_InputMessage">
@@ -25,6 +28,150 @@
   <wsdl:message name="IServiceMI_GetCustomers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomersResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrders" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetPrintsizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintsizes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetPrintsizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintsizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreatePrintsizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePrintsizes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreatePrintsizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePrintsizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdatePrintsize_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrintsize" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_UpdatePrintsize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrintsizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchCustomerByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomerByName" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchCustomerByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomerByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_EditCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_EditCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_FindOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindOrders" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_FindOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrder" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CreateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SaveDetailImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDetailImage" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SaveDetailImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDetailImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SaveOrderDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SaveOrderDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_RandomFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:RandomFolder" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_RandomFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RandomFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SaveImages_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveImages" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SaveImages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSize" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetShipCate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipCate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetShipCate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipCateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetShipList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetShipList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CalculateImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateImage" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CalculateImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CalculateShip_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateShip" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CalculateShip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateShipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_AddCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_AddCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_VerifyCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_VerifyCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyCreditCardResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceMI">
     <wsdl:operation name="AdminLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/AdminLogin" message="tns:IServiceMI_AdminLogin_InputMessage" />
@@ -37,6 +184,102 @@
     <wsdl:operation name="GetCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetCustomers" message="tns:IServiceMI_GetCustomers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetCustomersResponse" message="tns:IServiceMI_GetCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrders" message="tns:IServiceMI_GetOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersResponse" message="tns:IServiceMI_GetOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintsizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetPrintsizes" message="tns:IServiceMI_GetPrintsizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetPrintsizesResponse" message="tns:IServiceMI_GetPrintsizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePrintsizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CreatePrintsizes" message="tns:IServiceMI_CreatePrintsizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/CreatePrintsizesResponse" message="tns:IServiceMI_CreatePrintsizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintsize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UpdatePrintsize" message="tns:IServiceMI_UpdatePrintsize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UpdatePrintsizeResponse" message="tns:IServiceMI_UpdatePrintsize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomerByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SearchCustomerByName" message="tns:IServiceMI_SearchCustomerByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse" message="tns:IServiceMI_SearchCustomerByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetCustomer" message="tns:IServiceMI_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetCustomerResponse" message="tns:IServiceMI_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CreateCustomer" message="tns:IServiceMI_CreateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/CreateCustomerResponse" message="tns:IServiceMI_CreateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/EditCustomer" message="tns:IServiceMI_EditCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/EditCustomerResponse" message="tns:IServiceMI_EditCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/Login" message="tns:IServiceMI_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/LoginResponse" message="tns:IServiceMI_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/Logout" message="tns:IServiceMI_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/LogoutResponse" message="tns:IServiceMI_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/FindOrders" message="tns:IServiceMI_FindOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/FindOrdersResponse" message="tns:IServiceMI_FindOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CreateOrder" message="tns:IServiceMI_CreateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/CreateOrderResponse" message="tns:IServiceMI_CreateOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDetailImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SaveDetailImage" message="tns:IServiceMI_SaveDetailImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SaveDetailImageResponse" message="tns:IServiceMI_SaveDetailImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrderDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SaveOrderDetail" message="tns:IServiceMI_SaveOrderDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SaveOrderDetailResponse" message="tns:IServiceMI_SaveOrderDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RandomFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/RandomFolder" message="tns:IServiceMI_RandomFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/RandomFolderResponse" message="tns:IServiceMI_RandomFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveImages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SaveImages" message="tns:IServiceMI_SaveImages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SaveImagesResponse" message="tns:IServiceMI_SaveImages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetSize" message="tns:IServiceMI_GetSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetSizeResponse" message="tns:IServiceMI_GetSize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDelivery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetDelivery" message="tns:IServiceMI_GetDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetDeliveryResponse" message="tns:IServiceMI_GetDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipCate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetShipCate" message="tns:IServiceMI_GetShipCate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetShipCateResponse" message="tns:IServiceMI_GetShipCate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetShipList" message="tns:IServiceMI_GetShipList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetShipListResponse" message="tns:IServiceMI_GetShipList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CalculateImage" message="tns:IServiceMI_CalculateImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/CalculateImageResponse" message="tns:IServiceMI_CalculateImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateShip">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CalculateShip" message="tns:IServiceMI_CalculateShip_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/CalculateShipResponse" message="tns:IServiceMI_CalculateShip_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/AddCreditCard" message="tns:IServiceMI_AddCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/AddCreditCardResponse" message="tns:IServiceMI_AddCreditCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/VerifyCreditCard" message="tns:IServiceMI_VerifyCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/VerifyCreditCardResponse" message="tns:IServiceMI_VerifyCreditCard_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceMI" type="tns:IServiceMI">
@@ -61,6 +304,222 @@
     </wsdl:operation>
     <wsdl:operation name="GetCustomers">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/GetCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintsizes">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetPrintsizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePrintsizes">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/CreatePrintsizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintsize">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/UpdatePrintsize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomerByName">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/SearchCustomerByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCustomer">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/EditCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/FindOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/CreateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDetailImage">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/SaveDetailImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrderDetail">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/SaveOrderDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RandomFolder">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/RandomFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveImages">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/SaveImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSize">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelivery">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipCate">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetShipCate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipList">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetShipList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateImage">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/CalculateImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateShip">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/CalculateShip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCreditCard">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/AddCreditCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyCreditCard">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/VerifyCreditCard" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

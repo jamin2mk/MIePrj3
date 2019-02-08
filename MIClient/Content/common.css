@@ -1,0 +1,24 @@
+﻿.my-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mx-10{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.pl-20{
+    padding-left: 20px;
+}
+
+.w-80 {
+    width: 80px;
+}
+
+.w-100 {
+    width: 100px !important;
+}
+
+.w-150 {
+    width: 150px !important;
+}

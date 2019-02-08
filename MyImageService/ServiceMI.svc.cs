@@ -1,11 +1,14 @@
-﻿using System;
+﻿using MIData.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-
+using System.Web;
+using System.Data.Entity.Validation;
 
 namespace MyImageService
 {
@@ -64,5 +67,255 @@ namespace MyImageService
         {
             throw new NotImplementedException();
         }
+
+        // for Customer
+
+        public Customer GetCustomer(string email)
+        {
+            tb_customer cust = db.tb_customer.Where(c => c.cus_email.Equals(email)).FirstOrDefault();
+            return new Customer { cus_id = cust.cus_id, cus_fname = cust.cus_fname };
+        }
+
+        public string CreateCustomer(Customer customer)
+        {
+            string mess = null;
+            var check = db.tb_customer.Where(c => c.cus_email.Equals(customer.cus_email)).FirstOrDefault();
+            if (check != null)
+            {
+                mess = "Email is existed. Please try with another.";
+                return mess;
+            }
+            if (!customer.cus_pass.Equals(customer.pass_confirm))
+            {
+                mess = "Password and Password Confirm are not matched.";
+                return mess;
+            }
+            tb_customer newCust = new tb_customer();
+            newCust.cus_fname = customer.cus_fname;
+            newCust.cus_lname = customer.cus_lname;
+            newCust.cus_gender = customer.cus_gender;
+            newCust.cus_dob = customer.cus_dob;
+            newCust.cus_phone = customer.cus_phone;
+            newCust.cus_add = customer.cus_add;
+            newCust.cus_email = customer.cus_email;
+            newCust.cus_card = CryptoLib.EncryptString(customer.cus_card);
+            newCust.cus_pass = CryptoLib.EncryptString(customer.cus_pass);
+            db.tb_customer.Add(newCust);
+            db.SaveChanges();
+            return mess;
+        }
+
+        public void EditCustomer(Customer customer)
+        {
+            tb_customer cust = db.tb_customer.Find(customer.cus_id);
+            if (cust != null)
+            {
+                cust.cus_fname = customer.cus_fname;
+                cust.cus_lname = customer.cus_lname;
+                cust.cus_gender = customer.cus_gender;
+                cust.cus_dob = customer.cus_dob;
+                cust.cus_phone = customer.cus_phone;
+                cust.cus_add = customer.cus_add;
+                cust.cus_email = customer.cus_email;
+                cust.cus_card = CryptoLib.EncryptString(customer.cus_card);
+                cust.cus_pass = CryptoLib.EncryptString(customer.cus_pass);
+                db.SaveChanges();
+            }
+        }
+
+        public bool Login(string email, string pass)
+        {
+            tb_customer user = db.tb_customer.Where(u => u.cus_email.Equals(email)).FirstOrDefault();
+            if (user != null)
+            {
+                if (CryptoLib.DecryptString(user.cus_pass).Equals(pass))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void Logout()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<FollowedOrder> FindOrders(int custID)
+        {
+            List<FollowedOrder> orders = (from o in db.tb_order
+                                          where o.o_cus_id == custID
+                                          select new FollowedOrder { OrderDate = o.o_date, ShipOrder = o.o_deli_date, ShipAddress = o.o_shipadd, Payment = o.o_pay, Status = o.o_status }).ToList();
+            return orders;
+        }
+
+        // for Order
+        public int CreateOrder(int custID, string folder, Recipient recipient, Payment payment)
+        {
+            try
+            {
+                int deliveryID = GetDelivery(recipient.Delivery).dt_id;
+                int shipID = GetShipCate(recipient.Province).s_id;
+                tb_order order = new tb_order { o_cus_id = custID, o_date = DateTime.Now, o_pay = payment.Mode, o_shipadd = recipient.Address, o_folder = folder, o_pr_id = 1, o_recip = recipient.Name, o_recip_phone = recipient.Phone, o_deli_date = recipient.Delivery, o_s_id = shipID, o_dt_id = deliveryID, o_status = "Waiting" };
+                db.tb_order.Add(order);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            var orderID = db.tb_order.Where(o => o.o_folder == folder).FirstOrDefault().o_id;
+            return orderID;
+        }
+
+        public void SaveDetailImage(MImages mImages)
+        {
+            try
+            {
+                foreach (var mImage in mImages.MImageList)
+                {
+                    tb_image image = new tb_image { img_size = mImage.Size, img_copies = mImage.Copies, img_link = mImage.Path };
+                    db.tb_image.Add(image);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void SaveOrderDetail(int orderID, string folder)
+        {
+            try
+            {
+                var addedImages = db.tb_image.Where(item => item.img_link.Contains(folder)).ToList();
+                foreach (var img in addedImages)
+                {
+                    tb_orderdetail orderDetail = new tb_orderdetail { orderdetail_o_id = orderID, orderdetail_img_id = img.img_id };
+                    db.tb_orderdetail.Add(orderDetail);
+                    db.SaveChanges();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string RandomFolder()
+        {
+            int xxxx = new Random().Next(1000, 9999);
+            string folder = "folder_" + xxxx;
+
+            return "folder_" + xxxx;
+        }
+
+        public MImages SaveImages(HttpPostedFileBase[] images, string dir, string folder)
+        {
+            MImages mImages = new MImages();
+            foreach (var img in images)
+            {
+                string imgName = Path.GetFileName(img.FileName);
+                string path = Path.Combine(dir, imgName);
+                img.SaveAs(path);
+                mImages.MImageList.Add(new MImage { Path = Path.Combine(folder, imgName) });
+            }
+            return mImages;
+        }
+
+        public MImages CalculateImage(MImages mImages)
+        {
+            var model = new MImages();
+
+            var orderSize = from o in mImages.MImageList
+                            group o by new { o.Size, o.Copies } into groupSize
+                            select new MImage { Size = groupSize.Key.Size, Copies = groupSize.Sum(s => s.Copies) };
+
+            var printSize = from p in db.tb_printsize
+                            select new MImage { Size = p.pr_size, Price = p.pr_price };
+
+            model.MImageList = (from o in orderSize
+                                join p in printSize on o.Size equals p.Size
+                                select new MImage { Size = o.Size, Price = p.Price, Copies = o.Copies }).ToList();
+
+            foreach (var mImage in model.MImageList)
+            {
+                model.Total += (mImage.Price * mImage.Copies);
+            }
+            return model;
+        }
+
+        public decimal CalculateShip(Recipient recipient, decimal imgTotal)
+        {
+            decimal total;
+            total = GetShipCate(recipient.Province).s_price + (decimal)GetDelivery(recipient.Delivery).dt_ratio * imgTotal;
+            return total;
+        }
+
+        public void AddCreditCard(int custID, string custCard)
+        {
+            try
+            {
+                var customer = db.tb_customer.Find(custID);
+                customer.cus_card = CryptoLib.EncryptString(custCard);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        public bool VerifyCreditCard(int custID, DateTime expiredDate)
+        {
+            string encryptedCard = (from c in db.tb_customer
+                                    where c.cus_id == custID
+                                    select c.cus_card).FirstOrDefault();
+
+            string decryptedCard = CryptoLib.DecryptString(encryptedCard);
+
+            if (decryptedCard.Length != 20 || expiredDate < DateTime.Now.Date)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public List<string> GetSize()
+        {
+            List<string> sizes = new List<string>();
+            sizes = (from s in db.tb_printsize
+                     select s.pr_size).ToList();
+            return sizes;
+        }
+
+        public tb_deliverytime GetDelivery(DateTime deliveryDate)
+        {
+            int days = (deliveryDate.Date - DateTime.Now.Date).Days;
+            tb_deliverytime delivery = (from d in db.tb_deliverytime
+                                        where d.dt_num >= days
+                                        orderby d.dt_num ascending
+                                        select d).First();
+            return delivery;
+        }
+
+        public tb_shippingcategory GetShipCate(string location)
+        {
+            tb_shippingcategory shipping = (from l in db.tb_shippingcategory
+                                            where l.s_location == location
+                                            select l).FirstOrDefault();
+            return shipping;
+        }
+
+        public List<string> GetShipList()
+        {
+            var shipList = (from s in db.tb_shippingcategory
+                            select s.s_location).ToList();
+            return shipList;
+        }
+
     }
 }

@@ -1,0 +1,68 @@
+﻿@model MIData.Models.MImages
+@{
+    ViewBag.Title = "ShowImage";
+}
+<link href="~/Content/common.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<h2>ShowImage</h2>
+<hr />
+<h4>@Html.ActionLink("Remove folder", "RemoveDir", new { dir = ViewBag.dir })</h4>
+
+@using (Html.BeginForm("Calculate", "Order", new { @id = "fr_image" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            @for (int i = 0; i < Model.MImageList.Count; i++)
+            {
+                <div class="col-md-3 my-10">
+                    <div class="row">
+                        <img src="~/Uploads/@Model.MImageList[i].Path" width="200" />
+                    </div>
+
+                    <div class="row my-10">
+                        @Html.DropDownListFor(m => m.MImageList[i].Size, new SelectList(ViewBag.Sizes),
+                        "Select Size", new { @id = "cb_size", @class = "form-control w-150" })
+
+                        @Html.EditorFor(m => m.MImageList[i].Copies, new { htmlAttributes = new { @id = "txt_copies", @class = "form-control my-10 w-100" } })
+
+                        @Html.EditorFor(m => m.MImageList[i].Path, new { htmlAttributes = new { @type = "hidden", @value = @Model.MImageList[i].Path } })
+                    </div>
+                </div>
+            }
+            @Html.EditorFor(m => m.Folder, new { htmlAttributes = new { @type = "hidden", @value = @Model.Folder } })
+        </div>
+    </div>
+
+    <div class="col-md-3" id="cal_total">
+
+    </div>
+
+</div>
+<div class="row">
+    <input type="submit" id="btn_Bill1" value="Bill" class="btn btn-default w-80" />
+</div>
+}
+
+<script>
+    $('#btn_Bill').click(function () { 
+        var data = $('#fr_image').serialize();
+        console.log(data);
+        $.ajax({
+            url: "/Order/Calculate",
+            contentType: "application/html;charset=utf-8",
+            data: data,
+            dataType: "json",   
+            type: "POST",
+            dataType: "html"
+        })
+            .success(function (result) {
+                $('#cal_total').html(result);
+            })
+            .error(function (xhr, status) { alert(status); })
+    });
+</script>
+
+

@@ -19,7 +19,7 @@
     <Property Name="cus_dob" Type="date" />
     <Property Name="cus_phone" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="cus_add" Type="varchar" MaxLength="50" />
-    <Property Name="cus_card" Type="varchar" MaxLength="20" />
+    <Property Name="cus_card" Type="varchar(max)" />
     <Property Name="cus_email" Type="varchar" MaxLength="255" />
     <Property Name="cus_pass" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>

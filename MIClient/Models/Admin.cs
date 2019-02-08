@@ -8,7 +8,6 @@ namespace MIClient.Models
 {
     public class Admin
     {
-
         [Key]
         public int aid { get; set; }
 
