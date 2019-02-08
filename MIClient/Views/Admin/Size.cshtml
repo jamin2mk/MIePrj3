@@ -4,41 +4,117 @@
     ViewBag.Title = "Size";
 }
 
-<h2>Size</h2>
 
-<p>
-    @Html.ActionLink("Create New", "CreateSize")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Print Size
-        </th>
-        <th>
-            Size
-        </th>
 
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
 
-            @Html.HiddenFor(modelItem => item.pr_id)
-            <td>
-                @Html.DisplayFor(modelItem => item.pr_size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.pr_price)
-            </td>
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Size Catalogue <small>
+                        Manage Printing
+                        Size
+                    </small>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-            <td>
-                @Html.ActionLink("Edit", "EditSize", new { id = item.pr_id }) |
-                @Html.ActionLink("Delete", "DeleteSize", new { id = item.pr_id }, new { onclick = "return confirm('Are you sure you wish to delete this size?');" })
-            </td>
-        </tr>
-    }
+<section id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Dashboard</a></li> &nbsp;&nbsp;&nbsp; >
+            <li class="active">Size Catalogue</li>
+        </ol>
+    </div>
+</section>
 
-</table>
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <a href="dashboard.html" class="list-group-item active main-color-bg">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                    </a>
+                    <a href="order.html" class="list-group-item">
+                        <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                        Orders <span class="badge">4</span>
+                    </a>
+                    <a href="customer.html" class="list-group-item">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        Customer <span class="badge">12</span>
+                    </a>
+                    <a href="#" class="list-group-item">...</a>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <!-- Order -->
+                <div class="panel panel-default">
+                    <div class="panel-heading main-color-bg">
+                        <h3 class="panel-title">Size Catalogue</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                               
+                                <p>
+                                    <span class="glyphicon glyphicon-plus"></span> @Html.ActionLink("Create New", "CreateSize")
+                                </p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <table class="table table table-hover table-striped">
+                                    <tr>
+                                        <th>
+                                            Print Size
+                                        </th>
+                                        <th>
+                                            Size
+                                        </th>
+
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            @Html.HiddenFor(modelItem => item.pr_id)
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.pr_size)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.pr_price)
+                                            </td>
+
+                                            <td>
+                                                @Html.ActionLink("Edit", "EditSize", new { id = item.pr_id }) |
+                                                @Html.ActionLink("Delete", "DeleteSize", new { id = item.pr_id }, new { onclick = "return confirm('Are you sure you wish to delete this size?');" })
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
 

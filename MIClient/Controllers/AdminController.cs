@@ -119,6 +119,7 @@ namespace MIClient.Controllers
         //ORDER
         public ActionResult Order()
         {
+            Session["active"] = "active";
             return View(client.GetOrders());
         }
 

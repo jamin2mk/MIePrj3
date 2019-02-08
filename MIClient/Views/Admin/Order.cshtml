@@ -4,87 +4,138 @@
     ViewBag.Title = "Order";
 }
 
-<h2>Order</h2>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/style.css" rel="stylesheet"/>
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Orders <small>Manage Orders</small></h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Dashboard</a></li> &nbsp;&nbsp;&nbsp;   >
+            <li class="active">Orders</li>
+        </ol>
+    </div>
+</section>
+
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <a href="dashboard.html" class="list-group-item active main-color-bg">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                    </a>
+                    <a href="order.html" class="list-group-item">
+                        <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                        Orders <span class="badge">4</span>
+                    </a>
+                    <a href="customer.html" class="list-group-item">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        Customer <span class="badge">12</span>
+                    </a>
+                    <a href="#" class="list-group-item">...</a>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <!-- Order -->
+                <div class="panel panel-default">
+                    <div class="panel-heading main-color-bg">
+                        <h3 class="panel-title">Orders List</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Filter orders..." title="Please enter ">
+                            </div>
+                        </div>
+                        <br>
+                        <table class="table table-hover table-striped" id="order-table">
+                            <tr>
+                                <th style="text-align:center;">
+                                    ID
+                                </th>
+                                <th style="text-align:center;">
+                                    Delivery Date
+                                </th>
+                                <th style="text-align:center;">
+                                    Payment
+                                </th>
+
+                                <th style="text-align:center;">
+                                    Recipient
+                                </th>
+                                <th style="text-align:center;">
+                                    Phone Number
+                                </th>
+
+                                <th style="text-align:center;">
+                                    Shipping Address
+                                </th>
+                                <th style="text-align:center;">
+                                    Status
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
 
 
-<table class="table">
-    <tr>
-        <th>
-            Order ID
-        </th>
-        <th>
-            Order Created Date
-        </th>
-        <th>
-            Delivery Date
-        </th>
+                                <td style="text-align:center;">
+                                    @Html.DisplayFor(modelItem => item.o_id)
+                                </td>
+
+
+                                <td style="text-align:center;">
+                                    @Html.DisplayFor(modelItem => item.o_deli_date)
+                                </td>
 
 
 
-        <th>
-            Payment Method
-        </th>
+                                <td style="text-align:center;">
+                                    @Html.DisplayFor(modelItem => item.o_pay)
+                                </td>
 
-        <th>
-            Recipient
-        </th>
-        <th>
-            Phone Number
-        </th>
+                                <td style="text-align:center;">
+                                    @Html.DisplayFor(modelItem => item.o_recip)
+                                </td>
+                                <td style="text-align:center;">
+                                    @Html.DisplayFor(modelItem => item.o_recip_phone)
+                                </td>
 
-        <th>
-            Shipping Address
-        </th>
-        <th>
-            Status
-        </th>
-        <th></th>
-    </tr>
+                                <td style="text-align:center;">
+                                    @Html.DisplayFor(modelItem => item.o_shipadd)
+                                </td>
+                                <td style="text-align:center;">
+                                    @Html.DisplayFor(modelItem => item.o_status)
+                                </td>
+                                <td style="text-align:center;">
+                                    @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
 
-    @foreach (var item in Model)
-    {
-        <tr>
+                                </td>
+                            </tr>
+                            }
 
+                        </table>
+                    </div>
+                </div>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.o_id)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.o_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.o_deli_date)
-            </td>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
-            <td>
-                @Html.DisplayFor(modelItem => item.o_pay)
-            </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.o_recip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.o_recip_phone)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.o_shipadd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.o_status)
-            </td>
-            <td>
-                @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
-
-            </td>
-        </tr>
-    }
-
-</table>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

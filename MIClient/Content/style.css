@@ -1,6 +1,13 @@
 body{
     background: #f4f4f4;
 }
+tr{
+    text-align: center;
+}
+
+th{
+    text-align: center;
+}
 
 /* Navbar */
 .navbar{
@@ -75,6 +82,8 @@ body{
     border-color: #505052 !important;
     color: #ffffff !important;
   }
+
+  
 
   .btn-main-color{
     background-color: #008773 !important;
