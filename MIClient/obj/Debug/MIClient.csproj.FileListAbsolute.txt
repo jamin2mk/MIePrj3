@@ -146,3 +146,5 @@ D:\SEM_3\ePrj\Prs\MIClient\obj\Debug\MIClient.csproj.CoreCompileInputs.cache
 D:\SEM_3\ePrj\Prs\MIClient\obj\Debug\MIClient.csproj.CopyComplete
 D:\SEM_3\ePrj\Prs\MIClient\obj\Debug\MIClient.dll
 D:\SEM_3\ePrj\Prs\MIClient\obj\Debug\MIClient.pdb
+C:\Users\Windows 10\source\repos\LAN3\MIClient\bin\MIData.dll
+C:\Users\Windows 10\source\repos\LAN3\MIClient\bin\MIData.pdb

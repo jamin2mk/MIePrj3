@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MIClient.ServiceReferenceMI.tb_order>
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<h2>Order</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Order ID
+        </th>
+        <th>
+            Order Created Date
+        </th>
+        <th>
+            Delivery Date
+        </th>
+
+
+
+        <th>
+            Payment Method
+        </th>
+
+        <th>
+            Recipient
+        </th>
+        <th>
+            Phone Number
+        </th>
+
+        <th>
+            Shipping Address
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.o_id)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.o_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.o_deli_date)
+            </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.o_pay)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.o_recip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.o_recip_phone)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.o_shipadd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.o_status)
+            </td>
+            <td>
+                @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

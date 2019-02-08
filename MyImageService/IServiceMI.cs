@@ -15,30 +15,59 @@ namespace MyImageService
     [ServiceContract]
     public interface IServiceMI
     {
+        //ADMIN
         [OperationContract]
         bool AdminLogin(string uid, string pwd);
 
         [OperationContract]
         List<tb_admin> GetAdmins(string username);
 
-        [OperationContract]
-        List<tb_customer> GetCustomers();
 
+        //ORDER 
         [OperationContract]
         List<tb_order> GetOrders();
 
         [OperationContract]
+        tb_order GetOneOrders(int id);
+        [OperationContract]
+        void UpdateStatus(tb_order upStatus);
+
+        [OperationContract]
+        List<tb_order> GetOrdersByStatus(string stt);
+        [OperationContract]
+        List<tb_order> GetOrderNotFinished();
+        // CUSTOMER
+        [OperationContract]
+        List<tb_customer> GetCustomers();
+        [OperationContract]
+        List<tb_customer> SearchCustomerByName(string fname, string lname);
+        [OperationContract]
+        int CountAllCustomer();
+
+
+        //PRINT SIZE
+        [OperationContract]
         List<tb_printsize> GetPrintsizes();
 
         [OperationContract]
-        void CreatePrintsizes();
+        tb_printsize GetOnePrintsize(int id);
 
         [OperationContract]
-        void UpdatePrintsize();
+        void CreatePrintsizes(tb_printsize newSize);
 
         [OperationContract]
-        List<tb_customer> SearchCustomerByName(string fname, string lname);
+        void DeletePrintsizes(int id);
 
+        [OperationContract]
+        void UpdatePrintsize(tb_printsize updateSize);
+
+        [OperationContract]
+        bool ValidatePrintSize(tb_printsize valsize);
+
+        [OperationContract]
+        List<tb_printsize> SearchPrintSizebyName(string size);
+        
+                          
         // for Customer
         [OperationContract]
         Customer GetCustomer(string email);
@@ -97,6 +126,8 @@ namespace MyImageService
 
         [OperationContract]
         bool VerifyCreditCard(int custID, DateTime expiredDate);
+        
+
 
     }
     //http://localhost:49993/ServiceMI.svc

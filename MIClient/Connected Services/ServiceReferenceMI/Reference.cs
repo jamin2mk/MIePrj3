@@ -92,211 +92,6 @@ namespace MIClient.ServiceReferenceMI {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tb_customer", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
-    [System.SerializableAttribute()]
-    public partial class tb_customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cus_addField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cus_cardField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> cus_dobField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cus_emailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cus_fnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<bool> cus_genderField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int cus_idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cus_lnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cus_passField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cus_phoneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MIClient.ServiceReferenceMI.tb_order[] tb_orderField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cus_add {
-            get {
-                return this.cus_addField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cus_addField, value) != true)) {
-                    this.cus_addField = value;
-                    this.RaisePropertyChanged("cus_add");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cus_card {
-            get {
-                return this.cus_cardField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cus_cardField, value) != true)) {
-                    this.cus_cardField = value;
-                    this.RaisePropertyChanged("cus_card");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> cus_dob {
-            get {
-                return this.cus_dobField;
-            }
-            set {
-                if ((this.cus_dobField.Equals(value) != true)) {
-                    this.cus_dobField = value;
-                    this.RaisePropertyChanged("cus_dob");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cus_email {
-            get {
-                return this.cus_emailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cus_emailField, value) != true)) {
-                    this.cus_emailField = value;
-                    this.RaisePropertyChanged("cus_email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cus_fname {
-            get {
-                return this.cus_fnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cus_fnameField, value) != true)) {
-                    this.cus_fnameField = value;
-                    this.RaisePropertyChanged("cus_fname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<bool> cus_gender {
-            get {
-                return this.cus_genderField;
-            }
-            set {
-                if ((this.cus_genderField.Equals(value) != true)) {
-                    this.cus_genderField = value;
-                    this.RaisePropertyChanged("cus_gender");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int cus_id {
-            get {
-                return this.cus_idField;
-            }
-            set {
-                if ((this.cus_idField.Equals(value) != true)) {
-                    this.cus_idField = value;
-                    this.RaisePropertyChanged("cus_id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cus_lname {
-            get {
-                return this.cus_lnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cus_lnameField, value) != true)) {
-                    this.cus_lnameField = value;
-                    this.RaisePropertyChanged("cus_lname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cus_pass {
-            get {
-                return this.cus_passField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cus_passField, value) != true)) {
-                    this.cus_passField = value;
-                    this.RaisePropertyChanged("cus_pass");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cus_phone {
-            get {
-                return this.cus_phoneField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cus_phoneField, value) != true)) {
-                    this.cus_phoneField = value;
-                    this.RaisePropertyChanged("cus_phone");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MIClient.ServiceReferenceMI.tb_order[] tb_order {
-            get {
-                return this.tb_orderField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tb_orderField, value) != true)) {
-                    this.tb_orderField = value;
-                    this.RaisePropertyChanged("tb_order");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="tb_order", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
     [System.SerializableAttribute()]
     public partial class tb_order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -598,6 +393,211 @@ namespace MIClient.ServiceReferenceMI {
                 if ((object.ReferenceEquals(this.tb_shippingcategoryField, value) != true)) {
                     this.tb_shippingcategoryField = value;
                     this.RaisePropertyChanged("tb_shippingcategory");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tb_customer", Namespace="http://schemas.datacontract.org/2004/07/MyImageService")]
+    [System.SerializableAttribute()]
+    public partial class tb_customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_addField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_cardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> cus_dobField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_fnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> cus_genderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cus_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_lnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_passField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cus_phoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MIClient.ServiceReferenceMI.tb_order[] tb_orderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_add {
+            get {
+                return this.cus_addField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_addField, value) != true)) {
+                    this.cus_addField = value;
+                    this.RaisePropertyChanged("cus_add");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_card {
+            get {
+                return this.cus_cardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_cardField, value) != true)) {
+                    this.cus_cardField = value;
+                    this.RaisePropertyChanged("cus_card");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> cus_dob {
+            get {
+                return this.cus_dobField;
+            }
+            set {
+                if ((this.cus_dobField.Equals(value) != true)) {
+                    this.cus_dobField = value;
+                    this.RaisePropertyChanged("cus_dob");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_email {
+            get {
+                return this.cus_emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_emailField, value) != true)) {
+                    this.cus_emailField = value;
+                    this.RaisePropertyChanged("cus_email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_fname {
+            get {
+                return this.cus_fnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_fnameField, value) != true)) {
+                    this.cus_fnameField = value;
+                    this.RaisePropertyChanged("cus_fname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> cus_gender {
+            get {
+                return this.cus_genderField;
+            }
+            set {
+                if ((this.cus_genderField.Equals(value) != true)) {
+                    this.cus_genderField = value;
+                    this.RaisePropertyChanged("cus_gender");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cus_id {
+            get {
+                return this.cus_idField;
+            }
+            set {
+                if ((this.cus_idField.Equals(value) != true)) {
+                    this.cus_idField = value;
+                    this.RaisePropertyChanged("cus_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_lname {
+            get {
+                return this.cus_lnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_lnameField, value) != true)) {
+                    this.cus_lnameField = value;
+                    this.RaisePropertyChanged("cus_lname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_pass {
+            get {
+                return this.cus_passField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_passField, value) != true)) {
+                    this.cus_passField = value;
+                    this.RaisePropertyChanged("cus_pass");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cus_phone {
+            get {
+                return this.cus_phoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cus_phoneField, value) != true)) {
+                    this.cus_phoneField = value;
+                    this.RaisePropertyChanged("cus_phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MIClient.ServiceReferenceMI.tb_order[] tb_order {
+            get {
+                return this.tb_orderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tb_orderField, value) != true)) {
+                    this.tb_orderField = value;
+                    this.RaisePropertyChanged("tb_order");
                 }
             }
         }
@@ -1125,17 +1125,53 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetAdmins", ReplyAction="http://tempuri.org/IServiceMI/GetAdminsResponse")]
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_admin[]> GetAdminsAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersResponse")]
+        MIClient.ServiceReferenceMI.tb_order[] GetOrders();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOneOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOneOrdersResponse")]
+        MIClient.ServiceReferenceMI.tb_order GetOneOrders(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOneOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOneOrdersResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order> GetOneOrdersAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdateStatus", ReplyAction="http://tempuri.org/IServiceMI/UpdateStatusResponse")]
+        void UpdateStatus(MIClient.ServiceReferenceMI.tb_order upStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdateStatus", ReplyAction="http://tempuri.org/IServiceMI/UpdateStatusResponse")]
+        System.Threading.Tasks.Task UpdateStatusAsync(MIClient.ServiceReferenceMI.tb_order upStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrdersByStatus", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse")]
+        MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrdersByStatus", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersByStatusAsync(string stt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrderNotFinished", ReplyAction="http://tempuri.org/IServiceMI/GetOrderNotFinishedResponse")]
+        MIClient.ServiceReferenceMI.tb_order[] GetOrderNotFinished();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrderNotFinished", ReplyAction="http://tempuri.org/IServiceMI/GetOrderNotFinishedResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrderNotFinishedAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
         MIClient.ServiceReferenceMI.tb_customer[] GetCustomers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersResponse")]
-        MIClient.ServiceReferenceMI.tb_order[] GetOrders();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
+        MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrders", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersResponse")]
-        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CountAllCustomer", ReplyAction="http://tempuri.org/IServiceMI/CountAllCustomerResponse")]
+        int CountAllCustomer();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CountAllCustomer", ReplyAction="http://tempuri.org/IServiceMI/CountAllCustomerResponse")]
+        System.Threading.Tasks.Task<int> CountAllCustomerAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetPrintsizes", ReplyAction="http://tempuri.org/IServiceMI/GetPrintsizesResponse")]
         MIClient.ServiceReferenceMI.tb_printsize[] GetPrintsizes();
@@ -1143,23 +1179,41 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetPrintsizes", ReplyAction="http://tempuri.org/IServiceMI/GetPrintsizesResponse")]
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_printsize[]> GetPrintsizesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreatePrintsizes", ReplyAction="http://tempuri.org/IServiceMI/CreatePrintsizesResponse")]
-        void CreatePrintsizes();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOnePrintsize", ReplyAction="http://tempuri.org/IServiceMI/GetOnePrintsizeResponse")]
+        MIClient.ServiceReferenceMI.tb_printsize GetOnePrintsize(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOnePrintsize", ReplyAction="http://tempuri.org/IServiceMI/GetOnePrintsizeResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_printsize> GetOnePrintsizeAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreatePrintsizes", ReplyAction="http://tempuri.org/IServiceMI/CreatePrintsizesResponse")]
-        System.Threading.Tasks.Task CreatePrintsizesAsync();
+        void CreatePrintsizes(MIClient.ServiceReferenceMI.tb_printsize newSize);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreatePrintsizes", ReplyAction="http://tempuri.org/IServiceMI/CreatePrintsizesResponse")]
+        System.Threading.Tasks.Task CreatePrintsizesAsync(MIClient.ServiceReferenceMI.tb_printsize newSize);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/DeletePrintsizes", ReplyAction="http://tempuri.org/IServiceMI/DeletePrintsizesResponse")]
+        void DeletePrintsizes(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/DeletePrintsizes", ReplyAction="http://tempuri.org/IServiceMI/DeletePrintsizesResponse")]
+        System.Threading.Tasks.Task DeletePrintsizesAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdatePrintsize", ReplyAction="http://tempuri.org/IServiceMI/UpdatePrintsizeResponse")]
-        void UpdatePrintsize();
+        void UpdatePrintsize(MIClient.ServiceReferenceMI.tb_printsize updateSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdatePrintsize", ReplyAction="http://tempuri.org/IServiceMI/UpdatePrintsizeResponse")]
-        System.Threading.Tasks.Task UpdatePrintsizeAsync();
+        System.Threading.Tasks.Task UpdatePrintsizeAsync(MIClient.ServiceReferenceMI.tb_printsize updateSize);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
-        MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ValidatePrintSize", ReplyAction="http://tempuri.org/IServiceMI/ValidatePrintSizeResponse")]
+        bool ValidatePrintSize(MIClient.ServiceReferenceMI.tb_printsize valsize);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
-        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ValidatePrintSize", ReplyAction="http://tempuri.org/IServiceMI/ValidatePrintSizeResponse")]
+        System.Threading.Tasks.Task<bool> ValidatePrintSizeAsync(MIClient.ServiceReferenceMI.tb_printsize valsize);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchPrintSizebyName", ReplyAction="http://tempuri.org/IServiceMI/SearchPrintSizebyNameResponse")]
+        MIClient.ServiceReferenceMI.tb_printsize[] SearchPrintSizebyName(string size);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchPrintSizebyName", ReplyAction="http://tempuri.org/IServiceMI/SearchPrintSizebyNameResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_printsize[]> SearchPrintSizebyNameAsync(string size);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomer", ReplyAction="http://tempuri.org/IServiceMI/GetCustomerResponse")]
         MIData.Models.Customer GetCustomer(string email);
@@ -1319,6 +1373,46 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.GetAdminsAsync(username);
         }
         
+        public MIClient.ServiceReferenceMI.tb_order[] GetOrders() {
+            return base.Channel.GetOrders();
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync() {
+            return base.Channel.GetOrdersAsync();
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_order GetOneOrders(int id) {
+            return base.Channel.GetOneOrders(id);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order> GetOneOrdersAsync(int id) {
+            return base.Channel.GetOneOrdersAsync(id);
+        }
+        
+        public void UpdateStatus(MIClient.ServiceReferenceMI.tb_order upStatus) {
+            base.Channel.UpdateStatus(upStatus);
+        }
+        
+        public System.Threading.Tasks.Task UpdateStatusAsync(MIClient.ServiceReferenceMI.tb_order upStatus) {
+            return base.Channel.UpdateStatusAsync(upStatus);
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt) {
+            return base.Channel.GetOrdersByStatus(stt);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersByStatusAsync(string stt) {
+            return base.Channel.GetOrdersByStatusAsync(stt);
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_order[] GetOrderNotFinished() {
+            return base.Channel.GetOrderNotFinished();
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrderNotFinishedAsync() {
+            return base.Channel.GetOrderNotFinishedAsync();
+        }
+        
         public MIClient.ServiceReferenceMI.tb_customer[] GetCustomers() {
             return base.Channel.GetCustomers();
         }
@@ -1327,12 +1421,20 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.GetCustomersAsync();
         }
         
-        public MIClient.ServiceReferenceMI.tb_order[] GetOrders() {
-            return base.Channel.GetOrders();
+        public MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname) {
+            return base.Channel.SearchCustomerByName(fname, lname);
         }
         
-        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersAsync() {
-            return base.Channel.GetOrdersAsync();
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname) {
+            return base.Channel.SearchCustomerByNameAsync(fname, lname);
+        }
+        
+        public int CountAllCustomer() {
+            return base.Channel.CountAllCustomer();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountAllCustomerAsync() {
+            return base.Channel.CountAllCustomerAsync();
         }
         
         public MIClient.ServiceReferenceMI.tb_printsize[] GetPrintsizes() {
@@ -1343,28 +1445,52 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.GetPrintsizesAsync();
         }
         
-        public void CreatePrintsizes() {
-            base.Channel.CreatePrintsizes();
+        public MIClient.ServiceReferenceMI.tb_printsize GetOnePrintsize(int id) {
+            return base.Channel.GetOnePrintsize(id);
         }
         
-        public System.Threading.Tasks.Task CreatePrintsizesAsync() {
-            return base.Channel.CreatePrintsizesAsync();
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_printsize> GetOnePrintsizeAsync(int id) {
+            return base.Channel.GetOnePrintsizeAsync(id);
         }
         
-        public void UpdatePrintsize() {
-            base.Channel.UpdatePrintsize();
+        public void CreatePrintsizes(MIClient.ServiceReferenceMI.tb_printsize newSize) {
+            base.Channel.CreatePrintsizes(newSize);
         }
         
-        public System.Threading.Tasks.Task UpdatePrintsizeAsync() {
-            return base.Channel.UpdatePrintsizeAsync();
+        public System.Threading.Tasks.Task CreatePrintsizesAsync(MIClient.ServiceReferenceMI.tb_printsize newSize) {
+            return base.Channel.CreatePrintsizesAsync(newSize);
         }
         
-        public MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname) {
-            return base.Channel.SearchCustomerByName(fname, lname);
+        public void DeletePrintsizes(int id) {
+            base.Channel.DeletePrintsizes(id);
         }
         
-        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname) {
-            return base.Channel.SearchCustomerByNameAsync(fname, lname);
+        public System.Threading.Tasks.Task DeletePrintsizesAsync(int id) {
+            return base.Channel.DeletePrintsizesAsync(id);
+        }
+        
+        public void UpdatePrintsize(MIClient.ServiceReferenceMI.tb_printsize updateSize) {
+            base.Channel.UpdatePrintsize(updateSize);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePrintsizeAsync(MIClient.ServiceReferenceMI.tb_printsize updateSize) {
+            return base.Channel.UpdatePrintsizeAsync(updateSize);
+        }
+        
+        public bool ValidatePrintSize(MIClient.ServiceReferenceMI.tb_printsize valsize) {
+            return base.Channel.ValidatePrintSize(valsize);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidatePrintSizeAsync(MIClient.ServiceReferenceMI.tb_printsize valsize) {
+            return base.Channel.ValidatePrintSizeAsync(valsize);
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_printsize[] SearchPrintSizebyName(string size) {
+            return base.Channel.SearchPrintSizebyName(size);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_printsize[]> SearchPrintSizebyNameAsync(string size) {
+            return base.Channel.SearchPrintSizebyNameAsync(size);
         }
         
         public MIData.Models.Customer GetCustomer(string email) {
