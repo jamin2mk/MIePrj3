@@ -68,6 +68,32 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetOrdersByStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stt" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetOrdersByStatusResult" nillable="true" type="q5:ArrayOftb_order" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderNotFinished">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderNotFinishedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetOrderNotFinishedResult" nillable="true" type="q6:ArrayOftb_order" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetCustomers">
     <xs:complexType>
       <xs:sequence />
@@ -76,7 +102,7 @@
   <xs:element name="GetCustomersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetCustomersResult" nillable="true" type="q5:ArrayOftb_customer" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetCustomersResult" nillable="true" type="q7:ArrayOftb_customer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,7 +117,19 @@
   <xs:element name="SearchCustomerByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="SearchCustomerByNameResult" nillable="true" type="q6:ArrayOftb_customer" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="SearchCustomerByNameResult" nillable="true" type="q8:ArrayOftb_customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountAllCustomer">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountAllCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountAllCustomerResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -103,7 +141,7 @@
   <xs:element name="GetPrintsizesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetPrintsizesResult" nillable="true" type="q7:ArrayOftb_printsize" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetPrintsizesResult" nillable="true" type="q9:ArrayOftb_printsize" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -117,14 +155,14 @@
   <xs:element name="GetOnePrintsizeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetOnePrintsizeResult" nillable="true" type="q8:tb_printsize" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetOnePrintsizeResult" nillable="true" type="q10:tb_printsize" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreatePrintsizes">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="newSize" nillable="true" type="q9:tb_printsize" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="newSize" nillable="true" type="q11:tb_printsize" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -148,7 +186,7 @@
   <xs:element name="UpdatePrintsize">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="updateSize" nillable="true" type="q10:tb_printsize" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="updateSize" nillable="true" type="q12:tb_printsize" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -160,7 +198,7 @@
   <xs:element name="ValidatePrintSize">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="valsize" nillable="true" type="q11:tb_printsize" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="valsize" nillable="true" type="q13:tb_printsize" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,7 +219,7 @@
   <xs:element name="SearchPrintSizebyNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="SearchPrintSizebyNameResult" nillable="true" type="q12:ArrayOftb_printsize" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="SearchPrintSizebyNameResult" nillable="true" type="q14:ArrayOftb_printsize" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

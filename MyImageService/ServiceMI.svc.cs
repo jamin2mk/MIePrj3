@@ -37,7 +37,7 @@ namespace MyImageService
         {
             return db.tb_admin.ToList();
         }
-
+        //CUSTOMER
         public List<tb_customer> GetCustomers()
         {
             return db.tb_customer.ToList();
@@ -47,6 +47,11 @@ namespace MyImageService
         {
             var result = db.tb_customer.Where(c => c.cus_lname.ToLower().Contains(lname.ToLower()) && c.cus_fname.ToLower().Contains(fname.ToLower()));
             return result.ToList();
+        }
+
+        public int CountAllCustomer()
+        {            
+           return GetCustomers().ToList().Count();
         }
 
         //ORDER
@@ -62,13 +67,61 @@ namespace MyImageService
 
         public void UpdateStatus(tb_order upStatus)
         {
-            var a = db.tb_order.Find(upStatus.o_id);
-            if (a != null)
-            {                
-                a.o_status = upStatus.o_status;
-                db.SaveChanges();
+           
+
+            try
+            {
+                var a = db.tb_order.Find(upStatus.o_id);
+                if (a != null)
+                {
+                    a.o_cus_id = upStatus.o_cus_id;
+                    a.o_date = upStatus.o_date;
+                    a.o_deli_date = upStatus.o_deli_date;
+                    a.o_dt_id = upStatus.o_dt_id;
+                    a.o_folder = upStatus.o_folder;
+                    a.o_id = upStatus.o_id;
+                    a.o_pay = upStatus.o_pay;
+                    a.o_pr_id = upStatus.o_pr_id;
+                    a.o_recip = upStatus.o_recip;
+                    a.o_recip_phone = upStatus.o_recip_phone;
+                    a.o_shipadd = upStatus.o_shipadd;
+                    a.o_status = upStatus.o_status;
+                    a.o_s_id = upStatus.o_s_id;
+
+                    db.SaveChanges();
+                }
+
+                
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
             }
         }
+
+        public List<tb_order> GetOrdersByStatus(string stt)
+        {
+            var a = db.tb_order.Where(m => m.o_status.ToLower().Equals(stt.ToLower()));
+            return a.ToList();
+        }
+
+        public List<tb_order> GetOrderNotFinished()
+        {
+            
+            var a = db.tb_order.Where(m => m.o_status.Equals("Delivery") || m.o_status.Equals("Waiting"));
+            return a.ToList();
+        }
+
 
 
         //PRINT SIZE

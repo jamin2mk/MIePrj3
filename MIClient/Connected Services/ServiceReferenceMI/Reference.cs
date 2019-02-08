@@ -1143,6 +1143,18 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdateStatus", ReplyAction="http://tempuri.org/IServiceMI/UpdateStatusResponse")]
         System.Threading.Tasks.Task UpdateStatusAsync(MIClient.ServiceReferenceMI.tb_order upStatus);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrdersByStatus", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse")]
+        MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrdersByStatus", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersByStatusAsync(string stt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrderNotFinished", ReplyAction="http://tempuri.org/IServiceMI/GetOrderNotFinishedResponse")]
+        MIClient.ServiceReferenceMI.tb_order[] GetOrderNotFinished();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrderNotFinished", ReplyAction="http://tempuri.org/IServiceMI/GetOrderNotFinishedResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrderNotFinishedAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomers", ReplyAction="http://tempuri.org/IServiceMI/GetCustomersResponse")]
         MIClient.ServiceReferenceMI.tb_customer[] GetCustomers();
         
@@ -1154,6 +1166,12 @@ namespace MIClient.ServiceReferenceMI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CountAllCustomer", ReplyAction="http://tempuri.org/IServiceMI/CountAllCustomerResponse")]
+        int CountAllCustomer();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CountAllCustomer", ReplyAction="http://tempuri.org/IServiceMI/CountAllCustomerResponse")]
+        System.Threading.Tasks.Task<int> CountAllCustomerAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetPrintsizes", ReplyAction="http://tempuri.org/IServiceMI/GetPrintsizesResponse")]
         MIClient.ServiceReferenceMI.tb_printsize[] GetPrintsizes();
@@ -1265,6 +1283,22 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.UpdateStatusAsync(upStatus);
         }
         
+        public MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt) {
+            return base.Channel.GetOrdersByStatus(stt);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrdersByStatusAsync(string stt) {
+            return base.Channel.GetOrdersByStatusAsync(stt);
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_order[] GetOrderNotFinished() {
+            return base.Channel.GetOrderNotFinished();
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> GetOrderNotFinishedAsync() {
+            return base.Channel.GetOrderNotFinishedAsync();
+        }
+        
         public MIClient.ServiceReferenceMI.tb_customer[] GetCustomers() {
             return base.Channel.GetCustomers();
         }
@@ -1279,6 +1313,14 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname) {
             return base.Channel.SearchCustomerByNameAsync(fname, lname);
+        }
+        
+        public int CountAllCustomer() {
+            return base.Channel.CountAllCustomer();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountAllCustomerAsync() {
+            return base.Channel.CountAllCustomerAsync();
         }
         
         public MIClient.ServiceReferenceMI.tb_printsize[] GetPrintsizes() {

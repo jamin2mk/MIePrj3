@@ -172,6 +172,8 @@
     <Content Include="Views\Admin\Order.cshtml" />
     <Content Include="Views\Admin\CreateSize.cshtml" />
     <Content Include="Views\Admin\EditSize.cshtml" />
+    <Content Include="Views\Admin\ChangeStatus.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

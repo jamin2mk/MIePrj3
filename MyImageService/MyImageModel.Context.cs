@@ -12,7 +12,8 @@ namespace MyImageService
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using System.Data.Entity.Validation;
+
     public partial class MyImageEntities : DbContext
     {
         public MyImageEntities()
@@ -34,5 +35,9 @@ namespace MyImageService
         public virtual DbSet<tb_orderdetail> tb_orderdetail { get; set; }
         public virtual DbSet<tb_printsize> tb_printsize { get; set; }
         public virtual DbSet<tb_shippingcategory> tb_shippingcategory { get; set; }
+
+        
     }
+
+    
 }

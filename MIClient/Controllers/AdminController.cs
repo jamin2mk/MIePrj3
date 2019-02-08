@@ -33,7 +33,12 @@ namespace MIClient.Controllers
 
         public ActionResult Index()
         {
-            return View();
+
+            ViewData["AllOrder"] = client.GetOrders().ToList().Count();
+            ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
+            ViewData["AllCustomer"] = client.CountAllCustomer();
+            var a = client.GetOrderNotFinished();
+            return View(client.GetOrderNotFinished());
         }
 
         public ActionResult Customer()
@@ -118,10 +123,54 @@ namespace MIClient.Controllers
 
         public ActionResult ChangeStatus(int id)
         {
-            client.GetOneOrders(id);
-            return View();
+            var a = client.GetOneOrders(id);
+            Status ups = new Status();
+            ups.o_cus_id = a.o_cus_id;
+            ups.o_date = a.o_date;
+            ups.o_deli_date = a.o_deli_date;
+            ups.o_dt_id = a.o_dt_id;
+            ups.o_folder = a.o_folder;
+            ups.o_id = a.o_id;
+            ups.o_pay = a.o_pay;
+            ups.o_pr_id = a.o_pr_id;
+            ups.o_recip = a.o_recip;
+            ups.o_recip_phone = a.o_recip_phone;
+            ups.o_shipadd = a.o_shipadd;
+            ups.o_status = a.o_status;
+            ups.o_s_id = a.o_s_id;
+            
+            return View(ups);
         }
 
+        [HttpPost]
+
+        public ActionResult ChangeStatus(Status stats)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                tb_order upStat = new tb_order();
+
+                upStat.o_cus_id = stats.o_cus_id;
+                upStat.o_date = stats.o_date;
+                upStat.o_deli_date = stats.o_deli_date;
+                upStat.o_dt_id = stats.o_dt_id;
+                upStat.o_folder = stats.o_folder;
+                upStat.o_id = stats.o_id;
+                upStat.o_pay = stats.o_pay;
+                upStat.o_pr_id = stats.o_pr_id;
+                upStat.o_recip = stats.o_recip;
+                upStat.o_recip_phone = stats.o_recip_phone;
+                upStat.o_shipadd = stats.o_shipadd;
+                upStat.o_status = stats.o_status;
+                upStat.o_s_id = stats.o_s_id;
+
+                client.UpdateStatus(upStat);
+                return RedirectToAction("Order");
+            }
+            
+            return View();
+        }
         
 
         

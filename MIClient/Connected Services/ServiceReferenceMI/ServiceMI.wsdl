@@ -37,6 +37,18 @@
   <wsdl:message name="IServiceMI_UpdateStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrdersByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByStatus" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrdersByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrderNotFinished_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderNotFinished" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetOrderNotFinished_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderNotFinishedResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceMI_GetCustomers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomers" />
   </wsdl:message>
@@ -48,6 +60,12 @@
   </wsdl:message>
   <wsdl:message name="IServiceMI_SearchCustomerByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:SearchCustomerByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CountAllCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountAllCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_CountAllCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountAllCustomerResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceMI_GetPrintsizes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPrintsizes" />
@@ -112,6 +130,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UpdateStatus" message="tns:IServiceMI_UpdateStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UpdateStatusResponse" message="tns:IServiceMI_UpdateStatus_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetOrdersByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersByStatus" message="tns:IServiceMI_GetOrdersByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse" message="tns:IServiceMI_GetOrdersByStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotFinished">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrderNotFinished" message="tns:IServiceMI_GetOrderNotFinished_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOrderNotFinishedResponse" message="tns:IServiceMI_GetOrderNotFinished_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetCustomers" message="tns:IServiceMI_GetCustomers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetCustomersResponse" message="tns:IServiceMI_GetCustomers_OutputMessage" />
@@ -119,6 +145,10 @@
     <wsdl:operation name="SearchCustomerByName">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SearchCustomerByName" message="tns:IServiceMI_SearchCustomerByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse" message="tns:IServiceMI_SearchCustomerByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountAllCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CountAllCustomer" message="tns:IServiceMI_CountAllCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/CountAllCustomerResponse" message="tns:IServiceMI_CountAllCustomer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPrintsizes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetPrintsizes" message="tns:IServiceMI_GetPrintsizes_InputMessage" />
@@ -196,6 +226,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetOrdersByStatus">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOrdersByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotFinished">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetOrderNotFinished" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCustomers">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/GetCustomers" style="document" />
       <wsdl:input>
@@ -207,6 +255,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchCustomerByName">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/SearchCustomerByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountAllCustomer">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/CountAllCustomer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

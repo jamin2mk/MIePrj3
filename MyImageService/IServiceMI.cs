@@ -30,11 +30,18 @@ namespace MyImageService
         [OperationContract]
         void UpdateStatus(tb_order upStatus);
 
+        [OperationContract]
+        List<tb_order> GetOrdersByStatus(string stt);
+        [OperationContract]
+        List<tb_order> GetOrderNotFinished();
         // CUSTOMER
         [OperationContract]
         List<tb_customer> GetCustomers();
         [OperationContract]
         List<tb_customer> SearchCustomerByName(string fname, string lname);
+        [OperationContract]
+        int CountAllCustomer();
+
 
         //PRINT SIZE
         [OperationContract]
