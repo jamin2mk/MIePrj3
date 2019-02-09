@@ -16,6 +16,7 @@ namespace MIClient.Controllers
         // GET: Customer
         public ActionResult Index()
         {
+            Session["Customer"] = client.GetCustomer("jamin@gmail.com");
             return View();
         }
 
@@ -51,6 +52,24 @@ namespace MIClient.Controllers
             else
             {
                 ViewBag.mess = "Congratulation. Register successful.";
+            }
+            return View();
+        }
+
+        public ActionResult EditProfile()
+        {
+            int custID = ((Customer)Session["Customer"]).cus_id;
+            Customer model = client.FindCustomer(custID);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                client.EditCustomer(customer);
+                ViewBag.mess = "Edit profile successful.";
             }
             return View();
         }

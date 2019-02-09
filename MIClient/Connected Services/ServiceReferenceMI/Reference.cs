@@ -1221,6 +1221,12 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomer", ReplyAction="http://tempuri.org/IServiceMI/GetCustomerResponse")]
         System.Threading.Tasks.Task<MIData.Models.Customer> GetCustomerAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/FindCustomer", ReplyAction="http://tempuri.org/IServiceMI/FindCustomerResponse")]
+        MIData.Models.Customer FindCustomer(int custID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/FindCustomer", ReplyAction="http://tempuri.org/IServiceMI/FindCustomerResponse")]
+        System.Threading.Tasks.Task<MIData.Models.Customer> FindCustomerAsync(int custID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CreateCustomer", ReplyAction="http://tempuri.org/IServiceMI/CreateCustomerResponse")]
         string CreateCustomer(MIData.Models.Customer customer);
         
@@ -1499,6 +1505,14 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task<MIData.Models.Customer> GetCustomerAsync(string email) {
             return base.Channel.GetCustomerAsync(email);
+        }
+        
+        public MIData.Models.Customer FindCustomer(int custID) {
+            return base.Channel.FindCustomer(custID);
+        }
+        
+        public System.Threading.Tasks.Task<MIData.Models.Customer> FindCustomerAsync(int custID) {
+            return base.Channel.FindCustomerAsync(custID);
         }
         
         public string CreateCustomer(MIData.Models.Customer customer) {

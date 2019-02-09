@@ -114,42 +114,45 @@ namespace MIClient.Controllers
         [HttpPost]
         public ActionResult Payment(Payment payment)
         {
-            int custID = 1;
-            //TempData["payment"] = payment;
-            Recipient recipient = Session["recipient"] as Recipient;
-            MImages mImages = Session["image"] as MImages;
-
-            // save credit card to tb_customer
-            if (payment.Mode == PayMode.CreditCard.ToString())
+            if (ModelState.IsValid)
             {
-                client.AddCreditCard(custID, payment.CardNumber);
+                int custID = 1;
+                //TempData["payment"] = payment;
+                Recipient recipient = Session["recipient"] as Recipient;
+                MImages mImages = Session["image"] as MImages;
+
+                // save credit card to tb_customer
+                if (payment.Mode == PayMode.CreditCard.ToString())
+                {
+                    client.AddCreditCard(custID, payment.CardNumber);
+                    if (!client.VerifyCreditCard(custID, payment.ExpiredDate))
+                    {
+                        return View("Upload");
+                    }
+                }               
+
+                // save to tb_order            
+                int orderID = client.CreateOrder(custID, mImages.Folder, recipient, payment);
+
+                // get list image-id from saving to tb_image            
+                client.SaveDetailImage(mImages);
+
+                // save to tb_OrderDetails
+                client.SaveOrderDetail(orderID, mImages.Folder);
+
+                Summary summary = new Summary
+                {
+                    OrderID = 1,
+                    Name = recipient.Name,
+                    Phone = recipient.Phone.ToString(),
+                    Address = recipient.Address,
+                    Delivery = recipient.Delivery,
+                    Mode = payment.Mode,
+                    Total = recipient.Total
+                };
+                return View("Summary", summary);
             }
-
-            if (!client.VerifyCreditCard(custID, payment.ExpiredDate))
-            {
-                return View("Upload");
-            }
-
-            // save to tb_order            
-            int orderID = client.CreateOrder(custID, mImages.Folder, recipient, payment);
-
-            // get list image-id from saving to tb_image            
-            client.SaveDetailImage(mImages);
-
-            // save to tb_OrderDetails
-            client.SaveOrderDetail(orderID, mImages.Folder);
-
-            Summary summary = new Summary
-            {
-                OrderID = 1,
-                Name = recipient.Name,
-                Phone = recipient.Phone.ToString(),
-                Address = recipient.Address,
-                Delivery = recipient.Delivery,
-                Mode = payment.Mode,
-                Total = recipient.Total
-            };
-            return View("Summary", summary);
+            return View();
         }
 
         public ActionResult Summary()
