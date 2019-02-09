@@ -42,9 +42,9 @@ namespace MyImageService
             return db.tb_customer.ToList();
         }
 
-        public List<tb_customer> SearchCustomerByName(string fname, string lname)
+        public List<tb_customer> SearchCustomerByName(string search)
         {
-            var result = db.tb_customer.Where(c => c.cus_lname.ToLower().Contains(lname.ToLower()) && c.cus_fname.ToLower().Contains(fname.ToLower()));
+            var result = db.tb_customer.Where(c => c.cus_lname.ToLower().Contains(search.ToLower()) || c.cus_fname.ToLower().Contains(search.ToLower()));
             return result.ToList();
         }
 

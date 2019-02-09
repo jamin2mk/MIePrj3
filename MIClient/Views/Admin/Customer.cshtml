@@ -24,7 +24,7 @@
     <section id="breadcrumb">
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li> &nbsp;&nbsp;&nbsp; >
+                <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li> &nbsp;&nbsp;&nbsp; >
                 <li class="active">Customers</li>
             </ol>
         </div>
@@ -40,13 +40,16 @@
                         </a>
                         <a href="order.html" class="list-group-item">
                             <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-                            Orders <span class="badge">4</span>
+                            Orders <span class="badge"> @ViewData["AllOrder"]</span>
                         </a>
                         <a href="customer.html" class="list-group-item">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Customer <span class="badge">12</span>
+                            Customers <span class="badge"> @ViewData["AllCustomer"]</span>
                         </a>
-                        <a href="#" class="list-group-item">...</a>
+                        <a href="customer.html" class="list-group-item">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            Customers <span class="badge"> @ViewData["AllSize"]</span>
+                        </a>
                     </div>
                 </div>
 
@@ -59,7 +62,11 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Filter customers...">
+                                    @using (Html.BeginForm("SearchByName","Admin"))
+                                    {
+                                        <input type="text" class="form-control" placeholder="Filter customers by name..."> <input type="submit" value="Search" />
+                                    }
+
                                 </div>
                             </div>
                             <br>

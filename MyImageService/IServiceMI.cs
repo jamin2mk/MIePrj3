@@ -40,7 +40,7 @@ namespace MyImageService
         [OperationContract]
         List<tb_customer> GetCustomers();
         [OperationContract]
-        List<tb_customer> SearchCustomerByName(string fname, string lname);
+        List<tb_customer> SearchCustomerByName(string search);
         [OperationContract]
         int CountAllCustomer();
 

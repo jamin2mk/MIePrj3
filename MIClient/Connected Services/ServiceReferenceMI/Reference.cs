@@ -1162,10 +1162,10 @@ namespace MIClient.ServiceReferenceMI {
         System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> GetCustomersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
-        MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname);
+        MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string search);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchCustomerByName", ReplyAction="http://tempuri.org/IServiceMI/SearchCustomerByNameResponse")]
-        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname);
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string search);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CountAllCustomer", ReplyAction="http://tempuri.org/IServiceMI/CountAllCustomerResponse")]
         int CountAllCustomer();
@@ -1421,12 +1421,12 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.GetCustomersAsync();
         }
         
-        public MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string fname, string lname) {
-            return base.Channel.SearchCustomerByName(fname, lname);
+        public MIClient.ServiceReferenceMI.tb_customer[] SearchCustomerByName(string search) {
+            return base.Channel.SearchCustomerByName(search);
         }
         
-        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string fname, string lname) {
-            return base.Channel.SearchCustomerByNameAsync(fname, lname);
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_customer[]> SearchCustomerByNameAsync(string search) {
+            return base.Channel.SearchCustomerByNameAsync(search);
         }
         
         public int CountAllCustomer() {

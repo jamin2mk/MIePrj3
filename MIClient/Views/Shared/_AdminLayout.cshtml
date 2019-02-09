@@ -27,15 +27,33 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     @{
-                        var pageName = ViewContext.RouteData.Values["controller"].ToString();
+                        
+                        var orders = "Order";
+                        var customer = "Customer";
+                        var index = "Index";
+                        var size = "Size";
                     }
-                    <li class="active">@Html.ActionLink("Dashboard", "Index", "Admin")</li>
-                    <li class="@if (pageName =="Order") {
+                    <li class="@if ((string)ViewData["ViewName"] == index)
+                    {
                         @Session["active"]
-                        }
-                                ">@Html.ActionLink("Order List", "Order", "Admin")</li>
-                    <li>@Html.ActionLink("Customer List", "Customer", "Admin")</li>
-                    <li>@Html.ActionLink("Size Catalogue", "Size", "Admin")</li>
+                    }
+                    else { @ViewData["No"];}">@Html.ActionLink("Dashboard", "Index", "Admin")</li>
+                    <li class="@if ((string)ViewData["ViewName"] == orders)
+                    {
+                        @Session["active"]
+                    }
+                    else { @ViewData["No"];}
+                    ">@Html.ActionLink("Order List", "Order", "Admin")</li>
+                    <li class="@if ((string)ViewData["ViewName"] == customer)
+                    {
+                        @Session["active"]
+                    }
+                    else { @ViewData["No"];}">@Html.ActionLink("Customer List", "Customer", "Admin")</li>
+                    <li class="@if ((string)ViewData["ViewName"] == size)
+                    {
+                        @Session["active"]
+                    }
+                    else { @ViewData["No"];}">@Html.ActionLink("Size Catalogue", "Size", "Admin")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="dashboard.html">Welcome, @Session["admin"]</a></li>
@@ -48,8 +66,9 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        
+        <footer class="bottom>
+            <p>&copy;  - Copyright MyImage @DateTime.Now.Year</p>
         </footer>
     </div>
 

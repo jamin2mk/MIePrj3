@@ -34,22 +34,37 @@ namespace MIClient.Controllers
 
         public ActionResult Index()
         {
-
+            ViewData["No"] = "";
+            ViewData["ViewName"] = "Index";
             ViewData["AllOrder"] = client.GetOrders().ToList().Count();
             ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
             ViewData["AllCustomer"] = client.CountAllCustomer();
             var a = client.GetOrderNotFinished();
             return View(client.GetOrderNotFinished());
         }
-
+        //CUSTOMER
         public ActionResult Customer()
         {
+            ViewData["AllOrder"] = client.GetOrders().ToList().Count();
+            ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
+            ViewData["AllCustomer"] = client.CountAllCustomer();
+            ViewData["ViewName"] = "Customer";
             var a = client.GetCustomers();
             return View(a);
+        }
+
+        public ActionResult SearchByName(string search)
+        {
+            var a = client.SearchCustomerByName(search);
+            return View("Customer",a);
         }
         //SIZE
         public ActionResult Size()
         {
+            ViewData["AllOrder"] = client.GetOrders().ToList().Count();
+            ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
+            ViewData["AllCustomer"] = client.CountAllCustomer();
+            ViewData["ViewName"] = "Size";
             return View(client.GetPrintsizes());
         }
 
@@ -119,6 +134,10 @@ namespace MIClient.Controllers
         //ORDER
         public ActionResult Order()
         {
+            ViewData["AllOrder"] = client.GetOrders().ToList().Count();
+            ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
+            ViewData["AllCustomer"] = client.CountAllCustomer();
+            ViewData["ViewName"] = "Order";
             Session["active"] = "active";
             return View(client.GetOrders());
         }

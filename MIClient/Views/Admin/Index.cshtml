@@ -60,25 +60,28 @@
     <section id="main">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="list-group">
                         <a href="dashboard.html" class="list-group-item active main-color-bg">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
                         </a>
                         <a href="order.html" class="list-group-item">
                             <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-                            Orders <span class="badge">4</span>
+                            Orders <span class="badge"> @ViewData["AllOrder"]</span>
                         </a>
                         <a href="customer.html" class="list-group-item">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Customers <span class="badge">12</span>
+                            Customers <span class="badge"> @ViewData["AllCustomer"]</span>
                         </a>
-                        <a href="#" class="list-group-item">...</a>
+                        <a href="customer.html" class="list-group-item">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            Customers <span class="badge"> @ViewData["AllSize"]</span>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Overview -->
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="panel panel-default">
                         <div class="panel-heading main-color-bg">
                             <h3 class="panel-title">Overview</h3>
@@ -87,19 +90,19 @@
                             <div class="col-md-4 dash-box" title="All Order">
                                 <div class="well">
                                     <h3><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> @ViewData["AllOrder"] </h3>
-                                    <h5>All</h5>
+                                    <h5>All Orders</h5>
                                 </div>
                             </div>
                             <div class="col-md-4 dash-box" title="All Customer">
                                 <div class="well">
-                                    <h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@ViewData["AllCustomer"]</h3>
-                                    <h5>All</h5>
+                                    <h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @ViewData["AllCustomer"]</h3>
+                                    <h5>All Customer</h5>
                                 </div>
                             </div>
                             <div class="col-md-4 dash-box" title="All Size">
                                 <div class="well">
-                                    <h3><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>@ViewData["AllSize"] </h3>
-                                    <h5>All </h5>
+                                    <h3><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> @ViewData["AllSize"] </h3>
+                                    <h5>All Size</h5>
                                 </div>
                             </div>
 
