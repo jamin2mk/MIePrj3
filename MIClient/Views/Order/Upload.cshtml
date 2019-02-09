@@ -6,7 +6,11 @@
 <h2>Upload</h2>
 @using (Html.BeginForm("ShowImage", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" multiple="multiple" name="images" />
+    <input type="file" multiple="multiple" name="images"/>
     <input type="submit" value="Upload" />
+    if(ViewBag.mess != null)
+    {
+        <h5 class="text-danger">@ViewBag.mess</h5>
+    }
 }
 

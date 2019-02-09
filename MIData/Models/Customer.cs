@@ -21,11 +21,11 @@ namespace MIData.Models
         public string cus_lname { get; set; }
 
         [Display(Name = "Gender")]
-        public bool cus_gender { get; set; }
+        public bool? cus_gender { get; set; }
 
         [Display(Name = "Day of Birth")]
         [DataType(DataType.Date)]
-        public DateTime cus_dob { get; set; }
+        public DateTime? cus_dob { get; set; }
 
         [Required(ErrorMessage = "Please enter your phone number.")]
         [Display(Name = "Phone Number")]
@@ -34,10 +34,6 @@ namespace MIData.Models
         [Required(ErrorMessage = "Please enter your address.")]
         [Display(Name = "Address")]
         public string cus_add { get; set; }
-
-        [Required(ErrorMessage = "Please enter your Credit Card.")]
-        [Display(Name = "Credit Card")]
-        public string cus_card { get; set; }
 
         [Required(ErrorMessage = "Please enter your Email.")]
         [Display(Name = "Email")]

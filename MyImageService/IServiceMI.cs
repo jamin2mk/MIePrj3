@@ -68,9 +68,12 @@ namespace MyImageService
         List<tb_printsize> SearchPrintSizebyName(string size);
         
                           
-        // for Customer
+        // for CustomerController
         [OperationContract]
         Customer GetCustomer(string email);
+
+        [OperationContract]
+        Customer FindCustomer(int custID);
 
         [OperationContract]
         string CreateCustomer(Customer customer);
@@ -87,7 +90,7 @@ namespace MyImageService
         [OperationContract]
         List<FollowedOrder> FindOrders(int custID);
 
-        // for Order
+        // for OrderController
         [OperationContract]
         int CreateOrder(int custID, string folder, Recipient recipient, Payment payment);
 

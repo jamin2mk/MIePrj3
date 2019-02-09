@@ -3,11 +3,10 @@
   <xs:complexType name="Customer">
     <xs:sequence>
       <xs:element minOccurs="0" name="cus_add" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_card" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_dob" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="cus_dob" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="cus_email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="cus_fname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cus_gender" type="xs:boolean" />
+      <xs:element minOccurs="0" name="cus_gender" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="cus_id" type="xs:int" />
       <xs:element minOccurs="0" name="cus_lname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="cus_pass" nillable="true" type="xs:string" />
@@ -37,7 +36,7 @@
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Delivery" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" type="xs:int" />
       <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Total" type="xs:decimal" />
     </xs:sequence>

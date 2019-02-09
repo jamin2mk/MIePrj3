@@ -29,19 +29,26 @@ namespace MIClient.Controllers
             string folder = client.RandomFolder();
             string dir = Server.MapPath("~/Uploads/" + folder);
 
+            // create directory
             if (!Directory.Exists(dir))
             {
                 Directory.CreateDirectory(dir);
             }
 
             // save image into create directory
-            //MImages mImages = client.SaveImages(images, dir, folder);
             MImages mImages = new MImages();
             mImages.Folder = folder;
             mImages.MImageList = new List<MImage>();
 
+            ViewBag.mess = null;
             foreach (var item in images)
             {
+                string extension = Path.GetExtension(item.FileName).ToLower();
+                if(extension != ".jpeg" && extension != ".jpg")
+                {
+                    ViewBag.mess = "Only format .jpeg is accepted!";
+                    return View("Upload");
+                }
                 string fn = Path.GetFileName(item.FileName);
                 string path = Path.Combine(dir, fn);
                 item.SaveAs(path);
@@ -50,7 +57,7 @@ namespace MIClient.Controllers
                 mImages.MImageList.Add(mImage);
             }
 
-            // get list size from tb_printsize
+            // get list size from tb_printsize for dropdownlist
             ViewBag.Sizes = client.GetSize();
             return View(mImages);
         }
@@ -58,7 +65,6 @@ namespace MIClient.Controllers
         [HttpPost]
         public PartialViewResult Calculate(MImages mImages)
         {
-
             MImages model = client.CalculateImage(mImages);
             mImages.Total = model.Total;
             Session["image"] = mImages;
@@ -72,13 +78,32 @@ namespace MIClient.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult GetShip(Recipient recipient)
+        public ActionResult ShipInfo(Recipient recipient)
         {
-            decimal imgTotal = (Session["image"] as MImages).Total;
-            recipient.Total = client.CalculateShip(recipient, imgTotal);
-            Session["recipient"] = recipient;
-            ViewBag.Total = recipient.Total;
-            return PartialView("_FinalTotal");
+            if (ModelState.IsValid)
+            {
+                decimal imgTotal = (Session["image"] as MImages).Total;
+                recipient.Total = client.CalculateShip(recipient, imgTotal);
+                Session["recipient"] = recipient;
+                ViewBag.Total = recipient.Total;
+                return View("_FinalTotal");
+            }
+            ViewBag.ShipList = client.GetShipList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetShip(Recipient recipient)
+        {
+            if (ModelState.IsValid)
+            {
+                decimal imgTotal = (Session["image"] as MImages).Total;
+                recipient.Total = client.CalculateShip(recipient, imgTotal);
+                Session["recipient"] = recipient;
+                ViewBag.Total = recipient.Total;
+                return View("_FinalTotal");
+            }
+            return RedirectToAction("ShipInfo");
         }
 
         public ActionResult Payment()
@@ -89,65 +114,50 @@ namespace MIClient.Controllers
         [HttpPost]
         public ActionResult Payment(Payment payment)
         {
-            int custID = 1;
-            //TempData["payment"] = payment;
-            Recipient recipient = Session["recipient"] as Recipient;
-            MImages mImages = Session["image"] as MImages;
-
-            // save credit card to tb_customer
-            if (payment.Mode == PayMode.CreditCard.ToString())
+            if (ModelState.IsValid)
             {
-                client.AddCreditCard(custID, payment.CardNumber);
+                int custID = 1;
+                //TempData["payment"] = payment;
+                Recipient recipient = Session["recipient"] as Recipient;
+                MImages mImages = Session["image"] as MImages;
+
+                // save credit card to tb_customer
+                if (payment.Mode == PayMode.CreditCard.ToString())
+                {
+                    client.AddCreditCard(custID, payment.CardNumber);
+                    if (!client.VerifyCreditCard(custID, payment.ExpiredDate))
+                    {
+                        return View();
+                    }
+                }               
+
+                // save to tb_order            
+                int orderID = client.CreateOrder(custID, mImages.Folder, recipient, payment);
+
+                // get list image-id from saving to tb_image            
+                client.SaveDetailImage(mImages);
+
+                // save to tb_OrderDetails
+                client.SaveOrderDetail(orderID, mImages.Folder);
+
+                Summary summary = new Summary
+                {
+                    OrderID = 1,
+                    Name = recipient.Name,
+                    Phone = recipient.Phone.ToString(),
+                    Address = recipient.Address,
+                    Delivery = recipient.Delivery,
+                    Mode = payment.Mode,
+                    Total = recipient.Total
+                };
+                return View("Summary", summary);
             }
-
-            if (!client.VerifyCreditCard(custID, payment.ExpiredDate))
-            {
-                return View("Upload");
-            }
-
-            // save to tb_order            
-            int orderID = client.CreateOrder(custID, mImages.Folder, recipient, payment);
-
-            // get list image-id from saving to tb_image            
-            client.SaveDetailImage(mImages);
-
-            // save to tb_OrderDetails
-            client.SaveOrderDetail(orderID, mImages.Folder);
-
-
-
-            Summary summary = new Summary
-            {
-                OrderID = 1,
-                Name = recipient.Name,
-                Phone = recipient.Phone,
-                Address = recipient.Address,
-                Delivery = recipient.Delivery,
-                Mode = payment.Mode,
-                Total = recipient.Total
-            };
-            return View("Summary", summary);
+            return View();
         }
 
         public ActionResult Summary()
         {
             return View();
         }
-
-        // common method
-        public ActionResult RemoveDir(string dir)
-        {
-            string mess = "";
-            try
-            {
-                Directory.Delete(Server.MapPath(dir), true);
-                mess = "Remove directory successful!!";
-            }
-            catch (Exception ex)
-            {
-                mess = ex.Message;
-            }
-            return Content(mess);
-        }        
     }
 }

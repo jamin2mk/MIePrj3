@@ -67,7 +67,6 @@ namespace MyImageService
         public void UpdateStatus(tb_order upStatus)
         {
 
-
             try
             {
                 var a = db.tb_order.Find(upStatus.o_id);
@@ -89,7 +88,6 @@ namespace MyImageService
 
                     db.SaveChanges();
                 }
-
 
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException e)
@@ -178,11 +176,16 @@ namespace MyImageService
 
 
         // for Customer
-
         public Customer GetCustomer(string email)
         {
             tb_customer cust = db.tb_customer.Where(c => c.cus_email.Equals(email)).FirstOrDefault();
             return new Customer { cus_id = cust.cus_id, cus_fname = cust.cus_fname };
+        }
+
+        public Customer FindCustomer(int custID)
+        {
+            tb_customer cust = db.tb_customer.Find(custID);
+            return new Customer { cus_id = cust.cus_id, cus_fname = cust.cus_fname, cus_lname = cust.cus_lname, cus_email = cust.cus_email, cus_add = cust.cus_add, cus_dob = cust.cus_dob, cus_gender = cust.cus_gender, cus_phone = cust.cus_phone };
         }
 
         public string CreateCustomer(Customer customer)
@@ -207,8 +210,7 @@ namespace MyImageService
             newCust.cus_phone = customer.cus_phone;
             newCust.cus_add = customer.cus_add;
             newCust.cus_email = customer.cus_email;
-            newCust.cus_card = CryptoLib.EncryptString(customer.cus_card);
-            newCust.cus_pass = CryptoLib.EncryptString(customer.cus_pass);
+            newCust.cus_pass = customer.cus_pass;
             db.tb_customer.Add(newCust);
             db.SaveChanges();
             return mess;
@@ -226,8 +228,6 @@ namespace MyImageService
                 cust.cus_phone = customer.cus_phone;
                 cust.cus_add = customer.cus_add;
                 cust.cus_email = customer.cus_email;
-                cust.cus_card = CryptoLib.EncryptString(customer.cus_card);
-                cust.cus_pass = CryptoLib.EncryptString(customer.cus_pass);
                 db.SaveChanges();
             }
         }
@@ -237,7 +237,7 @@ namespace MyImageService
             tb_customer user = db.tb_customer.Where(u => u.cus_email.Equals(email)).FirstOrDefault();
             if (user != null)
             {
-                if (CryptoLib.DecryptString(user.cus_pass).Equals(pass))
+                if (user.cus_pass.Equals(pass))
                 {
                     return true;
                 }
@@ -265,7 +265,7 @@ namespace MyImageService
             {
                 int deliveryID = GetDelivery(recipient.Delivery).dt_id;
                 int shipID = GetShipCate(recipient.Province).s_id;
-                tb_order order = new tb_order { o_cus_id = custID, o_date = DateTime.Now, o_pay = payment.Mode, o_shipadd = recipient.Address, o_folder = folder, o_pr_id = 1, o_recip = recipient.Name, o_recip_phone = recipient.Phone, o_deli_date = recipient.Delivery, o_s_id = shipID, o_dt_id = deliveryID, o_status = "Waiting" };
+                tb_order order = new tb_order { o_cus_id = custID, o_date = DateTime.Now, o_pay = payment.Mode, o_shipadd = recipient.Address, o_folder = folder, o_pr_id = 1, o_recip = recipient.Name, o_recip_phone = recipient.Phone.ToString(), o_deli_date = recipient.Delivery, o_s_id = shipID, o_dt_id = deliveryID, o_status = "Waiting" };
                 db.tb_order.Add(order);
                 db.SaveChanges();
             }
@@ -426,5 +426,6 @@ namespace MyImageService
             return shipList;
         }
 
+        
     }
 }
