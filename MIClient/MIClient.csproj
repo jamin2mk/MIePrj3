@@ -205,6 +205,7 @@
     <Content Include="Views\Admin\Order.cshtml" />
     <Content Include="Views\Admin\Size.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
