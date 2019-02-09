@@ -265,7 +265,7 @@ namespace MyImageService
             {
                 int deliveryID = GetDelivery(recipient.Delivery).dt_id;
                 int shipID = GetShipCate(recipient.Province).s_id;
-                tb_order order = new tb_order { o_cus_id = custID, o_date = DateTime.Now, o_pay = payment.Mode, o_shipadd = recipient.Address, o_folder = folder, o_pr_id = 1, o_recip = recipient.Name, o_recip_phone = recipient.Phone, o_deli_date = recipient.Delivery, o_s_id = shipID, o_dt_id = deliveryID, o_status = "Waiting" };
+                tb_order order = new tb_order { o_cus_id = custID, o_date = DateTime.Now, o_pay = payment.Mode, o_shipadd = recipient.Address, o_folder = folder, o_pr_id = 1, o_recip = recipient.Name, o_recip_phone = recipient.Phone.ToString(), o_deli_date = recipient.Delivery, o_s_id = shipID, o_dt_id = deliveryID, o_status = "Waiting" };
                 db.tb_order.Add(order);
                 db.SaveChanges();
             }
