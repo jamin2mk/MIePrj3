@@ -1,6 +1,217 @@
-﻿@{
+﻿@model IEnumerable<MIClient.ServiceReferenceMI.tb_order>
+@{
     ViewBag.Title = "Index";
 }
+<!DOCTYPE html>
+<html lang="en">
 
-<h2>Index</h2>
+<body>
 
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <!-- <nav class="navbar navbar-default">
+         <div class="container">
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                         aria-expanded="false" aria-controls="navbar">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <a class="navbar-brand" href="#">MyImage</a>
+             </div>
+             <div id="navbar" class="collapse navbar-collapse">
+                 <ul class="nav navbar-nav"> 
+                     <li class="active">@Html.ActionLink("Dashboard", "Index", "Admin")</li>
+                     <li>@Html.ActionLink("Order List", "Order", "Admin")</li>
+                     <li>@Html.ActionLink("Customer List", "Customer", "Admin")</li>
+                     <li>@Html.ActionLink("Size Catalogue", "Size", "Admin")</li>
+                 </ul>
+                 <ul class="nav navbar-nav navbar-right">
+                     <li><a href="dashboard.html">Welcome, @Session["admin"]</a></li>
+                     <li>@Html.ActionLink("Logout", "Login", "Admin")</li>
+                 </ul>
+             </div>
+
+         </div>
+     </nav>
+     <!--/.nav-collapse -->
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="active">Dashboard</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="list-group">
+                        <a href="dashboard.html" class="list-group-item active main-color-bg">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                        </a>
+                        <a href="order.html" class="list-group-item">
+                            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                            Orders <span class="badge"> @ViewData["AllOrder"]</span>
+                        </a>
+                        <a href="customer.html" class="list-group-item">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Customers <span class="badge"> @ViewData["AllCustomer"]</span>
+                        </a>
+                        <a href="customer.html" class="list-group-item">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            Customers <span class="badge"> @ViewData["AllSize"]</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="col-md-10">
+                    <div class="panel panel-default">
+                        <div class="panel-heading main-color-bg">
+                            <h3 class="panel-title">Overview</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-4 dash-box" title="All Order">
+                                <div class="well">
+                                    <h3><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> @ViewData["AllOrder"] </h3>
+                                    <h5>All Orders</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4 dash-box" title="All Customer">
+                                <div class="well">
+                                    <h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @ViewData["AllCustomer"]</h3>
+                                    <h5>All Customer</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4 dash-box" title="All Size">
+                                <div class="well">
+                                    <h3><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> @ViewData["AllSize"] </h3>
+                                    <h5>All Size</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Waiting Orders -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading main-color-bg">
+                            <h3 class="panel-title">Waiting Orders</h3>
+                        </div>
+                        <div class="panel-body">
+
+
+
+                            <table class="table table-striped table-hover" id="order-table">
+                                <tr>
+                                    <th>Order ID</th>
+
+                                    <th>
+                                        Date of Shipping
+                                    </th>
+                                    <th>Payment</th>
+                                    <th>
+                                        Recipient
+                                    </th>
+                                    <th>
+                                        Phone Number
+                                    </th>
+                                    <th>Shipping Address</th>
+                                    <th>
+
+                                        Status
+
+
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+
+                                <!--TABLE BODY-->
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.o_id)
+                                        </td>
+
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.o_deli_date)
+                                        </td>
+
+
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.o_pay)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.o_recip)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.o_recip_phone)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.o_shipadd)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.o_status)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
+
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <!-- <div class="row-px">
+            <span>PRIVATE POLICY</span>
+            <span>ABOUT US</span>
+            <span>HELP</span>
+        </div>
+        <div>
+          <h5>Connect with us!</h5>
+          <a href="#"><img src="img/facebook_48.png" alt=""></a>
+          <a href="#"><img src="img/twitter_48.png" alt=""></a>
+          <a href="#"><img src="img/instagram_48.png" alt=""></a>
+          <a href="#"><img src="img/youtube_48.png" alt=""></a>
+          <a href="#"><img src="img/google+_48.png" alt=""></a>
+        </div> -->
+        <p>Copyright &copy; 2018</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
