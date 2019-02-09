@@ -44,7 +44,7 @@ namespace MIClient.Controllers
             foreach (var item in images)
             {
                 string extension = Path.GetExtension(item.FileName).ToLower();
-                if(extension != ".jpeg")
+                if(extension != ".jpeg" && extension != ".jpg")
                 {
                     ViewBag.mess = "Only format .jpeg is accepted!";
                     return View("Upload");
@@ -127,7 +127,7 @@ namespace MIClient.Controllers
                     client.AddCreditCard(custID, payment.CardNumber);
                     if (!client.VerifyCreditCard(custID, payment.ExpiredDate))
                     {
-                        return View("Upload");
+                        return View();
                     }
                 }               
 
@@ -158,6 +158,6 @@ namespace MIClient.Controllers
         public ActionResult Summary()
         {
             return View();
-        }   
+        }
     }
 }

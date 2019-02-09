@@ -16,7 +16,7 @@ namespace MIClient.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            Session["Customer"] = client.GetCustomer("jamin@gmail.com");
+            Session["Customer"] = client.GetCustomer("baochi1212@gmail.com");
             return View();
         }
 
