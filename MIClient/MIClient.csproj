@@ -103,9 +103,6 @@
     <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_deliverytime.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\ServiceReferenceMI\MIClient.ServiceReferenceMI.tb_order.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

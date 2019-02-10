@@ -119,7 +119,20 @@ namespace MyImageService
             return a.ToList();
         }
 
+        public void ClearData(int orderID, string folder)
+        {
+            // get list of records from tb_image by searching img_link
+            List<tb_image> imageRecords = db.tb_image.Where(i => i.img_link.Contains(folder)).ToList();            
+            
+            // get list of records from tb_orderdetail by orderID
+            List<tb_orderdetail> orderRecords = db.tb_orderdetail.Where(od => od.orderdetail_o_id == orderID).ToList();
 
+            // remove records
+            db.tb_image.RemoveRange(imageRecords);
+            db.tb_orderdetail.RemoveRange(orderRecords);
+            db.SaveChanges();
+
+        }
 
         //PRINT SIZE
         public List<tb_printsize> GetPrintsizes()
@@ -281,7 +294,7 @@ namespace MyImageService
         {
             try
             {
-                int deliveryID = GetDelivery(recipient.Delivery).dt_id;
+                int deliveryID = GetDeliveryID(recipient.Delivery);
                 int shipID = GetShipCate(recipient.Province).s_id;
                 tb_order order = new tb_order { o_cus_id = custID, o_date = DateTime.Now, o_pay = payment.Mode, o_shipadd = recipient.Address, o_folder = folder, o_pr_id = 1, o_recip = recipient.Name, o_recip_phone = recipient.Phone.ToString(), o_deli_date = recipient.Delivery, o_s_id = shipID, o_dt_id = deliveryID, o_status = "Waiting" };
                 db.tb_order.Add(order);
@@ -377,7 +390,7 @@ namespace MyImageService
         public decimal CalculateShip(Recipient recipient, decimal imgTotal)
         {
             decimal total;
-            total = GetShipCate(recipient.Province).s_price + (decimal)GetDelivery(recipient.Delivery).dt_ratio * imgTotal;
+            total = GetShipCate(recipient.Province).s_price + (decimal)GetDeliveryRatio(recipient.Delivery) * imgTotal;
             return total;
         }
 
@@ -396,7 +409,7 @@ namespace MyImageService
 
         }
 
-        public bool VerifyCreditCard(int custID, DateTime expiredDate)
+        public string VerifyCreditCard(int custID, DateTime expiredDate)
         {
             string encryptedCard = (from c in db.tb_customer
                                     where c.cus_id == custID
@@ -404,11 +417,15 @@ namespace MyImageService
 
             string decryptedCard = CryptoLib.DecryptString(encryptedCard);
 
-            if (decryptedCard.Length != 20 || expiredDate < DateTime.Now.Date)
-            {
-                return false;
+            if (decryptedCard.Length != 16 && decryptedCard.Length != 18)
+            {               
+                return "Credit card is invalid. Please try with another.";
             }
-            return true;
+            if (expiredDate < DateTime.Now.Date)
+            {
+                return "Credit card is expired. Please try with another.";
+            }
+            return null;
         }
 
         public List<string> GetSize()
@@ -419,14 +436,41 @@ namespace MyImageService
             return sizes;
         }
 
-        public tb_deliverytime GetDelivery(DateTime deliveryDate)
+        public int GetDeliveryID(DateTime deliveryDate)
         {
+            // get the number of day which has ratio = 1
+            int roof_num = db.tb_deliverytime.Where(d => d.dt_ratio == 1).FirstOrDefault().dt_num;
+            // calculate the number of day for delivery
             int days = (deliveryDate.Date - DateTime.Now.Date).Days;
-            tb_deliverytime delivery = (from d in db.tb_deliverytime
-                                        where d.dt_num >= days
-                                        orderby d.dt_num ascending
-                                        select d).First();
-            return delivery;
+            if (days >= roof_num)
+            {
+                return 1;
+            }
+            
+            int deliveryID = (from d in db.tb_deliverytime
+                              where d.dt_num >= days
+                              orderby d.dt_num ascending
+                              select d.dt_id).First();
+            return deliveryID;
+        }
+
+        public double GetDeliveryRatio(DateTime deliveryDate)
+        {
+            // get the number of day which has ratio = 1
+            int roof_num = db.tb_deliverytime.Where(d => d.dt_ratio == 1).FirstOrDefault().dt_num;
+            // calculate the number of day for delivery
+            int days = (deliveryDate.Date - DateTime.Now.Date).Days;
+            if (days >= roof_num)
+            {
+                return 1;
+            }
+
+            var ratio = (from d in db.tb_deliverytime
+                        where d.dt_num >= days
+                        orderby d.dt_num ascending
+                        select d).First().dt_ratio;
+            
+            return ratio;
         }
 
         public tb_shippingcategory GetShipCate(string location)
@@ -444,6 +488,17 @@ namespace MyImageService
             return shipList;
         }
 
-        
+        public string ValidateDeliDate(DateTime deliveryDate)
+        {
+            int minDay = (from d in db.tb_deliverytime
+                          orderby d.dt_num ascending
+                          select d.dt_num).First();
+            if((deliveryDate.Date - DateTime.Now.Date).Days < minDay)
+            {
+                return "We can't delivery on this day. Please choose another.";
+            }
+            return null;
+        }
+
     }
 }

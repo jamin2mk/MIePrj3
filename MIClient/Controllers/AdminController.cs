@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -56,7 +57,7 @@ namespace MIClient.Controllers
         public ActionResult SearchByName(string search)
         {
             var a = client.SearchCustomerByName(search);
-            return View("Customer",a);
+            return View("Customer", a);
         }
         //SIZE
         public ActionResult Size()
@@ -187,13 +188,26 @@ namespace MIClient.Controllers
                 upStat.o_s_id = stats.o_s_id;
 
                 client.UpdateStatus(upStat);
+
+                if (upStat.o_status.Equals("Finished"))
+                {
+                    // remove directory contains all images of the order
+                    RemoveFolder(upStat.o_folder);
+                    // clear records in database
+                    client.ClearData(upStat.o_id,upStat.o_folder);
+                }
+
                 return RedirectToAction("Order");
             }
 
             return View();
         }
 
-
+        public void RemoveFolder(string folder)
+        {
+            string dir = Server.MapPath(@"~/Uploads/" + folder);
+            Directory.Delete(dir, true);
+        }
 
     }
 }

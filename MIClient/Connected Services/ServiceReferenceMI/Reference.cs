@@ -1143,6 +1143,12 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/UpdateStatus", ReplyAction="http://tempuri.org/IServiceMI/UpdateStatusResponse")]
         System.Threading.Tasks.Task UpdateStatusAsync(MIClient.ServiceReferenceMI.tb_order upStatus);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ClearData", ReplyAction="http://tempuri.org/IServiceMI/ClearDataResponse")]
+        void ClearData(int orderID, string folder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ClearData", ReplyAction="http://tempuri.org/IServiceMI/ClearDataResponse")]
+        System.Threading.Tasks.Task ClearDataAsync(int orderID, string folder);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrdersByStatus", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse")]
         MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt);
         
@@ -1305,11 +1311,11 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetSize", ReplyAction="http://tempuri.org/IServiceMI/GetSizeResponse")]
         System.Threading.Tasks.Task<string[]> GetSizeAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDelivery", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryResponse")]
-        MIClient.ServiceReferenceMI.tb_deliverytime GetDelivery(System.DateTime deliveryDate);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ValidateDeliDate", ReplyAction="http://tempuri.org/IServiceMI/ValidateDeliDateResponse")]
+        string ValidateDeliDate(System.DateTime deliveryDate);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDelivery", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryResponse")]
-        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_deliverytime> GetDeliveryAsync(System.DateTime deliveryDate);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ValidateDeliDate", ReplyAction="http://tempuri.org/IServiceMI/ValidateDeliDateResponse")]
+        System.Threading.Tasks.Task<string> ValidateDeliDateAsync(System.DateTime deliveryDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetShipCate", ReplyAction="http://tempuri.org/IServiceMI/GetShipCateResponse")]
         MIClient.ServiceReferenceMI.tb_shippingcategory GetShipCate(string location);
@@ -1322,6 +1328,18 @@ namespace MIClient.ServiceReferenceMI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetShipList", ReplyAction="http://tempuri.org/IServiceMI/GetShipListResponse")]
         System.Threading.Tasks.Task<string[]> GetShipListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDeliveryRatio", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryRatioResponse")]
+        double GetDeliveryRatio(System.DateTime deliveryDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDeliveryRatio", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryRatioResponse")]
+        System.Threading.Tasks.Task<double> GetDeliveryRatioAsync(System.DateTime deliveryDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDeliveryID", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryIDResponse")]
+        int GetDeliveryID(System.DateTime deliveryDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetDeliveryID", ReplyAction="http://tempuri.org/IServiceMI/GetDeliveryIDResponse")]
+        System.Threading.Tasks.Task<int> GetDeliveryIDAsync(System.DateTime deliveryDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/CalculateImage", ReplyAction="http://tempuri.org/IServiceMI/CalculateImageResponse")]
         MIData.Models.MImages CalculateImage(MIData.Models.MImages mImages);
@@ -1342,10 +1360,10 @@ namespace MIClient.ServiceReferenceMI {
         System.Threading.Tasks.Task AddCreditCardAsync(int custID, string custCard);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/VerifyCreditCard", ReplyAction="http://tempuri.org/IServiceMI/VerifyCreditCardResponse")]
-        bool VerifyCreditCard(int custID, System.DateTime expiredDate);
+        string VerifyCreditCard(int custID, System.DateTime expiredDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/VerifyCreditCard", ReplyAction="http://tempuri.org/IServiceMI/VerifyCreditCardResponse")]
-        System.Threading.Tasks.Task<bool> VerifyCreditCardAsync(int custID, System.DateTime expiredDate);
+        System.Threading.Tasks.Task<string> VerifyCreditCardAsync(int custID, System.DateTime expiredDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1413,6 +1431,14 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task UpdateStatusAsync(MIClient.ServiceReferenceMI.tb_order upStatus) {
             return base.Channel.UpdateStatusAsync(upStatus);
+        }
+        
+        public void ClearData(int orderID, string folder) {
+            base.Channel.ClearData(orderID, folder);
+        }
+        
+        public System.Threading.Tasks.Task ClearDataAsync(int orderID, string folder) {
+            return base.Channel.ClearDataAsync(orderID, folder);
         }
         
         public MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt) {
@@ -1631,12 +1657,12 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.GetSizeAsync();
         }
         
-        public MIClient.ServiceReferenceMI.tb_deliverytime GetDelivery(System.DateTime deliveryDate) {
-            return base.Channel.GetDelivery(deliveryDate);
+        public string ValidateDeliDate(System.DateTime deliveryDate) {
+            return base.Channel.ValidateDeliDate(deliveryDate);
         }
         
-        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_deliverytime> GetDeliveryAsync(System.DateTime deliveryDate) {
-            return base.Channel.GetDeliveryAsync(deliveryDate);
+        public System.Threading.Tasks.Task<string> ValidateDeliDateAsync(System.DateTime deliveryDate) {
+            return base.Channel.ValidateDeliDateAsync(deliveryDate);
         }
         
         public MIClient.ServiceReferenceMI.tb_shippingcategory GetShipCate(string location) {
@@ -1653,6 +1679,22 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task<string[]> GetShipListAsync() {
             return base.Channel.GetShipListAsync();
+        }
+        
+        public double GetDeliveryRatio(System.DateTime deliveryDate) {
+            return base.Channel.GetDeliveryRatio(deliveryDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> GetDeliveryRatioAsync(System.DateTime deliveryDate) {
+            return base.Channel.GetDeliveryRatioAsync(deliveryDate);
+        }
+        
+        public int GetDeliveryID(System.DateTime deliveryDate) {
+            return base.Channel.GetDeliveryID(deliveryDate);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetDeliveryIDAsync(System.DateTime deliveryDate) {
+            return base.Channel.GetDeliveryIDAsync(deliveryDate);
         }
         
         public MIData.Models.MImages CalculateImage(MIData.Models.MImages mImages) {
@@ -1679,11 +1721,11 @@ namespace MIClient.ServiceReferenceMI {
             return base.Channel.AddCreditCardAsync(custID, custCard);
         }
         
-        public bool VerifyCreditCard(int custID, System.DateTime expiredDate) {
+        public string VerifyCreditCard(int custID, System.DateTime expiredDate) {
             return base.Channel.VerifyCreditCard(custID, expiredDate);
         }
         
-        public System.Threading.Tasks.Task<bool> VerifyCreditCardAsync(int custID, System.DateTime expiredDate) {
+        public System.Threading.Tasks.Task<string> VerifyCreditCardAsync(int custID, System.DateTime expiredDate) {
             return base.Channel.VerifyCreditCardAsync(custID, expiredDate);
         }
     }
