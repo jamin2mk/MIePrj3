@@ -35,20 +35,20 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="list-group">
-                        <a href="dashboard.html" class="list-group-item active main-color-bg">
+                        <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
                         </a>
-                        <a href="order.html" class="list-group-item">
+                        <a href="@Url.Action("Order","Admin")" class="list-group-item">
                             <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
                             Orders <span class="badge"> @ViewData["AllOrder"]</span>
                         </a>
-                        <a href="customer.html" class="list-group-item">
+                        <a href="@Url.Action("Customer","Admin")" class="list-group-item">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             Customers <span class="badge"> @ViewData["AllCustomer"]</span>
                         </a>
-                        <a href="customer.html" class="list-group-item">
+                        <a href="@Url.Action("Size","Admin")" class="list-group-item">
                             <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                            Customers <span class="badge"> @ViewData["AllSize"]</span>
+                            Size <span class="badge"> @ViewData["AllSize"]</span>
                         </a>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    @using (Html.BeginForm("SearchByName","Admin"))
+                                    @using (Html.BeginForm("SearchByName", "Admin"))
                                     {
                                         <input type="text" class="form-control" placeholder="Filter customers by name..."> <input type="submit" value="Search" />
                                     }
@@ -113,11 +113,11 @@
                                             @{ var gen = item.cus_gender; }
                                             @if (gen == true)
                                             {
-                                                <p>Male</p>
+                                                <p>Female</p>
                                             }
                                             else
                                             {
-                                                <p>Female</p>
+                                                <p>Male</p>
                                             }
                                         </td>
                                         <td>

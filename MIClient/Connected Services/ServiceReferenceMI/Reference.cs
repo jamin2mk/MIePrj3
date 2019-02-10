@@ -1221,6 +1221,18 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomer", ReplyAction="http://tempuri.org/IServiceMI/GetCustomerResponse")]
         System.Threading.Tasks.Task<MIData.Models.Customer> GetCustomerAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomerPassword", ReplyAction="http://tempuri.org/IServiceMI/GetCustomerPasswordResponse")]
+        MIData.Models.ChangePassword GetCustomerPassword(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetCustomerPassword", ReplyAction="http://tempuri.org/IServiceMI/GetCustomerPasswordResponse")]
+        System.Threading.Tasks.Task<MIData.Models.ChangePassword> GetCustomerPasswordAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ChangePassword", ReplyAction="http://tempuri.org/IServiceMI/ChangePasswordResponse")]
+        void ChangePassword([System.ServiceModel.MessageParameterAttribute(Name="changePassword")] MIData.Models.ChangePassword changePassword1, int cusid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ChangePassword", ReplyAction="http://tempuri.org/IServiceMI/ChangePasswordResponse")]
+        System.Threading.Tasks.Task ChangePasswordAsync(MIData.Models.ChangePassword changePassword, int cusid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/FindCustomer", ReplyAction="http://tempuri.org/IServiceMI/FindCustomerResponse")]
         MIData.Models.Customer FindCustomer(int custID);
         
@@ -1505,6 +1517,22 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task<MIData.Models.Customer> GetCustomerAsync(string email) {
             return base.Channel.GetCustomerAsync(email);
+        }
+        
+        public MIData.Models.ChangePassword GetCustomerPassword(int id) {
+            return base.Channel.GetCustomerPassword(id);
+        }
+        
+        public System.Threading.Tasks.Task<MIData.Models.ChangePassword> GetCustomerPasswordAsync(int id) {
+            return base.Channel.GetCustomerPasswordAsync(id);
+        }
+        
+        public void ChangePassword(MIData.Models.ChangePassword changePassword1, int cusid) {
+            base.Channel.ChangePassword(changePassword1, cusid);
+        }
+        
+        public System.Threading.Tasks.Task ChangePasswordAsync(MIData.Models.ChangePassword changePassword, int cusid) {
+            return base.Channel.ChangePasswordAsync(changePassword, cusid);
         }
         
         public MIData.Models.Customer FindCustomer(int custID) {

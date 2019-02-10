@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-10">
                 <h1>
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Size Catalogue <small>
+                    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Size Catalogue <small>
                         Manage Printing
                         Size
                     </small>
@@ -37,20 +37,20 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="list-group">
-                    <a href="dashboard.html" class="list-group-item active main-color-bg">
+                    <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
                     </a>
-                    <a href="order.html" class="list-group-item">
+                    <a href="@Url.Action("Order","Admin")" class="list-group-item">
                         <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
                         Orders <span class="badge"> @ViewData["AllOrder"]</span>
                     </a>
-                    <a href="customer.html" class="list-group-item">
+                    <a href="@Url.Action("Customer","Admin")" class="list-group-item">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         Customers <span class="badge"> @ViewData["AllCustomer"]</span>
                     </a>
-                    <a href="customer.html" class="list-group-item">
+                    <a href="@Url.Action("Size","Admin")" class="list-group-item">
                         <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        Customers <span class="badge"> @ViewData["AllSize"]</span>
+                        Size <span class="badge"> @ViewData["AllSize"]</span>
                     </a>
                 </div>
             </div>
@@ -64,9 +64,11 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                               
-                                <p>
-                                    <span class="glyphicon glyphicon-plus"></span> @Html.ActionLink("Create New", "CreateSize")
+
+                                <p><a href="@Url.Action("CreateSize","Admin")">
+
+                                    <span class="glyphicon glyphicon-plus"></span> Create New
+                                    </a>
                                 </p>
                             </div>
                         </div>

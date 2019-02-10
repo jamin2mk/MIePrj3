@@ -15,6 +15,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ChangePassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConfirmPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldPassword" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChangePassword" nillable="true" type="tns:ChangePassword" />
   <xs:complexType name="ArrayOfFollowedOrder">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="FollowedOrder" nillable="true" type="tns:FollowedOrder" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MIData.Models
 {
-    public class Customer
+    public class Register
     {
         [Key]
         public int cus_id { get; set; }
@@ -39,10 +39,12 @@ namespace MIData.Models
         [Display(Name = "Email")]
         public string cus_email { get; set; }
 
-        
+        [Required(ErrorMessage = "Please enter your Password.")]
+        [Display(Name ="Password")]
         public string cus_pass { get; set; }
 
-        
+        [Required(ErrorMessage = "Please enter your Password Confirm.")]
+        [Display(Name = "Confirm Password")]
         public string pass_confirm { get; set; }
     }
 }

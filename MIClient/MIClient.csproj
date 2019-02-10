@@ -154,6 +154,7 @@
     <None Include="Connected Services\ServiceReferenceMI\ServiceMI5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Properties\DataSources\MIData.Models.ChangePassword.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -207,6 +208,8 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\EditProfile.cshtml" />
+    <Content Include="Views\Customer\ShowProfile.cshtml" />
+    <Content Include="Views\Customer\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

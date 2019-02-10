@@ -6,31 +6,65 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/common.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("MyImage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="#">MyImage</a>
             </div>
-            <div class="navbar-collapse collapse">
+            <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    @{
+
+                        var orders = "Order";
+                        var customer = "Customer";
+                        var index = "Index";
+                        var size = "Size";
+                    }
+                    <li class="@if ((string)ViewData["ViewName"] == index)
+                    {
+                        @Session["active"]
+                    }
+                    else { @ViewData["No"];}">@Html.ActionLink("My Profile", "ShowProfile", "Customer")</li>
+                    <li class="@if ((string)ViewData["ViewName"] == orders)
+                    {
+                        @Session["active"]
+                    }
+                    else { @ViewData["No"];}
+                    ">@Html.ActionLink("My Order", "FollowOrder", "Customer")</li>
+                    <li class="@if ((string)ViewData["ViewName"] == customer)
+                    {
+                        @Session["active"]
+                    }
+                    else { @ViewData["No"];}">@Html.ActionLink("New Order", "Customer", "Customer")</li>
+                        
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Welcome, @Session["CustomerName"]</a></li>
+                    <li>@Html.ActionLink("Logout", "Login", "Admin")</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+        <footer class="bottom>
+            <p>&copy;  - Copyright MyImage @DateTime.Now.Year</p>
         </footer>
     </div>
 

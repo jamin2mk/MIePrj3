@@ -182,6 +182,8 @@ namespace MyImageService
             return new Customer { cus_id = cust.cus_id, cus_fname = cust.cus_fname };
         }
 
+
+
         public Customer FindCustomer(int custID)
         {
             tb_customer cust = db.tb_customer.Find(custID);
@@ -214,6 +216,22 @@ namespace MyImageService
             db.tb_customer.Add(newCust);
             db.SaveChanges();
             return mess;
+        }
+
+        public ChangePassword GetCustomerPassword(int id)
+        {
+            tb_customer cust = db.tb_customer.Find(id);
+            return new ChangePassword { OldPassword = cust.cus_pass};
+        }
+
+        public  void ChangePassword(ChangePassword changePassword, int cusid)
+        {
+            tb_customer cust = db.tb_customer.Find(cusid);
+            if (cust != null)
+            {
+                cust.cus_pass = changePassword.NewPassword;
+                db.SaveChanges();
+            }
         }
 
         public void EditCustomer(Customer customer)

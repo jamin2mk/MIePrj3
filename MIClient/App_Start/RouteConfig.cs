@@ -16,7 +16,7 @@ namespace MIClient
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Order", action = "Upload", id = UrlParameter.Optional }
+                defaults: new { controller = "Customer", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

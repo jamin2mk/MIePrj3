@@ -72,6 +72,12 @@ namespace MyImageService
         [OperationContract]
         Customer GetCustomer(string email);
 
+        //[OperationContract]
+        [OperationContract]
+        ChangePassword GetCustomerPassword(int id);
+
+        [OperationContract]
+        void ChangePassword(ChangePassword changePassword, int cusid);
         [OperationContract]
         Customer FindCustomer(int custID);
 
