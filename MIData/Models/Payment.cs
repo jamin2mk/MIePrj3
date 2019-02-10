@@ -13,20 +13,20 @@ namespace MIData.Models
         public string Mode { get; set; }
 
         [Display(Name = "Card Owner Name")]
-        //[Required(ErrorMessage = "Please select the Card Owner Name.")]
+        [Required(ErrorMessage = "Please select the Card Owner Name.")]
         public string CardName { get; set; }
 
         [Display(Name = "Card Number")]
-        //[Required(ErrorMessage = "Please select the Card Number.")]
-        [StringLength(20, MinimumLength = 18)]
+        [Required(ErrorMessage = "Please select the Card Number.")]
+        [StringLength(18, MinimumLength = 16)]
         public string CardNumber { get; set; }
 
-        //[Required(ErrorMessage = "Please select the CVC.")]
+        [Required(ErrorMessage = "Please select the CVC.")]
         [Range(100,999,ErrorMessage = "CVC must just have 3 digits.")]
         public int CVC { get; set; }
 
         [Display(Name = "Expired Date")]
-        //[Required(ErrorMessage = "Please select the Expired Date.")]
+        [Required(ErrorMessage = "Please select the Expired Date.")]
         [DataType(DataType.Date)]
         public DateTime ExpiredDate { get; set; }
     }

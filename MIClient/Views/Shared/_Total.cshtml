@@ -30,13 +30,13 @@
                 <span>@item.Size</span>
             </div>
             <div class="col-md-3">
-                <span>@item.Price</span>
+                <span>@Math.Round(item.Price,2)</span>
             </div>
             <div class="col-md-2">
                 <span>@item.Copies</span>
             </div>
             <div class="col-md-3">
-                <span>@amount</span>
+                <span>@Math.Round(amount,2)</span>
             </div>
         </div>
     }
@@ -50,7 +50,7 @@
             <span>@quantity</span>
         </div>
         <div class="col-md-3">
-            <span>@Model.Total</span>
+            <span>@Math.Round(Model.Total,2)</span>
         </div>
     </div>
 

@@ -12,13 +12,17 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">       
+    <div class="form-horizontal">
+        @if(ViewBag.mess != null)
+        {
+            <h4 class="text-danger">Payment is failed. <small class="text-danger">@ViewBag.mess</small></h4>
+        }
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Mode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Mode, new SelectList(Enum.GetValues(typeof(PayMode))),
-                    "Select Mode")
+                    "Select Mode", new { @onclick = "lockInput()", @class = "form-control w-150", @id = "selectMode" })
                 @Html.ValidationMessageFor(model => model.Mode, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CardName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CardName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CardName, new { htmlAttributes = new { @class = "form-control", @id = "cardName" } })
                 @Html.ValidationMessageFor(model => model.CardName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +38,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CardNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control", @type="number"} })
+                @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control", @id = "cardNumber" , @type="number"} })
                 @Html.ValidationMessageFor(model => model.CardNumber, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CVC, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CVC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CVC, new { htmlAttributes = new { @class = "form-control", @id = "CVC" } })
                 @Html.ValidationMessageFor(model => model.CVC, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +54,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ExpiredDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ExpiredDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.ExpiredDate, new { htmlAttributes = new { @class = "form-control", @id = "expiredDate" } })
                 @Html.ValidationMessageFor(model => model.ExpiredDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -63,4 +67,22 @@
         </div>
     </div>
 }
+
+    <script>
+        function lockInput() {
+            var m = document.getElementById("selectMode").value;
+            if (m === "Direct") {
+                document.getElementById("cardName").disabled = true;
+                document.getElementById("cardNumber").disabled = true;
+                document.getElementById("CVC").disabled = true;
+                document.getElementById("expiredDate").disabled = true;
+            }
+            else {
+                document.getElementById("cardName").disabled = false;
+                document.getElementById("cardNumber").disabled = false;
+                document.getElementById("CVC").disabled = false;
+                document.getElementById("expiredDate").disabled = false;
+            }
+        }
+    </script>
 

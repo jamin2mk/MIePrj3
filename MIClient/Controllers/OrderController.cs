@@ -44,9 +44,9 @@ namespace MIClient.Controllers
             foreach (var item in images)
             {
                 string extension = Path.GetExtension(item.FileName).ToLower();
-                if(extension != ".jpeg" && extension != ".jpg")
+                if (extension != ".jpeg" && extension != ".jpg")
                 {
-                    ViewBag.mess = "Only format .jpeg is accepted!";
+                    ViewBag.mess = "Only format .jpeg and .jpg are accepted!";
                     return View("Upload");
                 }
                 string fn = Path.GetFileName(item.FileName);
@@ -82,6 +82,13 @@ namespace MIClient.Controllers
         {
             if (ModelState.IsValid)
             {
+                string mess = client.ValidateDeliDate(recipient.Delivery);
+                if(mess != null)
+                {
+                    ViewBag.mess = mess;
+                    ViewBag.ShipList = client.GetShipList();
+                    return View();
+                }
                 decimal imgTotal = (Session["image"] as MImages).Total;
                 recipient.Total = client.CalculateShip(recipient, imgTotal);
                 Session["recipient"] = recipient;
@@ -96,7 +103,7 @@ namespace MIClient.Controllers
         public ActionResult GetShip(Recipient recipient)
         {
             if (ModelState.IsValid)
-            {
+            {                
                 decimal imgTotal = (Session["image"] as MImages).Total;
                 recipient.Total = client.CalculateShip(recipient, imgTotal);
                 Session["recipient"] = recipient;
@@ -114,50 +121,59 @@ namespace MIClient.Controllers
         [HttpPost]
         public ActionResult Payment(Payment payment)
         {
-            if (ModelState.IsValid)
-            {
-                int custID = 1;
-                //TempData["payment"] = payment;
-                Recipient recipient = Session["recipient"] as Recipient;
-                MImages mImages = Session["image"] as MImages;
+            //int custID = ((Customer)Session["Customer"]).cus_id;
+            int custID = 1;
+            Recipient recipient = Session["recipient"] as Recipient;
+            MImages mImages = Session["image"] as MImages;
 
-                // save credit card to tb_customer
-                if (payment.Mode == PayMode.CreditCard.ToString())
+            // save credit card to tb_customer
+
+            if (payment.Mode == PayMode.CreditCard.ToString())
+            {
+                if (ModelState.IsValid)
                 {
                     client.AddCreditCard(custID, payment.CardNumber);
-                    if (!client.VerifyCreditCard(custID, payment.ExpiredDate))
+
+                    // get message from verifying credit card
+                    string mess = client.VerifyCreditCard(custID, payment.ExpiredDate);
+                    if (mess != null)
                     {
+                        ViewBag.mess = mess;
                         return View();
                     }
-                }               
-
-                // save to tb_order            
-                int orderID = client.CreateOrder(custID, mImages.Folder, recipient, payment);
-
-                // get list image-id from saving to tb_image            
-                client.SaveDetailImage(mImages);
-
-                // save to tb_OrderDetails
-                client.SaveOrderDetail(orderID, mImages.Folder);
-
-                Summary summary = new Summary
+                }
+                else
                 {
-                    OrderID = 1,
-                    Name = recipient.Name,
-                    Phone = recipient.Phone.ToString(),
-                    Address = recipient.Address,
-                    Delivery = recipient.Delivery,
-                    Mode = payment.Mode,
-                    Total = recipient.Total
-                };
-                return View("Summary", summary);
+                    return View();
+                }
             }
-            return View();
+
+            // save to tb_order            
+            int orderID = client.CreateOrder(custID, mImages.Folder, recipient, payment);
+
+            // get list image-id from saving to tb_image            
+            client.SaveDetailImage(mImages);
+
+            // save to tb_OrderDetails
+            client.SaveOrderDetail(orderID, mImages.Folder);
+
+            Summary summary = new Summary
+            {
+                OrderID = 1,
+                Name = recipient.Name,
+                Phone = recipient.Phone.ToString(),
+                Address = recipient.Address,
+                Delivery = recipient.Delivery,
+                Mode = payment.Mode,
+                Total = recipient.Total
+            };
+            return View("Summary", summary);            
         }
 
         public ActionResult Summary()
         {
             return View();
         }
+
     }
 }

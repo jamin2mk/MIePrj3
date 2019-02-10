@@ -40,6 +40,12 @@
   <wsdl:message name="IServiceMI_UpdateStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceMI_ClearData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_ClearData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearDataResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceMI_GetOrdersByStatus_InputMessage">
     <wsdl:part name="parameters" element="tns:GetOrdersByStatus" />
   </wsdl:message>
@@ -190,11 +196,11 @@
   <wsdl:message name="IServiceMI_GetSize_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSizeResponse" />
   </wsdl:message>
-  <wsdl:message name="IServiceMI_GetDelivery_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDelivery" />
+  <wsdl:message name="IServiceMI_ValidateDeliDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateDeliDate" />
   </wsdl:message>
-  <wsdl:message name="IServiceMI_GetDelivery_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDeliveryResponse" />
+  <wsdl:message name="IServiceMI_ValidateDeliDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateDeliDateResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceMI_GetShipCate_InputMessage">
     <wsdl:part name="parameters" element="tns:GetShipCate" />
@@ -207,6 +213,18 @@
   </wsdl:message>
   <wsdl:message name="IServiceMI_GetShipList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetShipListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetDeliveryRatio_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryRatio" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetDeliveryRatio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryRatioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetDeliveryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_GetDeliveryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryIDResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceMI_CalculateImage_InputMessage">
     <wsdl:part name="parameters" element="tns:CalculateImage" />
@@ -252,6 +270,10 @@
     <wsdl:operation name="UpdateStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/UpdateStatus" message="tns:IServiceMI_UpdateStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/UpdateStatusResponse" message="tns:IServiceMI_UpdateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/ClearData" message="tns:IServiceMI_ClearData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/ClearDataResponse" message="tns:IServiceMI_ClearData_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetOrdersByStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersByStatus" message="tns:IServiceMI_GetOrdersByStatus_InputMessage" />
@@ -353,9 +375,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetSize" message="tns:IServiceMI_GetSize_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetSizeResponse" message="tns:IServiceMI_GetSize_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDelivery">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetDelivery" message="tns:IServiceMI_GetDelivery_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetDeliveryResponse" message="tns:IServiceMI_GetDelivery_OutputMessage" />
+    <wsdl:operation name="ValidateDeliDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/ValidateDeliDate" message="tns:IServiceMI_ValidateDeliDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/ValidateDeliDateResponse" message="tns:IServiceMI_ValidateDeliDate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetShipCate">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetShipCate" message="tns:IServiceMI_GetShipCate_InputMessage" />
@@ -364,6 +386,14 @@
     <wsdl:operation name="GetShipList">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetShipList" message="tns:IServiceMI_GetShipList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetShipListResponse" message="tns:IServiceMI_GetShipList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryRatio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetDeliveryRatio" message="tns:IServiceMI_GetDeliveryRatio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetDeliveryRatioResponse" message="tns:IServiceMI_GetDeliveryRatio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetDeliveryID" message="tns:IServiceMI_GetDeliveryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetDeliveryIDResponse" message="tns:IServiceMI_GetDeliveryID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CalculateImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/CalculateImage" message="tns:IServiceMI_CalculateImage_InputMessage" />
@@ -422,6 +452,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateStatus">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/UpdateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearData">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/ClearData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -654,8 +693,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDelivery">
-      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetDelivery" style="document" />
+    <wsdl:operation name="ValidateDeliDate">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/ValidateDeliDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -674,6 +713,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetShipList">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/GetShipList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryRatio">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetDeliveryRatio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryID">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/GetDeliveryID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

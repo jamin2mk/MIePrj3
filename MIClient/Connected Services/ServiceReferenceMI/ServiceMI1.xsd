@@ -71,6 +71,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ClearData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderID" type="xs:int" />
+        <xs:element minOccurs="0" name="folder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetOrdersByStatus">
     <xs:complexType>
       <xs:sequence>
@@ -400,17 +413,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetDelivery">
+  <xs:element name="ValidateDeliDate">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="deliveryDate" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetDeliveryResponse">
+  <xs:element name="ValidateDeliDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetDeliveryResult" nillable="true" type="q26:tb_deliverytime" />
+        <xs:element minOccurs="0" name="ValidateDeliDateResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -424,7 +437,7 @@
   <xs:element name="GetShipCateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetShipCateResult" nillable="true" type="q27:tb_shippingcategory" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MyImageService" minOccurs="0" name="GetShipCateResult" nillable="true" type="q26:tb_shippingcategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -436,28 +449,56 @@
   <xs:element name="GetShipListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetShipListResult" nillable="true" type="q28:ArrayOfstring" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetShipListResult" nillable="true" type="q27:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryRatio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deliveryDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryRatioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDeliveryRatioResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deliveryDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDeliveryIDResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CalculateImage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MIData.Models" minOccurs="0" name="mImages" nillable="true" type="q29:MImages" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MIData.Models" minOccurs="0" name="mImages" nillable="true" type="q28:MImages" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CalculateImageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MIData.Models" minOccurs="0" name="CalculateImageResult" nillable="true" type="q30:MImages" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MIData.Models" minOccurs="0" name="CalculateImageResult" nillable="true" type="q29:MImages" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CalculateShip">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MIData.Models" minOccurs="0" name="recipient" nillable="true" type="q31:Recipient" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MIData.Models" minOccurs="0" name="recipient" nillable="true" type="q30:Recipient" />
         <xs:element minOccurs="0" name="imgTotal" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
@@ -493,7 +534,7 @@
   <xs:element name="VerifyCreditCardResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="VerifyCreditCardResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="VerifyCreditCardResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

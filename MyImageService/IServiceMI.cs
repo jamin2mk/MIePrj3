@@ -33,6 +33,9 @@ namespace MyImageService
         void UpdateStatus(tb_order upStatus);
 
         [OperationContract]
+        void ClearData(int orderID, string folder);
+
+        [OperationContract]
         List<tb_order> GetOrdersByStatus(string stt);
         [OperationContract]
         List<tb_order> GetOrderNotFinished();
@@ -110,13 +113,19 @@ namespace MyImageService
         List<string> GetSize();
 
         [OperationContract]
-        tb_deliverytime GetDelivery(DateTime deliveryDate);
+        string ValidateDeliDate(DateTime deliveryDate);
 
         [OperationContract]
         tb_shippingcategory GetShipCate(string location);
 
         [OperationContract]
         List<string> GetShipList();
+
+        [OperationContract]
+        double GetDeliveryRatio(DateTime deliveryDate);
+
+        [OperationContract]
+        int GetDeliveryID(DateTime deliveryDate);
 
         [OperationContract]
         MImages CalculateImage(MImages mImages);
@@ -128,7 +137,7 @@ namespace MyImageService
         void AddCreditCard(int custID, string custCard);
 
         [OperationContract]
-        bool VerifyCreditCard(int custID, DateTime expiredDate);
+        string VerifyCreditCard(int custID, DateTime expiredDate);
         
 
 
