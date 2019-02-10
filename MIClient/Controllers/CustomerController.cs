@@ -16,26 +16,33 @@ namespace MIClient.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            Session["Customer"] = client.GetCustomer("baochi1212@gmail.com");
             return View();
         }
 
         public ActionResult Login()
         {
+
+            Session.RemoveAll();
             return View();
         }
 
         [HttpPost]
         public ActionResult Login(Login newLogin)
         {
-            if (client.Login(newLogin.email, newLogin.password))
+            if (ModelState.IsValid)
             {
-                var a = client.GetCustomer(newLogin.email);
-                Session["Customer"] = client.GetCustomer(newLogin.email);
-                Session["CustomerID"] = a.cus_id;
-                Session["CustomerName"] = a.cus_fname;
-                return RedirectToAction("Index");
+                if (client.Login(newLogin.email, newLogin.password))
+                {
+                    var a = client.GetCustomer(newLogin.email);
+                    Session["Customer"] = client.GetCustomer(newLogin.email);
+                    Session["CustomerID"] = a.cus_id;
+                    Session["CustomerName"] = a.cus_fname;
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("", "Wrong email or password please try again.");
+                return View();
             }
+            ModelState.AddModelError("","Please enter email and password");
             return View();
         }
 
@@ -105,6 +112,16 @@ namespace MIClient.Controllers
                     ModelState.AddModelError("","Old password is incorrect");
                     return View();
                 }
+                if (newPass.NewPassword == newPass.OldPassword)
+                {
+                    ModelState.AddModelError("","New Password and Old Password cannot be the same");
+                    return View();
+                }
+                if (newPass.NewPassword != newPass.ConfirmPassword)
+                {
+                    ModelState.AddModelError("","New Password and Password Confirm do not match");
+                    return View();
+                }
 
                 client.ChangePassword(newPass,a);
                 return RedirectToAction("Index");
@@ -116,7 +133,7 @@ namespace MIClient.Controllers
 
         public ActionResult FollowOrder()
         {
-            int custID = 1;
+            int custID = ((Customer)Session["Customer"]).cus_id;
             var orderList = client.FindOrders(custID);
             return View(orderList);
         }

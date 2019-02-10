@@ -11,9 +11,11 @@ namespace MIData.Models
     {
         [Display(Name ="Email")]
         [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage ="Please Enter Email")]
         public string email { get; set; }
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
+        [Required(ErrorMessage ="Please Enter Password")]
         public string password { get; set; }
     }
 }
