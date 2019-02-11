@@ -19,12 +19,16 @@ namespace MIClient.Controllers
 
         public ActionResult Upload()
         {
-            return View();
+            if(Session["Customer"] != null)
+            {
+                return View();
+            }
+            return View("Login");
         }
 
         [HttpPost]
         public ActionResult ShowImage(HttpPostedFileBase[] images)
-        {
+        {            
             // random folder
             string folder = client.RandomFolder();
             string dir = Server.MapPath("~/Uploads/" + folder);
@@ -121,13 +125,13 @@ namespace MIClient.Controllers
         [HttpPost]
         public ActionResult Payment(Payment payment)
         {
-            //int custID = ((Customer)Session["Customer"]).cus_id;
-            int custID = 1;
+            // get customer ID from Session["Customer"]
+            int custID = ((Customer)Session["Customer"]).cus_id;
+
             Recipient recipient = Session["recipient"] as Recipient;
             MImages mImages = Session["image"] as MImages;
 
             // save credit card to tb_customer
-
             if (payment.Mode == PayMode.CreditCard.ToString())
             {
                 if (ModelState.IsValid)
@@ -159,7 +163,7 @@ namespace MIClient.Controllers
 
             Summary summary = new Summary
             {
-                OrderID = 1,
+                OrderID = orderID,
                 Name = recipient.Name,
                 Phone = recipient.Phone.ToString(),
                 Address = recipient.Address,
