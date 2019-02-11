@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
-                    <h1><span class="glyphicon glyphicon-folder-close aria-hidden="true"></span> Orders <small>Manage Orders</small></h1>
+                    <h1><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> Orders <small>Manage Orders</small></h1>
                 </div>
             </div>
         </div>
@@ -58,76 +58,91 @@
                         </div>
                         <div class="panel-body">
 
-                            <br>
-                            <table class="table table-hover table-striped" id="order-table">
-                                <tr>
-                                    <th style="text-align:center;">
-                                        ID
-                                    </th>
-                                    <th style="text-align:center;">
-                                        Delivery Date
-                                    </th>
-                                    <th style="text-align:center;">
-                                        Payment
-                                    </th>
+                            <div class="table-responsive">
+                                <div class="col-md-offset-1 col-md-8">
+                                    @using (Html.BeginForm("SearchOrder", "Admin"))
+                                    {
+                                        <input type="text" class="input-sm" name="search" id="search" placeholder="Search Order By Recipient Or Status" /><input type="submit" value="Search" class="btn btn-default" />
+                                    }
 
-                                    <th style="text-align:center;">
-                                        Recipient
-                                    </th>
-                                    <th style="text-align:center;">
-                                        Phone Number
-                                    </th>
-
-                                    <th style="text-align:center;">
-                                        Shipping Address
-                                    </th>
-                                    <th style="text-align:center;">
-                                        Status
-                                    </th>
-                                    <th></th>
-                                </tr>
-
-                                @foreach (var item in Model)
-                                {
+                                </div>
+                                <table class="table table-hover table-striped" id="order-table">
                                     <tr>
+                                        <th style="text-align:center;">
+                                            ID
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Delivery Date
+                                        </th>
 
+                                        <th style="text-align:center;">
+                                            Folder
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Payment
+                                        </th>
 
-                                        <td style="text-align:center;">
-                                            @Html.DisplayFor(modelItem => item.o_id)
-                                        </td>
+                                        <th style="text-align:center;">
+                                            Recipient
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Phone Number
+                                        </th>
 
-
-                                        <td style="text-align:center;">
-                                            @Html.DisplayFor(modelItem => item.o_deli_date)
-                                        </td>
-
-
-
-                                        <td style="text-align:center;">
-                                            @Html.DisplayFor(modelItem => item.o_pay)
-                                        </td>
-
-                                        <td style="text-align:center;">
-                                            @Html.DisplayFor(modelItem => item.o_recip)
-                                        </td>
-                                        <td style="text-align:center;">
-                                            @Html.DisplayFor(modelItem => item.o_recip_phone)
-                                        </td>
-
-                                        <td style="text-align:center;">
-                                            @Html.DisplayFor(modelItem => item.o_shipadd)
-                                        </td>
-                                        <td style="text-align:center;">
-                                            @Html.DisplayFor(modelItem => item.o_status)
-                                        </td>
-                                        <td style="text-align:center;">
-                                            @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
-
-                                        </td>
+                                        <th style="text-align:center;">
+                                            Shipping Address
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Status
+                                        </th>
+                                        <th></th>
                                     </tr>
-                                }
 
-                            </table>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_id)
+                                            </td>
+
+
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_deli_date)
+                                            </td>
+
+
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_folder)
+                                            </td>
+
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_pay)
+                                            </td>
+
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_recip)
+                                            </td>
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_recip_phone)
+                                            </td>
+
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_shipadd)
+                                            </td>
+                                            <td style="text-align:center;">
+                                                @Html.DisplayFor(modelItem => item.o_status)
+                                            </td>
+                                            <td style="text-align:center;">
+                                                @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
+
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
                         </div>
                     </div>
 

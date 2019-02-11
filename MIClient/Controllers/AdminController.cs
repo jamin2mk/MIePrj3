@@ -27,7 +27,7 @@ namespace MIClient.Controllers
             {
                 if (client.AdminLogin(uid, pwd))
                 {
-
+                    Session["active"] = "active";
                     Session["admin"] = uid;
                     return RedirectToAction("Index");
 
@@ -60,8 +60,8 @@ namespace MIClient.Controllers
             var a = client.GetCustomers();
             return View(a);
         }
-
-        public ActionResult SearchByName(string search)
+        [HttpPost]
+        public ActionResult SearchCustomerByName(string search)
         {
             var a = client.SearchCustomerByName(search);
             return View("Customer", a);
@@ -109,12 +109,16 @@ namespace MIClient.Controllers
 
         public ActionResult DeleteSize(int id)
         {
+           
             client.DeletePrintsizes(id);
             return RedirectToAction("Size");
         }
 
         public ActionResult EditSize(int id)
         {
+            ViewData["AllOrder"] = client.GetOrders().ToList().Count();
+            ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
+            ViewData["AllCustomer"] = client.CountAllCustomer();
             Size editsize = new Size();
             var getsize = client.GetOnePrintsize(id);
             editsize.pr_id = getsize.pr_id;
@@ -146,12 +150,15 @@ namespace MIClient.Controllers
             ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
             ViewData["AllCustomer"] = client.CountAllCustomer();
             ViewData["ViewName"] = "Order";
-            Session["active"] = "active";
+            
             return View(client.GetOrders());
         }
 
         public ActionResult ChangeStatus(int id)
         {
+            ViewData["AllOrder"] = client.GetOrders().ToList().Count();
+            ViewData["AllSize"] = client.GetPrintsizes().ToList().Count();
+            ViewData["AllCustomer"] = client.CountAllCustomer();
             var a = client.GetOneOrders(id);
             Status ups = new Status();
             ups.o_cus_id = a.o_cus_id;
@@ -170,11 +177,18 @@ namespace MIClient.Controllers
 
             return View(ups);
         }
+        [HttpPost]
+        public ActionResult SearchOrder(string search)
+        {
+            return View("Order",client.SearchOrder(search));
+        }
+
 
         [HttpPost]
 
         public ActionResult ChangeStatus(Status stats)
         {
+            
             if (ModelState.IsValid)
             {
 

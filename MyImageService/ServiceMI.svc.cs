@@ -44,8 +44,8 @@ namespace MyImageService
 
         public List<tb_customer> SearchCustomerByName(string search)
         {
-            var result = db.tb_customer.Where(c => c.cus_lname.ToLower().Contains(search.ToLower()) || c.cus_fname.ToLower().Contains(search.ToLower()));
-            return result.ToList();
+            
+            return db.tb_customer.Where(m => m.cus_fname.ToLower().Contains(search) || m.cus_lname.ToLower().Contains(search)).ToList();
         }
 
         public int CountAllCustomer()
@@ -54,6 +54,11 @@ namespace MyImageService
         }
 
         //ORDER
+
+        public List<tb_order> SearchOrder(string search)
+        {
+            return db.tb_order.Where(m => m.o_recip.ToLower().Contains(search)||m.o_status.ToLower().Contains(search)).ToList();
+        }
         public List<tb_order> GetOrders()
         {
             return db.tb_order.ToList();

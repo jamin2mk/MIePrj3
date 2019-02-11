@@ -1149,6 +1149,12 @@ namespace MIClient.ServiceReferenceMI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/ClearData", ReplyAction="http://tempuri.org/IServiceMI/ClearDataResponse")]
         System.Threading.Tasks.Task ClearDataAsync(int orderID, string folder);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchOrder", ReplyAction="http://tempuri.org/IServiceMI/SearchOrderResponse")]
+        MIClient.ServiceReferenceMI.tb_order[] SearchOrder(string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/SearchOrder", ReplyAction="http://tempuri.org/IServiceMI/SearchOrderResponse")]
+        System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> SearchOrderAsync(string search);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceMI/GetOrdersByStatus", ReplyAction="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse")]
         MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt);
         
@@ -1439,6 +1445,14 @@ namespace MIClient.ServiceReferenceMI {
         
         public System.Threading.Tasks.Task ClearDataAsync(int orderID, string folder) {
             return base.Channel.ClearDataAsync(orderID, folder);
+        }
+        
+        public MIClient.ServiceReferenceMI.tb_order[] SearchOrder(string search) {
+            return base.Channel.SearchOrder(search);
+        }
+        
+        public System.Threading.Tasks.Task<MIClient.ServiceReferenceMI.tb_order[]> SearchOrderAsync(string search) {
+            return base.Channel.SearchOrderAsync(search);
         }
         
         public MIClient.ServiceReferenceMI.tb_order[] GetOrdersByStatus(string stt) {

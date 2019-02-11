@@ -8,81 +8,142 @@
 <h2>Payment</h2>
 <hr />
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        @if(ViewBag.mess != null)
-        {
-            <h4 class="text-danger">Payment is failed. <small class="text-danger">@ViewBag.mess</small></h4>
-        }
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Mode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Mode, new SelectList(Enum.GetValues(typeof(PayMode))),
-                    "Select Mode", new { @onclick = "lockInput()", @class = "form-control w-150", @id = "selectMode" })
-                @Html.ValidationMessageFor(model => model.Mode, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CardName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CardName, new { htmlAttributes = new { @class = "form-control", @id = "cardName" } })
-                @Html.ValidationMessageFor(model => model.CardName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CardNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control", @id = "cardNumber" , @type="number"} })
-                @Html.ValidationMessageFor(model => model.CardNumber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CVC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CVC, new { htmlAttributes = new { @class = "form-control", @id = "CVC" } })
-                @Html.ValidationMessageFor(model => model.CVC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ExpiredDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ExpiredDate, new { htmlAttributes = new { @class = "form-control", @id = "expiredDate" } })
-                @Html.ValidationMessageFor(model => model.ExpiredDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Previous" class="btn btn-default w-80" />
-                <input type="submit" value="Next" class="btn btn-default w-80" />
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>  New Upload</h1>
             </div>
         </div>
     </div>
-}
+</header>
 
-    <script>
-        function lockInput() {
-            var m = document.getElementById("selectMode").value;
-            if (m === "Direct") {
-                document.getElementById("cardName").disabled = true;
-                document.getElementById("cardNumber").disabled = true;
-                document.getElementById("CVC").disabled = true;
-                document.getElementById("expiredDate").disabled = true;
-            }
-            else {
-                document.getElementById("cardName").disabled = false;
-                document.getElementById("cardNumber").disabled = false;
-                document.getElementById("CVC").disabled = false;
-                document.getElementById("expiredDate").disabled = false;
-            }
-        }
-    </script>
+<section id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Index", "Index", "Customer")</li> &nbsp;&nbsp;&nbsp; >
+            <li class="active">New Upload</li>
+        </ol>
+    </div>
+</section>
+
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <a href="@Url.Action("ShowProfile","Customer")" class="list-group-item active main-color-bg">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profile
+                    </a>
+                    <a href="@Url.Action("ShowProfile","Customer")" class="list-group-item">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        Your Profile
+                    </a>
+                    <a href="@Url.Action("EditProfile","Customer")" class="list-group-item">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        Edit Profile
+                    </a>
+                    <a href="@Url.Action("ChangePassword","Customer")" class="list-group-item">
+                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                        Change Password
+                    </a>
+                </div>
+            </div>
+
+            <!-- My Follow Order -->
+            <div class="col-md-10">
+                <!-- Order -->
+                <div class="panel panel-default">
+                    <div class="panel-heading main-color-bg">
+                        <h3 class="panel-title">Payment Method</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <br>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                @if (ViewBag.mess != null)
+                                {
+                                    <h4 class="text-danger">Payment is failed. <small class="text-danger">@ViewBag.mess</small></h4>
+                                }
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Mode, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownListFor(model => model.Mode, new SelectList(Enum.GetValues(typeof(PayMode))),
+                                            "Select Mode", new { @onclick = "lockInput()", @class = "form-control w-150", @id = "selectMode" })
+                                        @Html.ValidationMessageFor(model => model.Mode, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CardName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.CardName, new { htmlAttributes = new { @class = "form-control", @id = "cardName" } })
+                                        @Html.ValidationMessageFor(model => model.CardName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CardNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control", @id = "cardNumber", @type = "number" } })
+                                        @Html.ValidationMessageFor(model => model.CardNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CVC, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.CVC, new { htmlAttributes = new { @class = "form-control", @id = "CVC" } })
+                                        @Html.ValidationMessageFor(model => model.CVC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.ExpiredDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.ExpiredDate, new { htmlAttributes = new { @class = "form-control", @id = "expiredDate" } })
+                                        @Html.ValidationMessageFor(model => model.ExpiredDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="button" value="Previous" class="btn btn-default w-80" />
+                                        <input type="submit" value="Next" class="btn btn-default w-80" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <script>
+                            function lockInput() {
+                                var m = document.getElementById("selectMode").value;
+                                if (m === "Direct") {
+                                    document.getElementById("cardName").disabled = true;
+                                    document.getElementById("cardNumber").disabled = true;
+                                    document.getElementById("CVC").disabled = true;
+                                    document.getElementById("expiredDate").disabled = true;
+                                }
+                                else {
+                                    document.getElementById("cardName").disabled = false;
+                                    document.getElementById("cardNumber").disabled = false;
+                                    document.getElementById("CVC").disabled = false;
+                                    document.getElementById("expiredDate").disabled = false;
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
 

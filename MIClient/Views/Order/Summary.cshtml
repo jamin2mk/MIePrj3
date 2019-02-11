@@ -4,67 +4,129 @@
     ViewBag.Title = "Summary";
 }
 
-<h2>Summary</h2>
-<hr />
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderID)
-        </dd>
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> New Upload</h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<section id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Index", "Index", "Customer")</li> &nbsp;&nbsp;&nbsp; >
+            <li class="active">New Upload</li>
+        </ol>
+    </div>
+</section>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <a href="@Url.Action("ShowProfile","Customer")" class="list-group-item active main-color-bg">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profile
+                    </a>
+                    <a href="@Url.Action("ShowProfile","Customer")" class="list-group-item">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        Your Profile
+                    </a>
+                    <a href="@Url.Action("EditProfile","Customer")" class="list-group-item">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        Edit Profile
+                    </a>
+                    <a href="@Url.Action("ChangePassword","Customer")" class="list-group-item">
+                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                        Change Password
+                    </a>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
+            <!-- My Follow Order -->
+            <div class="col-md-10">
+                <!-- Order -->
+                <div class="panel panel-default">
+                    <div class="panel-heading main-color-bg">
+                        <h3 class="panel-title">Recipient Information</h3>
+                    </div>
+                    <div class="panel-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+                        <div>
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.OrderID)
+                                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.OrderID)
+                                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Delivery)
-        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Delivery)
-        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Phone)
+                                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Phone)
+                                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Total)
-        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mode)
-        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Address)
+                                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mode)
-        </dd>
-    </dl>
-</div>
-<p class="btn btn-default">
-    @Html.ActionLink("Follow Order", "FollowOrder", "Customer")
-</p>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Delivery)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Delivery)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Total)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Total)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Mode)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Mode)
+                                </dd>
+                            </dl>
+                        </div>
+                        <p class="btn btn-default">
+                            @Html.ActionLink("Follow Order", "FollowOrder", "Customer")
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+

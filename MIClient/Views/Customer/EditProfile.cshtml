@@ -3,78 +3,148 @@
 @{
     ViewBag.Title = "EditProfile";
 }
-
-<h2>Edit My Profile</h2>
-
-@using (Html.BeginForm())
+@if (Session["Customer"] != null)
 {
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <hr />
-    @if (ViewBag.mess != null)
-    {
-        <h4 class="text-success">@ViewBag.mess</h4>
-    }
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.cus_id)
-    @Html.HiddenFor(model => model.cus_gender)
-    @Html.HiddenFor(model => model.cus_pass)
-    @Html.HiddenFor(model => model.pass_confirm)
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.cus_fname, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cus_fname, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cus_fname, "", new { @class = "text-danger" })
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit Profile</h1>
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.cus_lname, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cus_lname, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cus_lname, "", new { @class = "text-danger" })
+    <section id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Index", "Index", "Customer")</li> &nbsp;&nbsp;&nbsp; >
+                <li class="active">Edit Profile</li>
+            </ol>
         </div>
-    </div>
+    </section>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.cus_dob, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cus_dob, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cus_dob, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="list-group">
+                        <a href="@Url.Action("ShowProfile","Customer")" class="list-group-item active main-color-bg">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profile
+                        </a>
+                        <a href="@Url.Action("ShowProfile","Customer")" class="list-group-item">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Your Profile
+                        </a>
+                        <a href="@Url.Action("EditProfile","Customer")" class="list-group-item">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            Edit Profile
+                        </a>
+                        <a href="@Url.Action("ChangePassword","Customer")" class="list-group-item">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            Change Password
+                        </a>
+                    </div>
+                </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.cus_phone, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cus_phone, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cus_phone, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                <!-- My Follow Order -->
+                <div class="col-md-10">
+                    <!-- Order -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading main-color-bg">
+                            <h3 class="panel-title">Edit Profile</h3>
+                        </div>
+                        <div class="panel-body">
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.cus_add, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cus_add, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cus_add, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.cus_email, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cus_email, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cus_email, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                                <div class="form-horizontal">
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+                                    @if (ViewBag.mess != null)
+                                    {
+                                        <h4 class="text-success">@ViewBag.mess</h4>
+                                    }
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.cus_id)
+                                    @Html.HiddenFor(model => model.cus_gender)
+                                    @Html.HiddenFor(model => model.cus_pass)
+                                    @Html.HiddenFor(model => model.pass_confirm)
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.cus_fname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.cus_fname, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.cus_fname, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.cus_lname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.cus_lname, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.cus_lname, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.cus_dob, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.cus_dob, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.cus_dob, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.cus_phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.cus_phone, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.cus_phone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.cus_add, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.cus_add, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.cus_add, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.cus_email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.cus_email, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.cus_email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Save" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+
 }
+else
+{
+    Layout = null;
+    Response.Redirect("~/Customer/Login");
+}
+
+
+
+
+
 

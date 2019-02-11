@@ -34,7 +34,8 @@ namespace MyImageService
 
         [OperationContract]
         void ClearData(int orderID, string folder);
-
+        [OperationContract]
+        List<tb_order> SearchOrder(string search);
         [OperationContract]
         List<tb_order> GetOrdersByStatus(string stt);
         [OperationContract]

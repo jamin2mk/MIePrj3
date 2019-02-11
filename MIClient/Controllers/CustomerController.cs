@@ -37,7 +37,8 @@ namespace MIClient.Controllers
                     Session["Customer"] = client.GetCustomer(newLogin.email);
                     Session["CustomerID"] = a.cus_id;
                     Session["CustomerName"] = a.cus_fname;
-                    return RedirectToAction("Index");
+                    Session["active"] = "active";
+                    return RedirectToAction("FollowOrder");
                 }
                 ModelState.AddModelError("", "Wrong email or password please try again.");
                 return View();

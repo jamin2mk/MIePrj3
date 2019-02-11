@@ -62,77 +62,83 @@
                                 <h3 class="panel-title">Customers List</h3>
                             </div>
                             <div class="panel-body">
-                                <div class="row">
-
-                                </div>
-                                <br>
-                                <table class="table table table-hover table-striped">
-                                    <tr>
-                                        <th>
-                                            First Name
-                                        </th>
-                                        <th>
-                                            Last Name
-                                        </th>
-                                        <th>
-                                            Gender
-                                        </th>
-                                        <th>
-                                            Address
-                                        </th>
-                                        <th>
-                                            DoB
-                                        </th>
-                                        <th>
-                                            Email
-                                        </th>
-                                        <th>
-                                            Phone
-                                        </th>
-
-
-                                    </tr>
-
-                                    @foreach (var item in Model)
+                                <div class="col-md-offset-1">
+                                    @using (Html.BeginForm("SearchCustomerByName", "Admin"))
                                     {
-                                        <tr>
-
-                                            @Html.HiddenFor(modelItem => item.cus_id)
-
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.cus_fname)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.cus_lname)
-                                            </td>
-                                            <td>
-                                                @{ var gen = item.cus_gender; }
-                                                @if (gen == true)
-                                                {
-                                                    <p>Female</p>
-                                                }
-                                                else
-                                                {
-                                                    <p>Male</p>
-                                                }
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.cus_add)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.cus_dob)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.cus_email)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.cus_phone)
-                                            </td>
-
-                                        </tr>
+                                        <input type="text" class="input-sm" name="search" id="search" placeholder="Search Customer By Name"/><input type="submit" value="Search" class="btn btn-default"   />
                                     }
 
-                                </table>
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table table-hover table-striped table-responsive">
+                                        <tr>
+                                            <th>
+                                                First Name
+                                            </th>
+                                            <th>
+                                                Last Name
+                                            </th>
+                                            <th>
+                                                Gender
+                                            </th>
+                                            <th>
+                                                Address
+                                            </th>
+                                            <th>
+                                                DoB
+                                            </th>
+                                            <th>
+                                                Email
+                                            </th>
+                                            <th>
+                                                Phone
+                                            </th>
+
+
+                                        </tr>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+
+                                                @Html.HiddenFor(modelItem => item.cus_id)
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.cus_fname)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.cus_lname)
+                                                </td>
+                                                <td>
+                                                    @{ var gen = item.cus_gender; }
+                                                    @if (gen == true)
+                                                    {
+                                                        <p>Female</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>Male</p>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.cus_add)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.cus_dob)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.cus_email)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.cus_phone)
+                                                </td>
+
+                                            </tr>
+                                        }
+
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -148,6 +154,7 @@
                                                     else
                                                     {
                                                         Layout = null;
+                                                        Response.Redirect("~/Admin/Login");
                                                     }
 
 

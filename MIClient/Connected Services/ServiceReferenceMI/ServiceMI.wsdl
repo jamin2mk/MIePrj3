@@ -46,6 +46,12 @@
   <wsdl:message name="IServiceMI_ClearData_OutputMessage">
     <wsdl:part name="parameters" element="tns:ClearDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchOrder" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMI_SearchOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchOrderResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceMI_GetOrdersByStatus_InputMessage">
     <wsdl:part name="parameters" element="tns:GetOrdersByStatus" />
   </wsdl:message>
@@ -287,6 +293,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/ClearData" message="tns:IServiceMI_ClearData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/ClearDataResponse" message="tns:IServiceMI_ClearData_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SearchOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/SearchOrder" message="tns:IServiceMI_SearchOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/SearchOrderResponse" message="tns:IServiceMI_SearchOrder_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetOrdersByStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersByStatus" message="tns:IServiceMI_GetOrdersByStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceMI/GetOrdersByStatusResponse" message="tns:IServiceMI_GetOrdersByStatus_OutputMessage" />
@@ -481,6 +491,15 @@
     </wsdl:operation>
     <wsdl:operation name="ClearData">
       <soap:operation soapAction="http://tempuri.org/IServiceMI/ClearData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceMI/SearchOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
