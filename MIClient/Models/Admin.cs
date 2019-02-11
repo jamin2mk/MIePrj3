@@ -9,12 +9,13 @@ namespace MIClient.Models
     public class Admin
     {
 
-        [Key]
-        public int aid { get; set; }
+        
         [Display(Name = "UserName")]
+        [Required(ErrorMessage ="Please Enter ID")]
         public string uid { get; set; }
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
+        [Required(ErrorMessage ="Please Enter Password")]
         public string pwd { get; set; }
     }
 

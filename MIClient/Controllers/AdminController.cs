@@ -23,14 +23,21 @@ namespace MIClient.Controllers
         [HttpPost]
         public ActionResult Login(string uid, string pwd)
         {
-            if (client.AdminLogin(uid, pwd))
+            if (ModelState.IsValid)
             {
+                if (client.AdminLogin(uid, pwd))
+                {
 
-                Session["admin"] = uid;
-                return RedirectToAction("Index");
+                    Session["admin"] = uid;
+                    return RedirectToAction("Index");
 
+                }
+                ModelState.AddModelError("", "Wrong ID or password please try again.");
+                return View();
             }
-            return View("Error");
+
+            ModelState.AddModelError("", "Please enter email and password");
+            return View();
         }
 
         public ActionResult Index()

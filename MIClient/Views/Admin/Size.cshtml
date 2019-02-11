@@ -5,118 +5,126 @@
 }
 
 
-
-
-
-<header id="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <h1>
-                    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Size Catalogue <small>
-                        Manage Printing
-                        Size
-                    </small>
-                </h1>
-            </div>
-        </div>
-    </div>
-</header>
-
-<section id="breadcrumb">
-    <div class="container">
-        <ol class="breadcrumb">
-            <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li> &nbsp;&nbsp;&nbsp; >
-            <li class="active">Size Catalogue</li>
-        </ol>
-    </div>
-</section>
-
-<section id="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="list-group">
-                    <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-                    </a>
-                    <a href="@Url.Action("Order","Admin")" class="list-group-item">
-                        <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-                        Orders <span class="badge"> @ViewData["AllOrder"]</span>
-                    </a>
-                    <a href="@Url.Action("Customer","Admin")" class="list-group-item">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        Customers <span class="badge"> @ViewData["AllCustomer"]</span>
-                    </a>
-                    <a href="@Url.Action("Size","Admin")" class="list-group-item">
-                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        Size <span class="badge"> @ViewData["AllSize"]</span>
-                    </a>
+@if (Session["admin"] != null)
+{
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>
+                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Size Catalogue <small>
+                            Manage Printing
+                            Size
+                        </small>
+                    </h1>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="col-md-10">
-                <!-- Order -->
-                <div class="panel panel-default">
-                    <div class="panel-heading main-color-bg">
-                        <h3 class="panel-title">Size Catalogue</h3>
+    <section id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li> &nbsp;&nbsp;&nbsp; >
+                <li class="active">Size Catalogue</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="list-group">
+                        <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                        </a>
+                        <a href="@Url.Action("Order","Admin")" class="list-group-item">
+                            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                            Orders <span class="badge"> @ViewData["AllOrder"]</span>
+                        </a>
+                        <a href="@Url.Action("Customer","Admin")" class="list-group-item">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Customers <span class="badge"> @ViewData["AllCustomer"]</span>
+                        </a>
+                        <a href="@Url.Action("Size","Admin")" class="list-group-item">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            Size <span class="badge"> @ViewData["AllSize"]</span>
+                        </a>
                     </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
+                </div>
 
-                                <p><a href="@Url.Action("CreateSize","Admin")">
-
-                                    <span class="glyphicon glyphicon-plus"></span> Create New
-                                    </a>
-                                </p>
-                            </div>
+                <div class="col-md-10">
+                    <!-- Order -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading main-color-bg">
+                            <h3 class="panel-title">Size Catalogue</h3>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <table class="table table table-hover table-striped">
-                                    <tr>
-                                        <th>
-                                            Print Size
-                                        </th>
-                                        <th>
-                                            Size
-                                        </th>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
 
-                                        <th></th>
-                                    </tr>
+                                    <p>
+                                        <a href="@Url.Action("CreateSize","Admin")">
 
-                                    @foreach (var item in Model)
-                                    {
+                                            <span class="glyphicon glyphicon-plus"></span> Create New
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <table class="table table table-hover table-striped">
                                         <tr>
+                                            <th>
+                                                Print Size
+                                            </th>
+                                            <th>
+                                                Size
+                                            </th>
 
-                                            @Html.HiddenFor(modelItem => item.pr_id)
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.pr_size)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.pr_price)
-                                            </td>
-
-                                            <td>
-                                                @Html.ActionLink("Edit", "EditSize", new { id = item.pr_id }) |
-                                                @Html.ActionLink("Delete", "DeleteSize", new { id = item.pr_id }, new { onclick = "return confirm('Are you sure you wish to delete this size?');" })
-                                            </td>
+                                            <th></th>
                                         </tr>
-                                    }
 
-                                </table>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+
+                                                @Html.HiddenFor(modelItem => item.pr_id)
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.pr_size)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.pr_price)
+                                                </td>
+
+                                                <td>
+                                                    @Html.ActionLink("Edit", "EditSize", new { id = item.pr_id }) |
+                                                    @Html.ActionLink("Delete", "DeleteSize", new { id = item.pr_id }, new { onclick = "return confirm('Are you sure you wish to delete this size?');" })
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </table>
+                                </div>
                             </div>
+
                         </div>
-
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+}
+else
+{
+    Layout = null;
+}
+
+
 
 
 

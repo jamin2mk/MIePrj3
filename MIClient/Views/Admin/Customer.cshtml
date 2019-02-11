@@ -3,150 +3,154 @@
 @{
     ViewBag.Title = "Customer";
 }
-<body>
-    <style>
-        th {
-            text-align: center;
-        }
-    </style>
-    <header id="header">
-        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-        <link href="~/Content/style.css" rel="stylesheet" />
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Customers <small>Manage Customers</small></h1>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section id="breadcrumb">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li> &nbsp;&nbsp;&nbsp; >
-                <li class="active">Customers</li>
-            </ol>
-        </div>
-    </section>
-
-    <section id="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="list-group">
-                        <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-                        </a>
-                        <a href="@Url.Action("Order","Admin")" class="list-group-item">
-                            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-                            Orders <span class="badge"> @ViewData["AllOrder"]</span>
-                        </a>
-                        <a href="@Url.Action("Customer","Admin")" class="list-group-item">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Customers <span class="badge"> @ViewData["AllCustomer"]</span>
-                        </a>
-                        <a href="@Url.Action("Size","Admin")" class="list-group-item">
-                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                            Size <span class="badge"> @ViewData["AllSize"]</span>
-                        </a>
+@if (Session["admin"] != null)
+{
+    <body>
+        <style>
+            th {
+                text-align: center;
+            }
+        </style>
+        <header id="header">
+            <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+            <link href="~/Content/style.css" rel="stylesheet" />
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Customers <small>Manage Customers</small></h1>
                     </div>
                 </div>
+            </div>
+        </header>
 
-                <div class="col-md-10">
-                    <!-- Order -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading main-color-bg">
-                            <h3 class="panel-title">Customers List</h3>
+        <section id="breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li> &nbsp;&nbsp;&nbsp; >
+                    <li class="active">Customers</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="list-group">
+                            <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                            </a>
+                            <a href="@Url.Action("Order","Admin")" class="list-group-item">
+                                <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                                Orders <span class="badge"> @ViewData["AllOrder"]</span>
+                            </a>
+                            <a href="@Url.Action("Customer","Admin")" class="list-group-item">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                Customers <span class="badge"> @ViewData["AllCustomer"]</span>
+                            </a>
+                            <a href="@Url.Action("Size","Admin")" class="list-group-item">
+                                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                                Size <span class="badge"> @ViewData["AllSize"]</span>
+                            </a>
                         </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @using (Html.BeginForm("SearchByName", "Admin"))
-                                    {
-                                        <input type="text" class="form-control" placeholder="Filter customers by name..."> <input type="submit" value="Search" />
-                                    }
+                    </div>
+
+                    <div class="col-md-10">
+                        <!-- Order -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading main-color-bg">
+                                <h3 class="panel-title">Customers List</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
 
                                 </div>
-                            </div>
-                            <br>
-                            <table class="table table table-hover table-striped">
-                                <tr>
-                                    <th>
-                                        First Name
-                                    </th>
-                                    <th>
-                                        Last Name
-                                    </th>
-                                    <th>
-                                        Gender
-                                    </th>
-                                    <th>
-                                        Address
-                                    </th>
-                                    <th>
-                                        DoB
-                                    </th>
-                                    <th>
-                                        Email
-                                    </th>
-                                    <th>
-                                        Phone
-                                    </th>
-
-
-                                </tr>
-
-                                @foreach (var item in Model)
-                                {
+                                <br>
+                                <table class="table table table-hover table-striped">
                                     <tr>
+                                        <th>
+                                            First Name
+                                        </th>
+                                        <th>
+                                            Last Name
+                                        </th>
+                                        <th>
+                                            Gender
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            DoB
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Phone
+                                        </th>
 
-                                        @Html.HiddenFor(modelItem => item.cus_id)
-
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.cus_fname)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.cus_lname)
-                                        </td>
-                                        <td>
-                                            @{ var gen = item.cus_gender; }
-                                            @if (gen == true)
-                                            {
-                                                <p>Female</p>
-                                            }
-                                            else
-                                            {
-                                                <p>Male</p>
-                                            }
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.cus_add)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.cus_dob)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.cus_email)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.cus_phone)
-                                        </td>
 
                                     </tr>
-                                }
 
-                            </table>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            @Html.HiddenFor(modelItem => item.cus_id)
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cus_fname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cus_lname)
+                                            </td>
+                                            <td>
+                                                @{ var gen = item.cus_gender; }
+                                                @if (gen == true)
+                                                {
+                                                    <p>Female</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Male</p>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cus_add)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cus_dob)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cus_email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cus_phone)
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
-</body>
+    </body>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        Layout = null;
+                                                    }
+
+
 
 
 

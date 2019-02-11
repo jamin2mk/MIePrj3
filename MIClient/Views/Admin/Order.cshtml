@@ -4,137 +4,144 @@
     ViewBag.Title = "Order";
 }
 
-
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<link href="~/Content/style.css" rel="stylesheet"/>
-<header id="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <h1><span class="glyphicon glyphicon-folder-close aria-hidden="true"></span> Orders <small>Manage Orders</small></h1>
-            </div>
-        </div>
-    </div>
-</header>
-
-<section id="breadcrumb">
-    <div class="container">
-        <ol class="breadcrumb">
-            <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li> &nbsp;&nbsp;&nbsp;   >
-            <li class="active">Orders</li>
-        </ol>
-    </div>
-</section>
-
-<section id="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="list-group">
-                    <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-                    </a>
-                    <a href="@Url.Action("Order","Admin")" class="list-group-item">
-                        <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-                        Orders <span class="badge"> @ViewData["AllOrder"]</span>
-                    </a>
-                    <a href="@Url.Action("Customer","Admin")" class="list-group-item">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        Customers <span class="badge"> @ViewData["AllCustomer"]</span>
-                    </a>
-                    <a href="@Url.Action("Size","Admin")" class="list-group-item">
-                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        Size <span class="badge"> @ViewData["AllSize"]</span>
-                    </a>
+@if (Session["admin"] != null)
+{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1><span class="glyphicon glyphicon-folder-close aria-hidden="true"></span> Orders <small>Manage Orders</small></h1>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="col-md-10">
-                <!-- Order -->
-                <div class="panel panel-default">
-                    <div class="panel-heading main-color-bg">
-                        <h3 class="panel-title">Orders List</h3>
+    <section id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li> &nbsp;&nbsp;&nbsp;   >
+                <li class="active">Orders</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="list-group">
+                        <a href="@Url.Action("Index","Admin")" class="list-group-item active main-color-bg">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                        </a>
+                        <a href="@Url.Action("Order","Admin")" class="list-group-item">
+                            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                            Orders <span class="badge"> @ViewData["AllOrder"]</span>
+                        </a>
+                        <a href="@Url.Action("Customer","Admin")" class="list-group-item">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Customers <span class="badge"> @ViewData["AllCustomer"]</span>
+                        </a>
+                        <a href="@Url.Action("Size","Admin")" class="list-group-item">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            Size <span class="badge"> @ViewData["AllSize"]</span>
+                        </a>
                     </div>
-                    <div class="panel-body">
+                </div>
 
-                        <br>
-                        <table class="table table-hover table-striped" id="order-table">
-                            <tr>
-                                <th style="text-align:center;">
-                                    ID
-                                </th>
-                                <th style="text-align:center;">
-                                    Delivery Date
-                                </th>
-                                <th style="text-align:center;">
-                                    Payment
-                                </th>
+                <div class="col-md-10">
+                    <!-- Order -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading main-color-bg">
+                            <h3 class="panel-title">Orders List</h3>
+                        </div>
+                        <div class="panel-body">
 
-                                <th style="text-align:center;">
-                                    Recipient
-                                </th>
-                                <th style="text-align:center;">
-                                    Phone Number
-                                </th>
-
-                                <th style="text-align:center;">
-                                    Shipping Address
-                                </th>
-                                <th style="text-align:center;">
-                                    Status
-                                </th>
-                                <th></th>
-                            </tr>
-
-                            @foreach (var item in Model)
-                            {
+                            <br>
+                            <table class="table table-hover table-striped" id="order-table">
                                 <tr>
+                                    <th style="text-align:center;">
+                                        ID
+                                    </th>
+                                    <th style="text-align:center;">
+                                        Delivery Date
+                                    </th>
+                                    <th style="text-align:center;">
+                                        Payment
+                                    </th>
 
+                                    <th style="text-align:center;">
+                                        Recipient
+                                    </th>
+                                    <th style="text-align:center;">
+                                        Phone Number
+                                    </th>
 
-                                    <td style="text-align:center;">
-                                        @Html.DisplayFor(modelItem => item.o_id)
-                                    </td>
-
-
-                                    <td style="text-align:center;">
-                                        @Html.DisplayFor(modelItem => item.o_deli_date)
-                                    </td>
-
-
-
-                                    <td style="text-align:center;">
-                                        @Html.DisplayFor(modelItem => item.o_pay)
-                                    </td>
-
-                                    <td style="text-align:center;">
-                                        @Html.DisplayFor(modelItem => item.o_recip)
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @Html.DisplayFor(modelItem => item.o_recip_phone)
-                                    </td>
-
-                                    <td style="text-align:center;">
-                                        @Html.DisplayFor(modelItem => item.o_shipadd)
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @Html.DisplayFor(modelItem => item.o_status)
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
-
-                                    </td>
+                                    <th style="text-align:center;">
+                                        Shipping Address
+                                    </th>
+                                    <th style="text-align:center;">
+                                        Status
+                                    </th>
+                                    <th></th>
                                 </tr>
-                            }
 
-                        </table>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+
+                                        <td style="text-align:center;">
+                                            @Html.DisplayFor(modelItem => item.o_id)
+                                        </td>
+
+
+                                        <td style="text-align:center;">
+                                            @Html.DisplayFor(modelItem => item.o_deli_date)
+                                        </td>
+
+
+
+                                        <td style="text-align:center;">
+                                            @Html.DisplayFor(modelItem => item.o_pay)
+                                        </td>
+
+                                        <td style="text-align:center;">
+                                            @Html.DisplayFor(modelItem => item.o_recip)
+                                        </td>
+                                        <td style="text-align:center;">
+                                            @Html.DisplayFor(modelItem => item.o_recip_phone)
+                                        </td>
+
+                                        <td style="text-align:center;">
+                                            @Html.DisplayFor(modelItem => item.o_shipadd)
+                                        </td>
+                                        <td style="text-align:center;">
+                                            @Html.DisplayFor(modelItem => item.o_status)
+                                        </td>
+                                        <td style="text-align:center;">
+                                            @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.o_id })
+
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
+
+}
+else
+{
+    Layout = null;
+}
 
 

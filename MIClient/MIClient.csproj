@@ -126,6 +126,22 @@
     <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\fb logo.png" />
+    <Content Include="images\follow logo.png" />
+    <Content Include="images\gg logo.png" />
+    <Content Include="images\hinh2.jpg" />
+    <Content Include="images\hinh3.jpg" />
+    <Content Include="images\hinh4.jpg" />
+    <Content Include="images\hinh5.jpg" />
+    <Content Include="images\hinh6.jpg" />
+    <Content Include="images\hotline 150.png" />
+    <Content Include="images\in logo.png" />
+    <Content Include="images\inta logo.png" />
+    <Content Include="images\location logo 2.png" />
+    <Content Include="images\logoQAP 150.png" />
+    <Content Include="images\mail logo 2.png" />
+    <Content Include="images\phone logo 2.png" />
+    <Content Include="images\QC 3.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Properties\DataSources\MIData.Models.MImages.datasource" />
@@ -152,6 +168,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Properties\DataSources\MIData.Models.ChangePassword.datasource" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

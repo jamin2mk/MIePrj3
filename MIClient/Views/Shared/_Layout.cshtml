@@ -12,7 +12,28 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
 
-    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <div class="banner">
+        <div class="container-fluid">
+            <div class="col-xs-2 col-lg-2 col-md-2 col-lg-2">
+                <a href="#">
+                    <img src="~/images/logoQAP 150.png" width="100%" height="100%" alt="#">
+                </a>
+            </div>
+
+            <div class="col-xs-8 col-lg-8 col-md-8 col-lg-8 gif">
+                <a href="#">
+                    <img src="~/images/QC 3.png" width="100%" height="100%" alt="#">
+                </a>
+            </div>
+
+            <div class="col-xs-2 col-lg-2 col-md-2 col-lg-2">
+                <a href="#">
+                    <img src="~/images/hotline 150.png" width="100%" height="100%" alt="#">
+                </a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-inverse ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -52,8 +73,17 @@
                         
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Welcome, @Session["CustomerName"]</a></li>
-                    <li>@Html.ActionLink("Logout", "Login", "Customer")</li>
+                    @if (Session["Customer"] != null)
+                    {
+                        <li><a href="@Url.Action("ShowProfile","Customer")">Welcome, @Session["CustomerName"]</a></li>
+                        <li>@Html.ActionLink("Logout", "Login", "Customer")</li>
+                    }
+                    else
+                    {
+                        <li><span></span></li>
+                        <li>@Html.ActionLink("Login", "Login", "Customer")</li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -63,8 +93,87 @@
         @RenderBody()
         <hr />
 
-        <footer class="bottom">
-            <p>&copy;  - Copyright MyImage @DateTime.Now.Year</p>
+        
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <!--footer left-->
+                <div class="col-xs-3 col-lg-3 col-md-3 col-lg-3">
+                    
+                        <h3>SPONSORED BY :</h3>
+
+                        <img src="../images/wothof 80px.jpg" width="100" height="100" alt="">
+                        <hr/>
+                        <img src="../images/logo 2.jpg" width="100" height="100" alt="">
+                        <hr/>
+
+                        <div class="footer-menu" style="width: 100%">
+                            <a href="@Url.Action("Index","Customer")">HOME</a>
+                            <a href="@Url.Action("ShowProfile","Customer")">MY PROFILE</a>
+                            <a href="@Url.Action("FollowOrder","Customer")">MY ORDER</a>
+                            <a href="">ABOUT US</a>
+                            <a href="@Url.Action("Login","Customer")">LOG OUT</a>
+
+
+
+
+                        </div>
+
+                    
+                </div>
+
+                <!--footer center-->
+                <div class="col-xs-7 col-lg-7 col-md-7 col-lg-7">
+                    <div class="footer-center">
+                        <a href="#">
+                            <img src="~/images/location logo 2.png" alt="#"> 590 CMT8 STREET, 3 DISTRICT
+                            <strong>HO CHI MINH, VIET NAM</strong>
+                        </a>
+                        <br>
+
+                        <a href="#">
+                            <img src="~/images/phone logo 2.png" alt="#">(028) 3 999 999
+                        </a>
+                        <br>
+
+                        <a href="#">
+                            <img src="~/images/mail logo 2.png" alt="#">myimage@gmail.com
+                        </a>
+                    </div>
+
+
+                </div>
+
+
+
+                <!--footer right-->
+                <div class="col-xs-2 col-lg-2 col-md-2 col-lg-2">
+                    <div>
+                        <span>
+                            <h3>FOLLOW US</h3>
+
+                            <a href="#">
+                                <img src="../images/fb logo.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="../images/twit logo.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="../images/gg logo.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="../images/inta logo.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="../images/in logo.png" alt="">
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <p style="text-align:center;">&copy;  - Copyright MyImage @DateTime.Now.Year</p>
+
         </footer>
     </div>
 
